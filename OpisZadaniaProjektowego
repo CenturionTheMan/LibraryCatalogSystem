@@ -10,4 +10,11 @@ Pełni on rolę kluczową dla organizowania, katalogowania i śledzenia zasobów
 w tym książek, czytelników i historii wypożyczonych pozycji. 
 Ma on na celu ułatwienie i scentralizowanie czynności administracyjnych wykonywanych przez pracowników biblioteki.
 
+Opis zasobów ludzkich:
+  - Pracownik:
+    * Dodawanie/Usuwanie kont nowych klientów
+    * Rejestrowanie informacji o wypożyczanych pozycjach
+    * Dodawanie/Usuwanie nowych pozycji do zbioru bibliotecznego
+    * Śledzenie/Modyfikowanie stanu (ilości) pozyci bibliotecznych
+    
 
