@@ -17,4 +17,30 @@ Opis zasobów ludzkich:
     * Dodawanie/Usuwanie nowych pozycji do zbioru bibliotecznego
     * Śledzenie/Modyfikowanie stanu (ilości) pozyci bibliotecznych
     
+Wersja 2:
+Temat: 
+  System katalogów bibliotecznych
+  
+Opis rzeczywistości: 
+  Biblioteka jest instytucją kultury, która gromadzi, przechowuje i udostępnia materiały biblioteczne oraz informuje o nich. Każdy obywatel może wypożyczyć dany zasób biblioteczny na określony okres czasu. Jednocześnie ma możliwość podglądu       
+  dostepnych zasobów w bibliotece oraz informacji na ile dni może je wypożyczyć. Każdy zasób bilbioteczny określany jest przez kilka cech: typ (książka, artykuł,list,kaseta), tytuł, autor, numer egzemplarza danego tytułu, 
+  status (czy jest wypożyczony i przez kogo), informację o liczbie dni, na które można wypożyczyć egzemplarz. Pracownik bilbioteki może wypożyczać klientowi, dodawać, usuwać, katalogować, materiały biblioteczne. 
+  Może również śledzić/modyfikować stan (ilości)  zasobów bibliotecznych oraz status danego egzemplarza ( czy jest wypożyczony i przez kogo). 
 
+Sytuacja 1: 
+  Do biblioteki przychodzi osoba, która chce wypożyczyć dany zasób. Prosi pracownika o możliwość wypożyczenia danego materiału. 
+  Pracownik sprawdza dostępność danego tytułu, oraz informacje o liczbie dni na jaki może zostać wypożyczony.  
+  Pracownik przekazuje te informacje klientowi. Jeżli klient decyduje się na wypożyczenie dostępnego zasobu, wypożyczony egzamplarz nie jest dostępny dla kolejnych klientów dopóki nie wróci on spowrotem do biblioteki. 
+  Jednak kolejny klient może wypożyczyć inny egzemplarz tego samego zasobu.
+
+Sytuacja 2:
+  Klient zdalnie przegląda dostępne materiały bilbioteczne i wypożycza egzemplarz wybranego zasobu. Klient nie widzi egzemplarzy  wypożyczonych przez inne osoby.
+
+Sytuacja 3:
+  Do biblioteki zostaje dostarczony nowy zasób. Pracownik ma zadanie dodać nowy materiał do spisu biblioteki.
+
+Sytuacja 4:
+  Jedyny egzamplarz danego zasobu bibioteki zostaje zniszczony. Pracownik ma za zadanie usunąć go ze spisu dostępnych materiałów.
+
+Sytuacja 5:
+  Klient zwraca wypożyczony materiał biblioteczny. Pracownik ma za zadanie zmienić status danego egzeplarza. W następstwie dany egzemplarz jest znowu widoczny dla nowych klientów.
