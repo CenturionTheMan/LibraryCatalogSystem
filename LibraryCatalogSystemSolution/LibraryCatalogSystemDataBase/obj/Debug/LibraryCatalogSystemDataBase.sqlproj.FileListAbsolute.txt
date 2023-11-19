@@ -1,0 +1,6 @@
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\bin\Debug\LibraryCatalogSystemDataBase.dacpac
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\obj\Debug\LibraryCatalogSystemDataBase.sqlproj.AssemblyReference.cache
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\obj\Debug\LibraryCatalogSystemDataBase.dll
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\obj\Debug\LibraryCatalogSystemDataBase.pdb
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\bin\Debug\LibraryCatalogSystemDataBase.dll
+G:\My Drive\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryCatalogSystemDataBase\bin\Debug\LibraryCatalogSystemDataBase.pdb
