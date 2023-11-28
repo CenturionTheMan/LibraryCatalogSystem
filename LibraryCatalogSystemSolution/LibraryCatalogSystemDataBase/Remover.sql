@@ -1,9 +1,10 @@
-﻿DROP TABLE IF EXISTS dbo.BorrowRequests;
+﻿-- Remove tables
+DROP TABLE IF EXISTS dbo.BorrowRequests;
 DROP TABLE IF EXISTS dbo.ResourceCopies;
 DROP TABLE IF EXISTS dbo.Resources;
 DROP TABLE IF EXISTS dbo.Users;
 
--- Remove the views
+-- Remove views
 DROP VIEW IF EXISTS UserDetailsWithBorrowedResources;
 DROP VIEW IF EXISTS AvailableResources;
 DROP VIEW IF EXISTS PendingBorrowRequests;
