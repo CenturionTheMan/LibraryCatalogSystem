@@ -1,0 +1,49 @@
+--1.TABELA USERS:
+
+--A)semantyczna
+-- Sprawdzenie typów danych i długości
+SELECT 
+    CASE 
+        WHEN TRY_CAST(UserID AS INT) IS NULL THEN 'UserID is not numeric'
+		WHEN TRY_CAST(FirstName AS varchar) IS NULL THEN 'FirstName is not varchar'
+		WHEN TRY_CAST(LastName AS varchar) IS NULL THEN 'LastName is not varchar'
+		WHEN TRY_CAST(Login AS varchar) IS NULL THEN 'Login is not varchar'
+		WHEN TRY_CAST(Password AS varchar) IS NULL THEN 'Password is not varchar'
+		WHEN TRY_CAST(UserType AS varchar) IS NULL THEN 'UserID is not varchar'
+        WHEN LEN(FirstName) > 255 THEN 'FirstName exceeds 255 characters'
+        WHEN LEN(LastName) > 255 THEN 'LastName exceeds 255 characters'
+        WHEN LEN(Login) > 255 THEN 'Login exceeds 255 characters'
+        WHEN LEN(Password) > 255 THEN 'Password exceeds 255 characters'
+        WHEN LEN(UserType) > 50 THEN 'UserType exceeds 50 characters'
+        ELSE 'Data types and lengths are correct'
+    END AS DataValidation
+FROM Users
+WHERE 
+	UserID IS NOT NULL
+    AND FirstName IS NOT NULL
+    AND LastName IS NOT NULL
+    AND Login IS NOT NULL
+    AND Password IS NOT NULL
+    AND UserType IS NOT NULL
+    AND UserType IN ('Client', 'Employee');
+
+-- Sprawdzenie unikalności Login
+SELECT 
+    CASE 
+        WHEN COUNT(*) > 1 THEN 'Duplicate logins found'
+        ELSE 'Logins are unique'
+    END AS LoginUniqueness
+FROM Users
+GROUP BY Login;
+
+--B)encji
+-- Sprawdzenie niepustości i unikalności wartości klucza głównego (UserID)
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(DISTINCT UserID) AND COUNT(UserID) = COUNT(NULLIF(UserID, NULL)) 
+        THEN 'Primary key value (UserID) is not empty, and is unique'
+        ELSE 'Primary key value (UserID) is empty, or is not unique'
+    END AS PrimaryKeyIntegrity
+FROM Users;
+
+--C)referencji
