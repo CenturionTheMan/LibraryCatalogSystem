@@ -1,0 +1,215 @@
+--1.TABELA USERS:
+--A)semantyczna
+--Sprawdzenie typów, rozmiarów oraz formatów danych dla Users
+SELECT 
+    CASE 
+        WHEN TRY_CAST(UserID AS INT) IS NULL THEN 'UserID is not numeric'
+		WHEN TRY_CAST(FirstName AS varchar) IS NULL THEN 'FirstName is not varchar'
+		WHEN TRY_CAST(LastName AS varchar) IS NULL THEN 'LastName is not varchar'
+		WHEN TRY_CAST(Login AS varchar) IS NULL THEN 'Login is not varchar'
+		WHEN TRY_CAST(Password AS varchar) IS NULL THEN 'Password is not varchar'
+		WHEN TRY_CAST(UserType AS varchar) IS NULL THEN 'UserID is not varchar'
+        WHEN LEN(FirstName) > 255 THEN 'FirstName exceeds 255 characters'
+        WHEN LEN(LastName) > 255 THEN 'LastName exceeds 255 characters'
+        WHEN LEN(Login) > 255 THEN 'Login exceeds 255 characters'
+        WHEN LEN(Password) > 255 THEN 'Password exceeds 255 characters'
+        WHEN LEN(UserType) > 50 THEN 'UserType exceeds 50 characters'
+		WHEN UserID IS  NULL THEN 'UserID is NULL'
+		WHEN FirstName IS  NULL THEN 'FirstName is NULL'
+		WHEN LastName IS  NULL THEN 'LastName is NULL'
+        WHEN Login IS  NULL THEN 'Login is NULL'
+		WHEN Password IS  NULL THEN 'Password is NULL'
+		WHEN UserType IS  NULL THEN 'UserType is NULL'
+		WHEN UserType NOT IN ('Client', 'Employee') THEN 'UserType is incorrect'
+        ELSE 'Data types, formats, and sizes are correct'
+    END AS DataValidation,
+-- Sprawdzenie unikalności loginów
+    CASE 
+        WHEN COUNT(*) > 1 THEN 'Duplicate logins found'
+        ELSE 'Logins are unique'
+    END AS LoginUniqueness
+FROM Users
+GROUP BY 
+UserID, FirstName, LastName, Login, Password, UserType;
+
+
+--B)encji
+-- Sprawdzenie niepustości i unikalności wartości klucza głównego (UserID)
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(DISTINCT UserID) AND COUNT(UserID) = COUNT(NULLIF(UserID, NULL)) 
+        THEN 'Primary key value (UserID) is not empty, and is unique'
+        ELSE 'Primary key value (UserID) is empty, or is not unique'
+    END AS PrimaryKeyIntegrity
+FROM Users;
+
+--C)referencji
+--BRAK
+
+
+--2.TABELA RESOURCES:
+--A)semantyczna
+-- Sprawdzenie typów, rozmiarów oraz formatów danych dla Resources
+SELECT 
+    CASE 
+        WHEN TRY_CAST(ResourceID AS INT) IS NULL THEN 'ResourceID is not numeric'
+        WHEN TRY_CAST(Title AS VARCHAR) IS NULL THEN 'Title is not varchar'
+        WHEN TRY_CAST(Author AS VARCHAR) IS NULL THEN 'Author is not varchar'
+        WHEN TRY_CAST(YearPublished AS INT) IS NULL THEN 'YearPublished is not numeric'
+        WHEN TRY_CAST(ResourceType AS VARCHAR) IS NULL THEN 'ResourceType is not varchar'
+        WHEN LEN(Title) > 255 THEN 'Title exceeds 255 characters'
+        WHEN LEN(Author) > 255 THEN 'Author exceeds 255 characters'
+        WHEN LEN(ResourceType) > 50 THEN 'ResourceType exceeds 50 characters'
+		WHEN ResourceID IS  NULL THEN 'ResourceID is NULL'
+		WHEN Title IS  NULL THEN 'Title is NULL'
+		WHEN YearPublished IS  NULL THEN 'YearPublished is NULL'
+		WHEN ResourceType IS  NULL THEN 'ResourceType is NULL'
+		WHEN ResourceType NOT IN ('Book', 'Magazine','Article','Letter') THEN 'ResourceType is incorrect'
+        ELSE 'Data types, fromats and sizes are correct'
+    END AS DataValidation,
+-- Sprawdzenie, czy dla danego tytułu istnieją różne kombinacje rodzaju zasobu, autora i roku publikacji
+	CASE 
+        WHEN COUNT(*) <> (
+            SELECT COUNT(DISTINCT ResourceType + '|' + Author + '|' + CAST(YearPublished AS VARCHAR(10)))
+            FROM Resources R2
+            WHERE R2.Title = R1.Title
+        ) 
+        THEN 'Duplicate combinations of ResourceType, Author, and YearPublished found for the same title'
+        ELSE 'Combinations of ResourceType, Author, and YearPublished are unique for each title'
+    END AS CombinationUniqueness
+FROM Resources R1
+GROUP BY 
+ResourceID, Title, Author, YearPublished, ResourceType;
+
+
+-- Sprawdzenie, czy dla danego tytułu istnieją różne kombinacje rodzaju zasobu, autora i roku publikacji
+SELECT 
+    CASE 
+        WHEN COUNT(*) <> (
+            SELECT COUNT(DISTINCT ResourceType + '|' + Author + '|' + CAST(YearPublished AS VARCHAR(10)))
+            FROM Resources R2
+            WHERE R2.Title = R1.Title
+        ) 
+        THEN 'Duplicate combinations of ResourceType, Author, and YearPublished found for the same title'
+        ELSE 'Combinations of ResourceType, Author, and YearPublished are unique for each title'
+    END AS CombinationUniqueness
+FROM Resources R1
+GROUP BY Title;
+
+--B)encji
+
+-- Sprawdzenie niepustości i unikalności wartości klucza głównego (ResourceID)
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(DISTINCT ResourceID) AND COUNT(ResourceID) = COUNT(NULLIF(ResourceID, NULL)) 
+        THEN 'Primary key value (ResourceID) is not empty, and is unique'
+        ELSE 'Primary key value (ResourceID) is empty, or is not unique'
+    END AS PrimaryKeyIntegrity
+FROM Resources;
+
+--C)referencji
+--BRAK
+
+
+
+--3.TABELA RESOURCESCOPIES:
+--A)semantyczna
+
+-- Sprawdzenie typów, rozmiarów oraz formatów danych dla ResourcesCopies
+SELECT 
+    CASE 
+        WHEN TRY_CAST(ResourceID AS INT) IS NULL THEN 'ResourceID is not numeric'
+        WHEN TRY_CAST(CopyID AS INT) IS NULL THEN 'CopyID is not numeric'
+		WHEN ResourceID IS  NULL THEN 'ResourceID is NULL'
+		WHEN CopyID IS  NULL THEN 'CopyID is NULL'
+        ELSE 'Data types, fromats and sizes are correct'
+    END AS DataValidation
+FROM ResourceCopies
+
+
+--B)encji
+-- Sprawdzenie niepustości i unikalności wartości klucza głównego (CopyID)
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(DISTINCT CopyID) AND COUNT(CopyID) = COUNT(NULLIF(CopyID, NULL)) 
+        THEN 'Primary key value (CopyID) is not empty, and is unique'
+        ELSE 'Primary key value (CopyID) is empty, or is not unique'
+    END AS PrimaryKeyIntegrity
+FROM ResourceCopies;
+
+--C)referencji
+
+-- Sprawdzenie integralności referencji w tabeli ResourceCopies
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(NULLIF(Resources.ResourceID, NULL)) 
+        THEN 'Foreign key references are valid'
+        ELSE 'Foreign key references are not valid'
+    END AS ForeignKeyIntegrity
+FROM ResourceCopies
+LEFT JOIN Resources ON ResourceCopies.ResourceID = Resources.ResourceID;
+
+
+--4.TABELA BORROWREQUESTS:
+--A)semantyczna
+-- Sprawdzenie typów, rozmiarów oraz formatów danych dla BorrowRequests
+SELECT 
+    CASE 
+        WHEN TRY_CAST(RequestID AS INT) IS NULL THEN 'RequestID is not numeric'
+        WHEN TRY_CAST(UserID AS INT) IS NULL THEN 'UserID is not numeric'
+        WHEN TRY_CAST(ResourceID AS INT) IS NULL THEN 'ResourceID is not numeric'
+        WHEN TRY_CAST(RequestDate AS DATE) IS NULL THEN 'RequestDate is not a valid date'
+        WHEN TRY_CAST(CopyID AS INT) IS NULL AND CopyID IS NOT NULL THEN 'CopyID is not numeric'
+        WHEN TRY_CAST(DueDate AS DATE) IS NULL AND DueDate IS NOT NULL THEN 'DueDate is not a valid date'
+        WHEN TRY_CAST(Status AS VARCHAR) IS NULL THEN 'Status is not varchar'
+        WHEN LEN(Status) > 50 THEN 'Status exceeds 50 characters'
+		WHEN RequestID IS NULL THEN 'RequestID is NULL'
+		WHEN UserID IS NULL THEN 'UserID is NULL'
+		WHEN ResourceID IS NULL THEN 'ResourceID is NULL'
+		WHEN RequestDate IS NULL THEN 'RequestDate is NULL'
+		WHEN Status NOT IN ('Pending', 'Approved', 'Returned') THEN 'Status is incorrect'
+        ELSE 'Data types, fromats and sizes are correct'
+    END AS DataValidation
+FROM BorrowRequests;
+
+
+--B)encji
+-- Sprawdzenie niepustości i unikalności wartości klucza głównego (RequestID) w BorrowRequests
+SELECT 
+    CASE 
+        WHEN COUNT(*) = COUNT(DISTINCT RequestID) AND COUNT(RequestID) = COUNT(NULLIF(RequestID, NULL)) 
+        THEN 'Primary key value (RequestID) is not empty, and is unique'
+        ELSE 'Primary key value (RequestID) is empty, or is not unique'
+    END AS PrimaryKeyIntegrity
+FROM BorrowRequests;
+
+--C)referencji
+-- Sprawdzenie, czy UserID istnieje w tabeli Users
+SELECT 
+    CASE 
+        WHEN COUNT(*) <> COUNT(NULLIF(Users.UserID, NULL)) 
+		THEN 'UserID references are not valid'
+        ELSE 'UserID references are valid'
+    END AS UserIDReferences
+FROM BorrowRequests
+LEFT JOIN Users ON BorrowRequests.UserID = Users.UserID;
+
+-- Sprawdzenie, czy CopyID istnieje w tabeli ResourceCopies
+SELECT 
+    CASE 
+        WHEN COUNT(*) <> COUNT(NULLIF(ResourceCopies.CopyID, NULL)) 
+		THEN 'CopyID references are not valid'
+        ELSE 'CopyID references are valid'
+    END AS CopyIDReferences
+FROM BorrowRequests
+LEFT JOIN ResourceCopies ON BorrowRequests.CopyID = ResourceCopies.CopyID;
+
+-- Sprawdzenie, czy ResourceID istnieje w tabeli Resources
+SELECT 
+    CASE 
+        WHEN COUNT(*) <> COUNT(NULLIF(Resources.ResourceID, NULL)) 
+		THEN 'ResourceID references are not valid'
+        ELSE 'ResourceID references are valid'
+    END AS ResourceIDReferences
+FROM BorrowRequests
+LEFT JOIN Resources ON BorrowRequests.ResourceID = Resources.ResourceID;
