@@ -1,0 +1,27 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[BorrowRequests] (Table)
+       [dbo].[LibraryResource] (Table)
+       [dbo].[LibraryUser] (Table)
+       [dbo].[ResourceCopy] (Table)
+       Foreign Key: unnamed constraint on [dbo].[BorrowRequests] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[BorrowRequests] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[BorrowRequests] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[ResourceCopy] (Foreign Key)
+       [dbo].[ApprovedBorrowRequests] (View)
+       [dbo].[DelayedBorrowersView] (View)
+       [dbo].[PendingBorrowRequests] (View)
+       [dbo].[SummarisedResources] (View)
+       [dbo].[UserDetailsWithBorrowedResources] (View)
+
+** Supporting actions

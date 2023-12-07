@@ -1,0 +1,13 @@
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\bin\Debug\net6.0\LibraryDataBaseAPI.deps.json
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\bin\Debug\net6.0\LibraryDataBaseAPI.dll
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\bin\Debug\net6.0\LibraryDataBaseAPI.pdb
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.csproj.AssemblyReference.cache
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.AssemblyInfoInputs.cache
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.AssemblyInfo.cs
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.csproj.CoreCompileInputs.cache
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.sourcelink.json
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.dll
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\refint\LibraryDataBaseAPI.dll
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\LibraryDataBaseAPI.pdb
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDataBaseAPI\obj\Debug\net6.0\ref\LibraryDataBaseAPI.dll
