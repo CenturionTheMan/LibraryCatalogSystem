@@ -1,7 +1,7 @@
 ﻿-- Remove tables
 DROP TABLE IF EXISTS BorrowRequests;
-DROP TABLE IF EXISTS ResourceCopy;
-DROP TABLE IF EXISTS LibraryResource;
+DROP TABLE IF EXISTS ResourceCopies;
+DROP TABLE IF EXISTS Resources;
 DROP TABLE IF EXISTS Users;
 
 -- Remove views

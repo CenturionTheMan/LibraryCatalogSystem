@@ -18,33 +18,82 @@ public class LibraryDatabaseApi
         this.connector = new(provider, connectionString);
     }
 
+    #region GET
 
-    public List<LibraryUser>? GetLibraryUsers()
+    public User? GetUserByLogin(string login)
     {
-        var reader = connector.GetFromDataBase("SELECT * FROM LibraryUser");
+        string sql = $"SELECT * FROM Users WHERE Login = '{login}'";
+        var reader = connector.GetFromDataBase(sql);
+        if (reader == null || reader.Depth == 0) return null;
+        var user = User.Create(reader);
+        return user;
+    }
+
+    public User? GetUserById(int userId)
+    {
+        string sql = $"SELECT * FROM Users WHERE UserID = {userId}";
+        var reader = connector.GetFromDataBase(sql);
+        if (reader == null || reader.Depth == 0) return null;
+        var user = User.Create(reader);
+        return user;
+    }
+
+
+    public List<User>? GetUsers()
+    {
+        var reader = connector.GetFromDataBase("SELECT * FROM Users");
         if(reader == null) return null;
 
-        List < LibraryUser > users = new List< LibraryUser >();
+        List < User > users = new List< User >();
 
         while (reader.Read())
         {
-            var libraryUser = LibraryUser.Create(reader);
-            users.Add(libraryUser);
+            var user = User.Create(reader);
+            users.Add(user);
         }
 
         return users;
     }
 
-    public List<BorrowRequests>? GetBorrowRequests()
+    public (int amount, int borrowed, int available)? GetResourceAmounts(int resourceId)
+    {
+        string sql = $"SELECT * FROM SummarisedResources WHERE ResourceID = {resourceId}";
+        var reader = connector.GetFromDataBase(sql);
+        if (reader == null || reader.Depth == 0) return null;
+
+        int amount = reader.GetInt32(2);
+        int borrowed = reader.GetInt32(3);
+        int available = amount - borrowed;
+        return (amount, borrowed, available);
+    }
+
+
+    public List<BorrowRequest>? GetBorrowRequests(Status statusFilter)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM BorrowRequests WHERE Status = '{statusFilter}'");
+        if (reader == null) return null;
+
+        List<BorrowRequest> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = BorrowRequest.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    public List<BorrowRequest>? GetBorrowRequests()
     {
         var reader = connector.GetFromDataBase("SELECT * FROM BorrowRequests");
         if (reader == null) return null;
 
-        List<BorrowRequests> res = new();
+        List<BorrowRequest> res = new();
 
         while (reader.Read())
         {
-            var tmp = BorrowRequests.Create(reader);
+            var tmp = BorrowRequest.Create(reader);
             res.Add(tmp);
         }
 
@@ -53,7 +102,7 @@ public class LibraryDatabaseApi
 
     public List<ResourceCopy>? GetResourceCopies()
     {
-        var reader = connector.GetFromDataBase("SELECT * FROM ResourceCopy");
+        var reader = connector.GetFromDataBase("SELECT * FROM ResourceCopies");
         if (reader == null) return null;
 
         List<ResourceCopy> res = new();
@@ -67,54 +116,67 @@ public class LibraryDatabaseApi
         return res;
     }
 
-    public List<LibraryResource>? GetLibraryResources()
+    public List<Resource>? GetResources()
     {
-        var reader = connector.GetFromDataBase("SELECT * FROM LibraryResource");
+        var reader = connector.GetFromDataBase("SELECT * FROM Resources");
         if (reader == null) return null;
 
-        List<LibraryResource> res = new();
+        List<Resource> res = new();
 
         while (reader.Read())
         {
-            var tmp = LibraryResource.Create(reader);
+            var tmp = Resource.Create(reader);
             res.Add(tmp);
         }
 
         return res;
     }
 
-
-    public void GetUsersWithBorrowedResources()
+    public List<Resource>? GetResourcesBorrowedByUser(int userId)
     {
-        string sql = "SELECT * FROM UserDetailsWithBorrowedResources";
+        string sql = $"SELECT * FROM UserWithBorrowedResources WHERE UserID = {userId}";
         var reader = connector.GetFromDataBase(sql);
-        if(reader == null) return;
+        if(reader == null) return null;
 
-        List <(int userId, List<(int copyId, string title, DateTime dueDate)> borrowed) > res = new();
+        List<Resource> borrowed = new();
 
         while (reader.Read())
         {
-            int userId = reader.GetInt32(0);
-
-            var borrowed = res.Exists(e => e.userId == userId)? res.Find(e => e.userId == userId).borrowed : new();
-
-            int copyId = reader.GetInt32();
-            string title, 
-            DateTime dueDate
-            //TODO
+            var tmp = Resource.Create(reader);
+            borrowed.Add(tmp);
         }
+
+        return borrowed;
     }
 
+    #endregion GET
 
-    ///TEST POSTS!!!
 
-    public bool PostLibraryUser(string firstName, string lastName, string login, string password, UserType userType)
+    #region UPDATE
+
+    public bool UpdateBorrowRequestStatusToReturned(int returnedResourceCopyId)
     {
-        bool isSuccess = connector.PostToDataBase($"INSERT INTO LibraryUser (FirstName, LastName, Login, Password, UserType) VALUES ('{firstName}', '{lastName}', '{login}', '{password}', '{userType.ToString()}')");
+        string sql = $"UPDATE BorrowRequests SET Status = '{Status.Returned}' WHERE ResourceID IS NOT NULL AND ResourceID = {returnedResourceCopyId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    public bool UpdateBorrowRequestStatusToApproved(int borrowRequestId, int assignedResourceCopyId, DateTime assignedDueDate)
+    {
+        string sql = $"UPDATE BorrowRequests SET DueDate = '{assignedDueDate}', ResourceID = {assignedResourceCopyId} WHERE RequestID = {borrowRequestId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    #endregion UPDATE
+
+    #region POST
+
+    public bool PostNewUser(string firstName, string lastName, string login, string password, UserType userType)
+    {
+        bool isSuccess = connector.PostToDataBase($"INSERT INTO Users (FirstName, LastName, Login, Password, UserType) VALUES ('{firstName}', '{lastName}', '{login}', '{password}', '{userType.ToString()}')");
         return isSuccess;
     }
 
-    public bool PostBorrowRequest(int userId, int resourceId, DateTime requestDate, int? copyId, DateTime? dueDate, Status status)
+    public bool PostNewBorrowRequest(int userId, int resourceId, DateTime requestDate, int? copyId, DateTime? dueDate, Status status)
     {
         var copyIdStr = copyId.HasValue ? copyId.ToString() : "NULL";
         var dueDateStr = dueDate.HasValue ? "'" + dueDate.ToString() + "'" : "NULL";
@@ -122,15 +184,46 @@ public class LibraryDatabaseApi
         return connector.PostToDataBase(sql);
     }
 
-    public bool PostResourceCopy(int resourceId)
+    public bool PostNewResourceCopy(int resourceId)
     {
-        string sql = $"INSERT INTO ResourceCopy (ResourceID) VALUES ({resourceId})";
+        string sql = $"INSERT INTO ResourceCopies (ResourceID) VALUES ({resourceId})";
         return connector.PostToDataBase(sql);
     }
 
-    public bool PostLibraryResource(string title, string author, int yearPublished, ResourceType resourceType)
+    public bool PostNewResource(string title, string author, int yearPublished, ResourceType resourceType)
     {
-        string sql = $"INSERT INTO LibraryResource (Title, Author, YearPublished, ResourceType) VALUES ('{title}', '{author}', {yearPublished}, '{resourceType.ToString()}')";
+        string sql = $"INSERT INTO Resources (Title, Author, YearPublished, ResourceType) VALUES ('{title}', '{author}', {yearPublished}, '{resourceType.ToString()}')";
         return connector.PostToDataBase(sql);
     }
+    #endregion POST
+
+
+
+    #region DELETE
+
+    public bool DeleteResourceCopy(int toDeleteCopyId)
+    {
+        string sql = $"DELETE FROM ResourceCopies WHERE CopyID = {toDeleteCopyId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    public bool DeleteResource(int toDeleteResourceId)
+    {
+        string sql = $"DELETE FROM Resources WHERE ResourceID = {toDeleteResourceId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    public bool DeleteUser(int toDeleteUserId)
+    {
+        string sql = $"DELETE FROM Users WHERE UserID = {toDeleteUserId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    public bool DeleteBorrowRequest(int toDeleteRequestId)
+    {
+        string sql = $"DELETE FROM BorrowRequests WHERE RequestID = {toDeleteRequestId}";
+        return connector.PostToDataBase(sql);
+    }
+
+    #endregion DELETE
 }

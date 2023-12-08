@@ -13,7 +13,7 @@ namespace LibraryDatabaseAPI;
 
 
 
-public class LibraryUser
+public class User
 {
     public int UserID { get; private set; }
     public string FirstName { get; private set; }
@@ -22,9 +22,9 @@ public class LibraryUser
     public string Password { get; private set; }
     public UserType UserType { get; private set; }
 
-    internal static LibraryUser Create(IDataRecord record)
+    internal static User Create(IDataRecord record)
     {
-        return new LibraryUser(
+        return new User(
             (int)record[nameof(UserID)],
             (string)record[nameof(FirstName)],
             (string)record[nameof(LastName)],
@@ -33,7 +33,7 @@ public class LibraryUser
             ((string)record[nameof(UserType)]).ParseToUserType());
     }
 
-    internal LibraryUser(int userID, string firstName, string lastName, string login, string password, UserType userType)
+    internal User(int userID, string firstName, string lastName, string login, string password, UserType userType)
     {
         UserID = userID;
         FirstName = firstName;
@@ -58,7 +58,7 @@ public class LibraryUser
 }
 
 
-public class LibraryResource
+public class Resource
 {
     public int ResourceID { get; private set; }
     public string Title { get; private set; }
@@ -66,9 +66,9 @@ public class LibraryResource
     public int YearPublished { get; private set; }
     public ResourceType ResourceType { get; private set; }
 
-    internal static LibraryResource Create(IDataRecord record)
+    internal static Resource Create(IDataRecord record)
     {
-        return new LibraryResource(
+        return new Resource(
             (int)record[nameof(ResourceID)],
             (string)record[nameof(Title)],
             (string)record[nameof(Author)],
@@ -76,7 +76,7 @@ public class LibraryResource
             (string)record[nameof(ResourceType)]);
     }
 
-    internal LibraryResource(int resourceID, string title, string author, int yearPublished, string resourceType)
+    internal Resource(int resourceID, string title, string author, int yearPublished, string resourceType)
     {
         ResourceID = resourceID;
         Title = title;
@@ -100,7 +100,7 @@ public class LibraryResource
 }
 
 
-public class BorrowRequests
+public class BorrowRequest
 {
     public int RequestID { get; private set; }
     public int UserID { get; private set; }
@@ -110,7 +110,7 @@ public class BorrowRequests
     public DateTime? DueDate { get; private set; }
     public Status Status { get; private set; }
 
-    internal static BorrowRequests Create(IDataRecord record)
+    internal static BorrowRequest Create(IDataRecord record)
     {
 
         var requestID = (int)record[nameof(RequestID)];
@@ -136,10 +136,10 @@ public class BorrowRequests
         catch { }
         var status = (string)record[nameof(Status)];
 
-        return new BorrowRequests(requestID, userId, resourceId, requestDate, copyID, dueDate, status);
+        return new BorrowRequest(requestID, userId, resourceId, requestDate, copyID, dueDate, status);
     }
 
-    internal BorrowRequests(int requestID, int userID, int resourceID, DateTime requestDate, int? copyID, DateTime? dueDate, string status)
+    internal BorrowRequest(int requestID, int userID, int resourceID, DateTime requestDate, int? copyID, DateTime? dueDate, string status)
     {
         RequestID = requestID;
         UserID = userID;

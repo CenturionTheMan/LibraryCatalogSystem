@@ -1,5 +1,5 @@
 ﻿----------------------------------------------------------------------------- TABLES
-CREATE TABLE LibraryUser (
+CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE LibraryUser (
 
 GO
 
-CREATE TABLE LibraryResource (
+CREATE TABLE Resources (
     ResourceID INT PRIMARY KEY IDENTITY(1,1),
     Title VARCHAR(255) NOT NULL,
     Author VARCHAR(255) NOT NULL,
@@ -21,10 +21,10 @@ CREATE TABLE LibraryResource (
 GO
 
 -- represents individual copies of resources
-CREATE TABLE ResourceCopy (
+CREATE TABLE ResourceCopies (
     CopyID INT PRIMARY KEY IDENTITY(1,1),
     ResourceID INT NOT NULL,
-    FOREIGN KEY (ResourceID) REFERENCES LibraryResource(ResourceID),
+    FOREIGN KEY (ResourceID) REFERENCES Resources(ResourceID),
 );
 
 GO
@@ -37,23 +37,38 @@ CREATE TABLE BorrowRequests (
     CopyID INT, -- Assigned by Employee after acceptance
     DueDate DATE, -- Assigned by Employee after acceptance
     Status VARCHAR(50) NOT NULL, -- Pending / Approved / Returned
-    FOREIGN KEY (UserID) REFERENCES LibraryUser(UserID),
-    FOREIGN KEY (CopyID) REFERENCES ResourceCopy(CopyID),
-    FOREIGN KEY (ResourceID) REFERENCES LibraryResource(ResourceID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (CopyID) REFERENCES ResourceCopies(CopyID),
+    FOREIGN KEY (ResourceID) REFERENCES Resources(ResourceID),
 );
 
 GO
 
 
 ----------------------------------------------------------------------------- VIEWS
+CREATE VIEW UserWithBorrowedResources AS
+SELECT
+    U.UserID,
+    R.ResourceID,
+    R.Title,
+    R.Author,
+    R.YearPublished,
+    R.ResourceType
+FROM Users U
+JOIN BorrowRequests BR ON U.UserID = BR.UserID
+JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
+WHERE BR.Status = 'Approved';
+GO
+
 CREATE VIEW SummarisedResources AS
 SELECT
     R.ResourceID,
     R.Title,
     COUNT(RC.CopyID) AS TotalCopies,
     COUNT(CASE WHEN BR.Status = 'Approved' THEN 1 END) AS BorrowedCopies
-FROM LibraryResource R
-LEFT JOIN ResourceCopy RC ON R.ResourceID = RC.ResourceID
+FROM Resources R
+LEFT JOIN ResourceCopies RC ON R.ResourceID = RC.ResourceID
 LEFT JOIN BorrowRequests BR ON RC.CopyID = BR.CopyID
 GROUP BY R.ResourceID, R.Title;
 GO
@@ -70,10 +85,10 @@ SELECT
     BR.CopyID,
     BR.DueDate,
     R.Title AS BorrowedResource
-FROM LibraryUser U
+FROM Users U
 JOIN BorrowRequests BR ON U.UserID = BR.UserID
-JOIN ResourceCopy RC ON BR.CopyID = RC.CopyID
-JOIN LibraryResource R ON BR.ResourceID = R.ResourceID
+JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
 WHERE BR.Status = 'Approved';
 GO
 
@@ -86,10 +101,10 @@ SELECT
     R.Title AS BorrowedResource,
     BR.DueDate,
     DATEDIFF(DAY, BR.DueDate, GETDATE()) AS DaysLate
-FROM LibraryUser U
+FROM Users U
 JOIN BorrowRequests BR ON U.UserID = BR.UserID
-JOIN ResourceCopy RC ON BR.CopyID = RC.CopyID
-JOIN LibraryResource R ON BR.ResourceID = R.ResourceID
+JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
 WHERE BR.Status = 'Returned' AND BR.DueDate < GETDATE();
 GO
 
@@ -103,8 +118,8 @@ SELECT
     BR.DueDate,
     BR.Status
 FROM BorrowRequests BR
-JOIN LibraryUser U ON BR.UserID = U.UserID
-JOIN LibraryResource R ON BR.ResourceID = R.ResourceID
+JOIN Users U ON BR.UserID = U.UserID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
 WHERE BR.Status = 'Approved';
 GO
 
@@ -117,7 +132,7 @@ SELECT
     BR.RequestDate,
     BR.DueDate
 FROM BorrowRequests BR
-JOIN LibraryUser U ON BR.UserID = U.UserID
-JOIN LibraryResource R ON BR.ResourceID = R.ResourceID
+JOIN Users U ON BR.UserID = U.UserID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
 WHERE BR.Status = 'Pending';
 GO

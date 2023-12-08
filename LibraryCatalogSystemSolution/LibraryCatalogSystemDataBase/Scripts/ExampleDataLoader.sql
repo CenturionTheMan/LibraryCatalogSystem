@@ -1,6 +1,6 @@
 ﻿------------------------------------------------------------------------------- EXAMPLE DATA
 -- Users
-INSERT INTO LibraryUser (FirstName, LastName, Login, Password, UserType) VALUES
+INSERT INTO Users (FirstName, LastName, Login, Password, UserType) VALUES
 ('Adam', 'Nowak', 'anowak', 'pass123', 'Client'),
 ('Ewa', 'Kowalska', 'ekowalska', 'securepass', 'Client'),
 ('Mateusz', 'Wójcik', 'mwojcik', 'pass456', 'Client'),
@@ -20,7 +20,7 @@ INSERT INTO LibraryUser (FirstName, LastName, Login, Password, UserType) VALUES
 GO
 
 -- Resources
-INSERT INTO LibraryResource (Title, Author, YearPublished, ResourceType) VALUES
+INSERT INTO Resources (Title, Author, YearPublished, ResourceType) VALUES
 ('Database Management', 'John Smith', 2020, 'Book'),
 ('Web Development Basics', 'Alice Johnson', 2019, 'Book'),
 ('Data Science in Practice', 'Michael Brown', 2022, 'Magazine'),
@@ -34,8 +34,8 @@ INSERT INTO LibraryResource (Title, Author, YearPublished, ResourceType) VALUES
 
 GO
 
--- ResourceCopy
-INSERT INTO ResourceCopy (ResourceID) VALUES
+-- ResourceCopies
+INSERT INTO ResourceCopies (ResourceID) VALUES
 (1),
 (1),
 (2),
