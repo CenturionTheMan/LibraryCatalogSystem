@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDataBaseAPI;
+namespace LibraryDatabaseAPI;
 
 public static class Utilities
 {
@@ -20,4 +20,25 @@ public static class Utilities
         };
     }
 
+    public static Status ParseToStatus(this string str) 
+    {
+        return str switch
+        {
+            "Pending" => Status.Pending,
+            "Approved" => Status.Approved,
+            "Returned" => Status.Returned,
+            _ => throw new ArgumentException(),
+        };
+    }
+
+    public static ResourceType ParseToResourceType(this string str)
+    {
+        return str switch
+        {
+            "Book" => ResourceType.Book,
+            "Magazine" => ResourceType.Magazine,
+            _ => throw new ArgumentException(),
+        };
+    }
+    
 }

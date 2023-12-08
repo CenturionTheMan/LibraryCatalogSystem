@@ -8,7 +8,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDataBaseAPI;
+namespace LibraryDatabaseAPI;
 
 
 
@@ -64,7 +64,7 @@ public class LibraryResource
     public string Title { get; private set; }
     public string Author { get; private set; }
     public int YearPublished { get; private set; }
-    public string ResourceType { get; private set; }
+    public ResourceType ResourceType { get; private set; }
 
     internal static LibraryResource Create(IDataRecord record)
     {
@@ -82,7 +82,7 @@ public class LibraryResource
         Title = title;
         Author = author;
         YearPublished = yearPublished;
-        ResourceType = resourceType;
+        ResourceType = resourceType.ParseToResourceType();
     }
 
     public override string ToString()
@@ -108,7 +108,7 @@ public class BorrowRequests
     public DateTime RequestDate { get; private set; }
     public int? CopyID { get; private set; }
     public DateTime? DueDate { get; private set; }
-    public string Status { get; private set; }
+    public Status Status { get; private set; }
 
     internal static BorrowRequests Create(IDataRecord record)
     {
@@ -147,7 +147,7 @@ public class BorrowRequests
         RequestDate = requestDate;
         CopyID = copyID;
         DueDate = dueDate;
-        Status = status;
+        Status = status.ParseToStatus();
     }
 
     public override string ToString()

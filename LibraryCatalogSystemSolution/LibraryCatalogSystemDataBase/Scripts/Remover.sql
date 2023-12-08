@@ -1,8 +1,8 @@
 ﻿-- Remove tables
-DROP TABLE IF EXISTS dbo.BorrowRequests;
-DROP TABLE IF EXISTS dbo.ResourceCopy;
-DROP TABLE IF EXISTS dbo.LibraryResource;
-DROP TABLE IF EXISTS dbo.Users;
+DROP TABLE IF EXISTS BorrowRequests;
+DROP TABLE IF EXISTS ResourceCopy;
+DROP TABLE IF EXISTS LibraryResource;
+DROP TABLE IF EXISTS Users;
 
 -- Remove views
 DROP VIEW IF EXISTS UserDetailsWithBorrowedResources;

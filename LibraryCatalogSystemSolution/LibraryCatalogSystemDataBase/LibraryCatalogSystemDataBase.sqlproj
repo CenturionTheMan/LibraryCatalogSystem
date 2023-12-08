@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>LibraryCatalogSystemDataBase</Name>
+    <Name>LibraryCatalogSystemDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{277e013f-59d8-4673-986b-979b7495d031}</ProjectGuid>
+    <ProjectGuid>{c0929775-3864-4d1f-ac74-8f6f77ed411b}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>LibraryCatalogSystemDataBase</RootNamespace>
-    <AssemblyName>LibraryCatalogSystemDataBase</AssemblyName>
+    <RootNamespace>LibraryCatalogSystemDatabase</RootNamespace>
+    <AssemblyName>LibraryCatalogSystemDatabase</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -57,23 +57,17 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Scripts" />
-    <Folder Include="Publisher" />
+    <Folder Include="Publish" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Publisher\LocalLibraryDataBase.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scripts\Test.sql" />
-    <None Include="Scripts\Remover.sql" />
     <Build Include="Scripts\DataBaseInit.sql" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="LibraryCatalogSystemDataBase.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Data" />
-  </ItemGroup>
-  <ItemGroup>
     <PostDeploy Include="Scripts\ExampleDataLoader.sql" />
+    <PreDeploy Include="Scripts\Remover.sql" />
+    <None Include="Scripts\Test.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish\LibraryDatabase.publish.xml" />
   </ItemGroup>
 </Project>

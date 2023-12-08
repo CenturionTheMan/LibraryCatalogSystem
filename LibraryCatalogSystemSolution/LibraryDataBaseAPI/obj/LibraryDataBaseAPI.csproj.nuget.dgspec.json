@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDataBaseAPI\\LibraryDataBaseAPI.csproj": {}
+    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {}
   },
   "projects": {
-    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDataBaseAPI\\LibraryDataBaseAPI.csproj": {
+    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDataBaseAPI\\LibraryDataBaseAPI.csproj",
-        "projectName": "LibraryDataBaseAPI",
-        "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDataBaseAPI\\LibraryDataBaseAPI.csproj",
+        "projectUniqueName": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
+        "projectName": "LibraryDatabaseAPI",
+        "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
         "packagesPath": "C:\\Users\\dzied\\.nuget\\packages\\",
-        "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDataBaseAPI\\obj\\",
+        "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\dzied\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,14 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.1.24, )"
-            },
-            "System.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"

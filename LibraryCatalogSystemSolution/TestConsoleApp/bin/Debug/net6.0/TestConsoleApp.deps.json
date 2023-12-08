@@ -8,19 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "TestConsoleApp/1.0.0": {
         "dependencies": {
-          "LibraryDataBaseAPI": "1.0.0",
-          "System.Configuration.ConfigurationManager": "8.0.0"
+          "LibraryDatabaseAPI": "1.0.0"
         },
         "runtime": {
           "TestConsoleApp.dll": {}
-        }
-      },
-      "Dapper/2.1.24": {
-        "runtime": {
-          "lib/net5.0/Dapper.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.24.50284"
-          }
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
@@ -64,17 +55,6 @@
           }
         }
       },
-      "System.Configuration.ConfigurationManager/8.0.0": {
-        "dependencies": {
-          "System.Security.Cryptography.ProtectedData": "8.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Configuration.ConfigurationManager.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
       "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -108,23 +88,13 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Cryptography.ProtectedData/8.0.0": {
-        "runtime": {
-          "lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
       "System.Security.Principal.Windows/4.7.0": {},
-      "LibraryDataBaseAPI/1.0.0": {
+      "LibraryDatabaseAPI/1.0.0": {
         "dependencies": {
-          "Dapper": "2.1.24",
-          "System.Configuration.ConfigurationManager": "8.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
-          "LibraryDataBaseAPI.dll": {}
+          "LibraryDatabaseAPI.dll": {}
         }
       }
     }
@@ -134,13 +104,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Dapper/2.1.24": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/2t2vsdJyZRsk13AsWigZpsuFvEwK+o3v862cEULXoww905gyKhJFSuwmZI/4Ui9COX9ZCFCI09UHyH4wVYl3A==",
-      "path": "dapper/2.1.24",
-      "hashPath": "dapper.2.1.24.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
@@ -184,13 +147,6 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
-    "System.Configuration.ConfigurationManager/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JlYi9XVvIREURRUlGMr1F6vOFLk7YSY4p1vHo4kX3tQ0AGrjqlRWHDi66ImHhy6qwXBG3BJ6Y1QlYQ+Qz6Xgww==",
-      "path": "system.configuration.configurationmanager/8.0.0",
-      "hashPath": "system.configuration.configurationmanager.8.0.0.nupkg.sha512"
-    },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",
       "serviceable": true,
@@ -205,13 +161,6 @@
       "path": "system.security.accesscontrol/4.7.0",
       "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.ProtectedData/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+TUFINV2q2ifyXauQXRwy4CiBhqvDEDZeVJU7qfxya4aRYOKzVBpN+4acx25VcPB9ywUN6C0n8drWl110PhZEg==",
-      "path": "system.security.cryptography.protecteddata/8.0.0",
-      "hashPath": "system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
-    },
     "System.Security.Principal.Windows/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -219,7 +168,7 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
-    "LibraryDataBaseAPI/1.0.0": {
+    "LibraryDatabaseAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

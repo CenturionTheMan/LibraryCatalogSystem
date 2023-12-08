@@ -67,6 +67,7 @@ SELECT
     U.UserType,
     BR.RequestID,
     BR.RequestDate,
+    BR.CopyID,
     BR.DueDate,
     R.Title AS BorrowedResource
 FROM LibraryUser U
