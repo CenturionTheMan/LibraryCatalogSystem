@@ -18,27 +18,43 @@ public class LibraryDatabaseApi
         this.connector = new(provider, connectionString);
     }
 
+
     #region GET
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="login"></param>
+    /// <returns></returns>
     public User? GetUserByLogin(string login)
     {
         string sql = $"SELECT * FROM Users WHERE Login = '{login}'";
         var reader = connector.GetFromDataBase(sql);
-        if (reader == null || reader.Depth == 0) return null;
+        if (reader == null ||reader.HasRows == false) return null;
+        reader.Read();
         var user = User.Create(reader);
         return user;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
     public User? GetUserById(int userId)
     {
         string sql = $"SELECT * FROM Users WHERE UserID = {userId}";
         var reader = connector.GetFromDataBase(sql);
-        if (reader == null || reader.Depth == 0) return null;
+        if (reader == null || reader.HasRows == false) return null;
+        reader.Read();
         var user = User.Create(reader);
         return user;
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public List<User>? GetUsers()
     {
         var reader = connector.GetFromDataBase("SELECT * FROM Users");
@@ -59,7 +75,7 @@ public class LibraryDatabaseApi
     {
         string sql = $"SELECT * FROM SummarisedResources WHERE ResourceID = {resourceId}";
         var reader = connector.GetFromDataBase(sql);
-        if (reader == null || reader.Depth == 0) return null;
+        if (reader == null ||reader.HasRows == false) return null;
 
         int amount = reader.GetInt32(2);
         int borrowed = reader.GetInt32(3);
@@ -84,6 +100,10 @@ public class LibraryDatabaseApi
         return res;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public List<BorrowRequest>? GetBorrowRequests()
     {
         var reader = connector.GetFromDataBase("SELECT * FROM BorrowRequests");
@@ -119,6 +139,22 @@ public class LibraryDatabaseApi
     public List<Resource>? GetResources()
     {
         var reader = connector.GetFromDataBase("SELECT * FROM Resources");
+        if (reader == null) return null;
+
+        List<Resource> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = Resource.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    public List<Resource>? GetResources(string title, string author, int yearPublished, ResourceType resourceType)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM Resources WHERE Title = '{title}' AND Author = '{author}' AND YearPublished = {yearPublished} AND ResourceType = '{resourceType}'");
         if (reader == null) return null;
 
         List<Resource> res = new();
@@ -170,12 +206,31 @@ public class LibraryDatabaseApi
 
     #region POST
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="login"></param>
+    /// <param name="password"></param>
+    /// <param name="userType"></param>
+    /// <returns></returns>
     public bool PostNewUser(string firstName, string lastName, string login, string password, UserType userType)
     {
         bool isSuccess = connector.PostToDataBase($"INSERT INTO Users (FirstName, LastName, Login, Password, UserType) VALUES ('{firstName}', '{lastName}', '{login}', '{password}', '{userType.ToString()}')");
         return isSuccess;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="resourceId"></param>
+    /// <param name="requestDate"></param>
+    /// <param name="copyId"></param>
+    /// <param name="dueDate"></param>
+    /// <param name="status"></param>
+    /// <returns></returns>
     public bool PostNewBorrowRequest(int userId, int resourceId, DateTime requestDate, int? copyId, DateTime? dueDate, Status status)
     {
         var copyIdStr = copyId.HasValue ? copyId.ToString() : "NULL";
@@ -213,6 +268,11 @@ public class LibraryDatabaseApi
         return connector.PostToDataBase(sql);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="toDeleteUserId"></param>
+    /// <returns></returns>
     public bool DeleteUser(int toDeleteUserId)
     {
         string sql = $"DELETE FROM Users WHERE UserID = {toDeleteUserId}";

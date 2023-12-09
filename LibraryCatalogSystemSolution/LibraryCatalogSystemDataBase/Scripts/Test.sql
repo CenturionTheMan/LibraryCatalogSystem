@@ -14,8 +14,12 @@ SELECT * FROM Users WHERE Login = '';
 
 SELECT * FROM UserWithBorrowedResources WHERE UserID = 1;
 
+SELECT * FROM Resources WHERE Title = 't' AND Author = '' AND YearPublished = 1 AND ResourceType = ''
 
-UPDATE BorrowRequests SET DueDate = '??', ResourceID = 1 WHERE RequestID = 1;
+BEGIN TRAN;
+UPDATE BorrowRequests SET Status = 'jj' WHERE RequestID = 1;
+COMMIT TRAN;
+ROLLBACK;
 
 DELETE FROM ResourceCopies WHERE CopyID = 1;
 
