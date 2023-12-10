@@ -17,7 +17,7 @@ SELECT * FROM UserWithBorrowedResources WHERE UserID = 1;
 SELECT * FROM Resources WHERE Title = 't' AND Author = '' AND YearPublished = 1 AND ResourceType = ''
 
 BEGIN TRAN;
-UPDATE BorrowRequests SET Status = 'jj' WHERE RequestID = 1;
+UPDATE BorrowRequests SET Status = 'jj' WHERE CopyID = 1;
 COMMIT TRAN;
 ROLLBACK;
 

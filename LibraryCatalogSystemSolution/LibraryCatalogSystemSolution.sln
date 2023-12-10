@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDatabaseAPI", "Libra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{53400673-10D4-4E3A-9027-4277AE7A2AA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDatabaseApiUnitTests", "LibraryDatabaseApiUnitTests\LibraryDatabaseApiUnitTests.csproj", "{D6B77033-3E93-4F8E-9E19-E129ACEBA59A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDatabaseApiUnitTests", "LibraryDatabaseApiUnitTests\LibraryDatabaseApiUnitTests.csproj", "{D6B77033-3E93-4F8E-9E19-E129ACEBA59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWinFormsApp", "LibraryWinFormsApp\LibraryWinFormsApp.csproj", "{7682E791-F500-48E1-B2A3-BDB90F366C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{D6B77033-3E93-4F8E-9E19-E129ACEBA59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6B77033-3E93-4F8E-9E19-E129ACEBA59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6B77033-3E93-4F8E-9E19-E129ACEBA59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7682E791-F500-48E1-B2A3-BDB90F366C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7682E791-F500-48E1-B2A3-BDB90F366C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7682E791-F500-48E1-B2A3-BDB90F366C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7682E791-F500-48E1-B2A3-BDB90F366C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

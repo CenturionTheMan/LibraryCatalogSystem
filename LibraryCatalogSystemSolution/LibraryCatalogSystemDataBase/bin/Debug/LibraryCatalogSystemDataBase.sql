@@ -40,6 +40,63 @@ USE [$(DatabaseName)];
 
 
 GO
+IF EXISTS (SELECT 1
+           FROM   [master].[dbo].[sysdatabases]
+           WHERE  [name] = N'$(DatabaseName)')
+    BEGIN
+        ALTER DATABASE [$(DatabaseName)]
+            SET ARITHABORT ON,
+                CONCAT_NULL_YIELDS_NULL ON,
+                CURSOR_DEFAULT LOCAL 
+            WITH ROLLBACK IMMEDIATE;
+    END
+
+
+GO
+IF EXISTS (SELECT 1
+           FROM   [master].[dbo].[sysdatabases]
+           WHERE  [name] = N'$(DatabaseName)')
+    BEGIN
+        ALTER DATABASE [$(DatabaseName)]
+            SET PAGE_VERIFY NONE,
+                DISABLE_BROKER 
+            WITH ROLLBACK IMMEDIATE;
+    END
+
+
+GO
+ALTER DATABASE [$(DatabaseName)]
+    SET TARGET_RECOVERY_TIME = 0 SECONDS 
+    WITH ROLLBACK IMMEDIATE;
+
+
+GO
+IF EXISTS (SELECT 1
+           FROM   [master].[dbo].[sysdatabases]
+           WHERE  [name] = N'$(DatabaseName)')
+    BEGIN
+        ALTER DATABASE [$(DatabaseName)]
+            SET QUERY_STORE (QUERY_CAPTURE_MODE = ALL, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 367), MAX_STORAGE_SIZE_MB = 100) 
+            WITH ROLLBACK IMMEDIATE;
+    END
+
+
+GO
+-- Remove tables
+DROP TABLE IF EXISTS BorrowRequests;
+DROP TABLE IF EXISTS ResourceCopies;
+DROP TABLE IF EXISTS Resources;
+DROP TABLE IF EXISTS Users;
+
+-- Remove views
+DROP VIEW IF EXISTS UserDetailsWithBorrowedResources;
+DROP VIEW IF EXISTS DelayedBorrowersView;
+DROP VIEW IF EXISTS ApprovedBorrowRequests;
+DROP VIEW IF EXISTS SummarisedResources;
+DROP VIEW IF EXISTS PendingBorrowRequests;
+GO
+
+GO
 PRINT N'Creating Table [dbo].[BorrowRequests]...';
 
 
@@ -233,6 +290,27 @@ JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
 JOIN Resources R ON BR.ResourceID = R.ResourceID
 WHERE BR.Status = 'Approved';
 GO
+PRINT N'Creating View [dbo].[UserWithBorrowedResources]...';
+
+
+GO
+
+
+----------------------------------------------------------------------------- VIEWS
+CREATE VIEW UserWithBorrowedResources AS
+SELECT
+    U.UserID,
+    R.ResourceID,
+    R.Title,
+    R.Author,
+    R.YearPublished,
+    R.ResourceType
+FROM Users U
+JOIN BorrowRequests BR ON U.UserID = BR.UserID
+JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
+JOIN Resources R ON BR.ResourceID = R.ResourceID
+WHERE BR.Status = 'Approved';
+GO
 ------------------------------------------------------------------------------- EXAMPLE DATA
 -- Users
 INSERT INTO Users (FirstName, LastName, Login, Password, UserType) VALUES
@@ -318,25 +396,25 @@ GO
 -- BorrowRequest
 INSERT INTO BorrowRequests (UserID, ResourceID, RequestDate, CopyID, DueDate, Status) VALUES
 (1, 1, '2023-01-01', 1, '2023-01-15', 'Approved'),
-(3, 2, '2023-01-02', 3, '2023-01-16', 'Pending'),
+(3, 2, '2023-01-02',NULL, NULL, 'Pending'),
 (5, 3, '2023-01-03', NULL, NULL, 'Pending'),
-(2, 4, '2023-01-04', NULL, NULL, 'Approved'),
+(2, 4, '2023-01-04', 4, '2024-01-15', 'Approved'),
 (4, 5, '2023-01-05', 5, '2023-01-20', 'Returned'),
 (6, 6, '2023-01-06', 6, '2023-01-21', 'Approved'),
-(8, 7, '2023-01-07', 8, '2023-01-22', 'Pending'),
-(10, 8, '2023-01-08', NULL, NULL, 'Approved'),
+(8, 7, '2023-01-07', NULL, NULL, 'Pending'),
+(10, 8, '2023-01-08', 11, '2024-01-26', 'Approved'),
 (7, 9, '2023-01-09', NULL, NULL, 'Pending'),
 (9, 10, '2023-01-10', 10, '2023-01-25', 'Approved'),
 (11, 1, '2023-01-11', 11, '2023-01-26', 'Returned'),
-(7, 2, '2023-01-12', 12, '2023-01-27', 'Pending'),
+(7, 2, '2023-01-12', NULL, NULL, 'Pending'),
 (9, 3, '2023-01-13', NULL, NULL, 'Pending'),
 (12, 4, '2023-01-14', 13, '2023-01-28', 'Approved'),
 (1, 5, '2023-01-15', 14, '2023-01-29', 'Approved'),
 (4, 6, '2023-01-16', 15, '2023-01-30', 'Returned'),
-(3, 7, '2023-01-17', NULL, NULL, 'Approved'),
-(5, 8, '2023-01-18', 16, '2023-01-31', 'Pending'),
+(3, 7, '2023-01-17', 1, '2023-08-30', 'Approved'),
+(5, 8, '2023-01-18', NULL, NULL, 'Pending'),
 (4, 9, '2023-01-19', 17, '2023-02-01', 'Returned'),
-(1, 10, '2023-01-20', 18, '2023-02-02', 'Pending');
+(1, 10, '2023-01-20', NULL, NULL, 'Pending');
 GO
 
 GO

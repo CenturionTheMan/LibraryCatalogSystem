@@ -105,9 +105,9 @@ public class BorrowRequest
     public int RequestID { get; private set; }
     public int UserID { get; private set; }
     public int ResourceID { get; private set; }
-    public DateTime RequestDate { get; private set; }
+    public DateOnly RequestDate { get; private set; }
     public int? CopyID { get; private set; }
-    public DateTime? DueDate { get; private set; }
+    public DateOnly? DueDate { get; private set; }
     public Status Status { get; private set; }
 
     internal static BorrowRequest Create(IDataRecord record)
@@ -116,7 +116,7 @@ public class BorrowRequest
         var requestID = (int)record[nameof(RequestID)];
         var userId = (int)record[nameof(UserID)];
         var resourceId = (int)record[nameof(ResourceID)];
-        var requestDate =(DateTime)record[nameof(RequestDate)];
+        var requestDate =DateOnly.FromDateTime((DateTime)record[nameof(RequestDate)]);
         int? copyID = null;
 
         try
@@ -127,11 +127,11 @@ public class BorrowRequest
         catch { }
         
         
-        DateTime? dueDate = null;
+        DateOnly? dueDate = null;
         try
         {
-            object dueDateObj = (DateTime)record[nameof(DueDate)];
-            dueDate = (DateTime)dueDateObj;
+            object dueDateObj = DateOnly.FromDateTime((DateTime)record[nameof(DueDate)]);
+            dueDate = (DateOnly)dueDateObj;
         }
         catch { }
         var status = (string)record[nameof(Status)];
@@ -139,7 +139,7 @@ public class BorrowRequest
         return new BorrowRequest(requestID, userId, resourceId, requestDate, copyID, dueDate, status);
     }
 
-    internal BorrowRequest(int requestID, int userID, int resourceID, DateTime requestDate, int? copyID, DateTime? dueDate, string status)
+    internal BorrowRequest(int requestID, int userID, int resourceID, DateOnly requestDate, int? copyID, DateOnly? dueDate, string status)
     {
         RequestID = requestID;
         UserID = userID;

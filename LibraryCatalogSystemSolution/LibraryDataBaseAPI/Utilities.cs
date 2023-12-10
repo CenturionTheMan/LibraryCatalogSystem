@@ -8,6 +8,13 @@ namespace LibraryDatabaseAPI;
 
 public static class Utilities
 {
+    public static string ToNullableSQLString(this object? obj, bool addQuota = false)
+    {
+        if (obj == null) return "NULL";
+
+        return addQuota? $"'{obj.ToString()}'" : $"{obj.ToString()}";
+    }
+
     public static UserType ParseToUserType(this string str)
     {
         str = str.ToUpper();
