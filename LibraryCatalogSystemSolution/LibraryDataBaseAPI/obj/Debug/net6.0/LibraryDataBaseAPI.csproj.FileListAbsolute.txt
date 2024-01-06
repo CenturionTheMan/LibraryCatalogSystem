@@ -11,3 +11,15 @@ D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalog
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\refint\LibraryDatabaseAPI.dll
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.pdb
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\ref\LibraryDatabaseAPI.dll
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\bin\Debug\net6.0\LibraryDatabaseAPI.deps.json
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\bin\Debug\net6.0\LibraryDatabaseAPI.dll
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\bin\Debug\net6.0\LibraryDatabaseAPI.pdb
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.csproj.AssemblyReference.cache
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.AssemblyInfoInputs.cache
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.AssemblyInfo.cs
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.csproj.CoreCompileInputs.cache
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.dll
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\refint\LibraryDatabaseAPI.dll
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\LibraryDatabaseAPI.pdb
+C:\Users\zapal\Desktop\LibraryCatalogSystem-main\LibraryCatalogSystem-main\LibraryCatalogSystemSolution\LibraryDatabaseAPI\obj\Debug\net6.0\ref\LibraryDatabaseAPI.dll

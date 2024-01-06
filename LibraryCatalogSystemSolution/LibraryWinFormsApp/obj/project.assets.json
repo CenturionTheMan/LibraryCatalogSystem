@@ -488,24 +488,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dzied\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\zapal\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
+      "projectUniqueName": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
       "projectName": "LibraryWinFormsApp",
-      "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
-      "packagesPath": "C:\\Users\\dzied\\.nuget\\packages\\",
-      "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\obj\\",
+      "projectPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
+      "packagesPath": "C:\\Users\\zapal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dzied\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\zapal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -519,8 +514,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
-              "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj"
+            "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
+              "projectPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj"
             }
           }
         }

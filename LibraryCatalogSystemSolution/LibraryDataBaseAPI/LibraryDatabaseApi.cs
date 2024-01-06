@@ -121,6 +121,31 @@ public class LibraryDatabaseApi
     }
 
     /// <summary>
+    /// Retrieves a list of borrow requests filtered by userId.
+    /// </summary>
+    /// <param name="userID">The status to filter by.</param>
+    /// <returns>
+    /// A list of BorrowRequest objects if success, otherwise null.
+    /// </returns>
+    public List<BorrowRequest>? GetBorrowRequestsByUser(int userId)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM BorrowRequests WHERE UserId = '{userId}'");
+
+        if (reader == null)
+            return null;
+
+        List<BorrowRequest> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = BorrowRequest.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    /// <summary>
     /// Retrieves a list of all borrow requests.
     /// </summary>
     /// <returns>
@@ -277,7 +302,8 @@ public class LibraryDatabaseApi
     /// </returns>
     public bool UpdateBorrowRequestStatusToApproved(int borrowRequestId, int assignedResourceCopyId, DateOnly assignedDueDate)
     {
-        string sql = $"UPDATE BorrowRequests SET Status = '{Status.Approved}', DueDate = '{assignedDueDate}', CopyID = {assignedResourceCopyId} WHERE RequestID = {borrowRequestId} AND Status = '{Status.Pending}'";
+        var formattedDueDate = $"{assignedDueDate.Year}-{assignedDueDate.Month}-{assignedDueDate.Day}";
+        string sql = $"UPDATE BorrowRequests SET Status = '{Status.Approved}', DueDate = '{formattedDueDate}', CopyID = {assignedResourceCopyId} WHERE RequestID = {borrowRequestId} AND Status = '{Status.Pending}'";
         return connector.PostToDataBase(sql);
     }
 
@@ -293,8 +319,18 @@ public class LibraryDatabaseApi
     /// </returns>
     public bool UpdateBorrowRequest(int borrowRequestId, int? assignedResourceCopyId, DateOnly? assignedDueDate, Status statusToSet)
     {
-        string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = {assignedDueDate.ToNullableSQLString(true)}, CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
-        return connector.PostToDataBase(sql);
+        if (assignedDueDate.HasValue)
+        {
+            var formattedDueDate = $"{assignedDueDate.Value.Year}-{assignedDueDate.Value.Month}-{assignedDueDate.Value.Day}";
+
+            string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = '{formattedDueDate}', CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
+            return connector.PostToDataBase(sql);
+        }
+        else
+        {
+            string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = NULL, CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
+            return connector.PostToDataBase(sql);
+        }
     }
 
 
@@ -335,7 +371,9 @@ public class LibraryDatabaseApi
     {
         var copyIdStr = copyId.HasValue ? copyId.ToString() : "NULL";
         var dueDateStr = dueDate.HasValue ? "'" + dueDate.ToString() + "'" : "NULL";
-        string sql = $"INSERT INTO BorrowRequests (UserID, ResourceID, RequestDate, CopyID, DueDate, Status) VALUES ({userId}, {resourceId}, '{requestDate}', {copyIdStr}, {dueDateStr}, '{status.ToString()}')";
+        var formattedRequestDate = $"{requestDate.Year}-{requestDate.Month}-{requestDate.Day}";
+
+        string sql = $"INSERT INTO BorrowRequests (UserID, ResourceID, RequestDate, CopyID, DueDate, Status) VALUES ({userId}, {resourceId}, '{formattedRequestDate}', {copyIdStr}, {dueDateStr}, '{status.ToString()}')";
         return connector.PostToDataBase(sql);
     }
 
@@ -370,8 +408,6 @@ public class LibraryDatabaseApi
 
 
     #endregion POST
-
-
 
     #region DELETE
 
