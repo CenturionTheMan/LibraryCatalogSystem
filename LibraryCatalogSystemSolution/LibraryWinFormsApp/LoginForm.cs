@@ -75,5 +75,10 @@ namespace LibraryWinFormsApp
             }
             // Dodaj inne przypadki, jeśli występują inne UserType
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -488,19 +488,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zapal\\.nuget\\packages\\": {}
+    "C:\\Users\\dzied\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
+      "projectUniqueName": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
       "projectName": "LibraryWinFormsApp",
-      "projectPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
-      "packagesPath": "C:\\Users\\zapal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\obj\\",
+      "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\LibraryWinFormsApp.csproj",
+      "packagesPath": "C:\\Users\\dzied\\.nuget\\packages\\",
+      "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryWinFormsApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\zapal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dzied\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -514,8 +514,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
-              "projectPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj"
+            "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
+              "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj"
             }
           }
         }

@@ -5970,8 +5970,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dzied\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\dzied\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5982,12 +5981,8 @@
       "packagesPath": "C:\\Users\\dzied\\.nuget\\packages\\",
       "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseApiUnitTests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\dzied\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

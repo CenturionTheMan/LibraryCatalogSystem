@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {}
+    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
+    "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
+        "projectUniqueName": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
         "projectName": "LibraryDatabaseAPI",
-        "projectPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
-        "packagesPath": "C:\\Users\\zapal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zapal\\Desktop\\LibraryCatalogSystem-main\\LibraryCatalogSystem-main\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\obj\\",
+        "projectPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\LibraryDatabaseAPI.csproj",
+        "packagesPath": "C:\\Users\\dzied\\.nuget\\packages\\",
+        "outputPath": "D:\\GoogleDriveMirror\\Studia\\Studia_sem_5\\BD2\\LibraryCatalogSystem\\LibraryCatalogSystemSolution\\LibraryDatabaseAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zapal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dzied\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

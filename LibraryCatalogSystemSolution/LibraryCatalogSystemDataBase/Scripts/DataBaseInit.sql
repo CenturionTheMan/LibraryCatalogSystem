@@ -58,19 +58,26 @@ FROM Users U
 JOIN BorrowRequests BR ON U.UserID = BR.UserID
 JOIN ResourceCopies RC ON BR.CopyID = RC.CopyID
 JOIN Resources R ON BR.ResourceID = R.ResourceID
-WHERE BR.Status = 'Approved';
+WHERE BR.CopyID IS NOT NULL AND BR.Status <> 'Returned';
 GO
 
 CREATE VIEW SummarisedResources AS
 SELECT
     R.ResourceID,
     R.Title,
-    COUNT(RC.CopyID) AS TotalCopies,
-    COUNT(CASE WHEN BR.Status = 'Approved' THEN 1 END) AS BorrowedCopies
+    COALESCE(RCTotal.TotalCopies, 0) AS TotalCopies,
+    COALESCE(BRTotal.BorrowedCopies, 0) AS BorrowedCopies
 FROM Resources R
-LEFT JOIN ResourceCopies RC ON R.ResourceID = RC.ResourceID
-LEFT JOIN BorrowRequests BR ON RC.CopyID = BR.CopyID
-GROUP BY R.ResourceID, R.Title;
+LEFT JOIN (
+    SELECT RC.ResourceID, COUNT(RC.CopyID) AS TotalCopies
+    FROM ResourceCopies RC
+    GROUP BY RC.ResourceID
+) RCTotal ON R.ResourceID = RCTotal.ResourceID
+LEFT JOIN (
+    SELECT BR.ResourceID, COUNT(DISTINCT BR.RequestID) AS BorrowedCopies
+    FROM BorrowRequests BR
+    GROUP BY BR.ResourceID
+) BRTotal ON R.ResourceID = BRTotal.ResourceID;
 GO
 
 CREATE VIEW UserDetailsWithBorrowedResources AS

@@ -43,9 +43,11 @@ public class Program
         //    Console.WriteLine(item);
         //}
 
-        var tmp = api.GetResourceAmounts(-1);
 
-        PrintInConsole(tmp);
+        PrintInConsole(users);
+        PrintInConsole(borrowRequests);
+        PrintInConsole(resourceCopies);
+        PrintInConsole(Resourcess);
     }
 
 
