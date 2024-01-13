@@ -34,10 +34,11 @@
             yearPublishedLabel = new Label();
             panel1 = new Panel();
             typeLabel = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            addCopyButton = new Button();
+            returnToResourcesButton = new Button();
+            dataGridViewCopies = new DataGridView();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCopies).BeginInit();
             SuspendLayout();
             // 
             // resourceIdLabel
@@ -87,7 +88,7 @@
             panel1.Controls.Add(resourceIdLabel);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(231, 203);
+            panel1.Size = new Size(231, 213);
             panel1.TabIndex = 4;
             // 
             // typeLabel
@@ -99,48 +100,62 @@
             typeLabel.TabIndex = 4;
             typeLabel.Text = "Type:";
             // 
-            // button1
+            // addCopyButton
             // 
-            button1.Location = new Point(12, 231);
-            button1.Name = "button1";
-            button1.Size = new Size(231, 33);
-            button1.TabIndex = 5;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            addCopyButton.Location = new Point(12, 231);
+            addCopyButton.Name = "addCopyButton";
+            addCopyButton.Size = new Size(231, 33);
+            addCopyButton.TabIndex = 5;
+            addCopyButton.Text = "Add New Copy";
+            addCopyButton.UseVisualStyleBackColor = true;
+            addCopyButton.Click += AddCopyButton_Click;
             // 
-            // button2
+            // returnToResourcesButton
             // 
-            button2.Location = new Point(12, 290);
-            button2.Name = "button2";
-            button2.Size = new Size(231, 33);
-            button2.TabIndex = 6;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            returnToResourcesButton.Location = new Point(12, 270);
+            returnToResourcesButton.Name = "returnToResourcesButton";
+            returnToResourcesButton.Size = new Size(231, 33);
+            returnToResourcesButton.TabIndex = 6;
+            returnToResourcesButton.Text = "Return";
+            returnToResourcesButton.UseVisualStyleBackColor = true;
+            returnToResourcesButton.Click += ReturnToResourcesButton_Click;
             // 
-            // button3
+            // dataGridViewCopies
             // 
-            button3.Location = new Point(12, 344);
-            button3.Name = "button3";
-            button3.Size = new Size(231, 33);
-            button3.TabIndex = 7;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            dataGridViewCopies.AllowUserToAddRows = false;
+            dataGridViewCopies.AllowUserToDeleteRows = false;
+            dataGridViewCopies.AllowUserToResizeColumns = false;
+            dataGridViewCopies.AllowUserToResizeRows = false;
+            dataGridViewCopies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCopies.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCopies.BackgroundColor = SystemColors.Control;
+            dataGridViewCopies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCopies.Location = new Point(260, 12);
+            dataGridViewCopies.Name = "dataGridViewCopies";
+            dataGridViewCopies.RowTemplate.Height = 25;
+            dataGridViewCopies.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCopies.Size = new Size(454, 291);
+            dataGridViewCopies.TabIndex = 7;
             // 
             // ManagingResourceCopies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(722, 310);
+            Controls.Add(dataGridViewCopies);
+            Controls.Add(returnToResourcesButton);
+            Controls.Add(addCopyButton);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ManagingResourceCopies";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = ";";
+            Text = "Resource Copies";
+            TopMost = true;
             Load += ManagingResourceCopies_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCopies).EndInit();
             ResumeLayout(false);
         }
 
@@ -152,8 +167,8 @@
         private Label yearPublishedLabel;
         private Panel panel1;
         private Label typeLabel;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button addCopyButton;
+        private Button returnToResourcesButton;
+        private DataGridView dataGridViewCopies;
     }
 }

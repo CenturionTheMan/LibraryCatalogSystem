@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            reg = new Button();
-            returnToMain = new Button();
-            cencel = new Button();
+            registerButton = new Button();
+            returnToMainButton = new Button();
+            clearButton = new Button();
             firstNameTextBox = new TextBox();
             usernameTextBox = new TextBox();
             passwordTextBox = new TextBox();
@@ -45,82 +45,77 @@
             lastNameTextBox = new TextBox();
             SuspendLayout();
             // 
-            // reg
+            // registerButton
             // 
-            reg.Location = new Point(12, 332);
-            reg.Name = "reg";
-            reg.Size = new Size(460, 35);
-            reg.TabIndex = 0;
-            reg.Text = "Regsiter";
-            reg.UseVisualStyleBackColor = true;
-            reg.Click += reg_Click;
+            registerButton.Location = new Point(12, 332);
+            registerButton.Name = "registerButton";
+            registerButton.Size = new Size(360, 26);
+            registerButton.TabIndex = 0;
+            registerButton.Text = "Regsiter";
+            registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += RegisterButton_Click;
             // 
-            // returnToMain
+            // returnToMainButton
             // 
-            returnToMain.Location = new Point(12, 414);
-            returnToMain.Name = "returnToMain";
-            returnToMain.Size = new Size(460, 35);
-            returnToMain.TabIndex = 1;
-            returnToMain.Text = "Return";
-            returnToMain.UseVisualStyleBackColor = true;
-            returnToMain.Click += returnToMain_Click;
+            returnToMainButton.Location = new Point(12, 396);
+            returnToMainButton.Name = "returnToMainButton";
+            returnToMainButton.Size = new Size(360, 26);
+            returnToMainButton.TabIndex = 1;
+            returnToMainButton.Text = "Return";
+            returnToMainButton.UseVisualStyleBackColor = true;
+            returnToMainButton.Click += ReturnToMainButton_Click;
             // 
-            // cencel
+            // clearButton
             // 
-            cencel.Location = new Point(12, 373);
-            cencel.Name = "cencel";
-            cencel.Size = new Size(460, 35);
-            cencel.TabIndex = 2;
-            cencel.Text = "Cancel";
-            cencel.UseVisualStyleBackColor = true;
-            cencel.Click += cencel_Click;
+            clearButton.Location = new Point(13, 364);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new Size(360, 26);
+            clearButton.TabIndex = 2;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += ClearButton_Click;
             // 
             // firstNameTextBox
             // 
-            firstNameTextBox.Location = new Point(12, 37);
+            firstNameTextBox.Location = new Point(13, 30);
             firstNameTextBox.Name = "firstNameTextBox";
-            firstNameTextBox.Size = new Size(460, 23);
+            firstNameTextBox.Size = new Size(360, 23);
             firstNameTextBox.TabIndex = 3;
-            firstNameTextBox.TextChanged += firstNameTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
             usernameTextBox.Location = new Point(12, 141);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(460, 23);
+            usernameTextBox.Size = new Size(360, 23);
             usernameTextBox.TabIndex = 4;
-            usernameTextBox.TextChanged += usernameTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
             passwordTextBox.Location = new Point(12, 196);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(460, 23);
+            passwordTextBox.Size = new Size(360, 23);
             passwordTextBox.TabIndex = 5;
             passwordTextBox.UseSystemPasswordChar = true;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // confirmPasswordTextBox
             // 
             confirmPasswordTextBox.Location = new Point(12, 250);
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            confirmPasswordTextBox.Size = new Size(460, 23);
+            confirmPasswordTextBox.Size = new Size(360, 23);
             confirmPasswordTextBox.TabIndex = 6;
             confirmPasswordTextBox.UseSystemPasswordChar = true;
-            confirmPasswordTextBox.TextChanged += confirmPasswordTextBox_TextChanged;
             // 
             // keyTextBox
             // 
             keyTextBox.Location = new Point(12, 303);
             keyTextBox.Name = "keyTextBox";
-            keyTextBox.Size = new Size(460, 23);
+            keyTextBox.Size = new Size(360, 23);
             keyTextBox.TabIndex = 7;
-            keyTextBox.TextChanged += keyTextBox_TextChanged;
             // 
             // firstNameLabel
             // 
             firstNameLabel.AutoSize = true;
-            firstNameLabel.Location = new Point(12, 19);
+            firstNameLabel.Location = new Point(12, 12);
             firstNameLabel.Name = "firstNameLabel";
             firstNameLabel.Size = new Size(64, 15);
             firstNameLabel.TabIndex = 8;
@@ -165,7 +160,7 @@
             // lastNameLabel
             // 
             lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new Point(12, 73);
+            lastNameLabel.Location = new Point(13, 71);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.Size = new Size(63, 15);
             lastNameLabel.TabIndex = 14;
@@ -175,15 +170,14 @@
             // 
             lastNameTextBox.Location = new Point(12, 89);
             lastNameTextBox.Name = "lastNameTextBox";
-            lastNameTextBox.Size = new Size(460, 23);
+            lastNameTextBox.Size = new Size(360, 23);
             lastNameTextBox.TabIndex = 13;
-            lastNameTextBox.TextChanged += lastNameTextBox_TextChanged;
             // 
             // RegistrationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 461);
+            ClientSize = new Size(383, 428);
             Controls.Add(lastNameLabel);
             Controls.Add(lastNameTextBox);
             Controls.Add(keylabel);
@@ -196,9 +190,11 @@
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
             Controls.Add(firstNameTextBox);
-            Controls.Add(cencel);
-            Controls.Add(returnToMain);
-            Controls.Add(reg);
+            Controls.Add(clearButton);
+            Controls.Add(returnToMainButton);
+            Controls.Add(registerButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "RegistrationForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
@@ -208,9 +204,9 @@
 
         #endregion
 
-        private Button reg;
-        private Button returnToMain;
-        private Button cencel;
+        private Button registerButton;
+        private Button returnToMainButton;
+        private Button clearButton;
         private TextBox firstNameTextBox;
         private TextBox usernameTextBox;
         private TextBox passwordTextBox;

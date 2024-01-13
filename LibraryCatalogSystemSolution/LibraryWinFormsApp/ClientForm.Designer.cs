@@ -28,75 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewBorrowedResources = new DataGridView();
-            showBorrowedResources = new Button();
-            showBorrowRequests = new Button();
-            browseResources = new Button();
-            logOut = new Button();
+            dataGridViewClient = new DataGridView();
+            borrowedResourcesButton = new Button();
+            borrowRequestsButton = new Button();
+            allResourcesButton = new Button();
+            logOutButton = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             firstNameLabel = new Label();
             panel1 = new Panel();
             lastNameLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBorrowedResources).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClient).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridViewBorrowedResources
+            // dataGridViewClient
             // 
-            dataGridViewBorrowedResources.BackgroundColor = SystemColors.Control;
-            dataGridViewBorrowedResources.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBorrowedResources.Location = new Point(254, 12);
-            dataGridViewBorrowedResources.Name = "dataGridViewBorrowedResources";
-            dataGridViewBorrowedResources.RowTemplate.Height = 25;
-            dataGridViewBorrowedResources.Size = new Size(998, 657);
-            dataGridViewBorrowedResources.TabIndex = 0;
+            dataGridViewClient.AllowUserToAddRows = false;
+            dataGridViewClient.AllowUserToDeleteRows = false;
+            dataGridViewClient.AllowUserToResizeColumns = false;
+            dataGridViewClient.AllowUserToResizeRows = false;
+            dataGridViewClient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewClient.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewClient.BackgroundColor = SystemColors.Control;
+            dataGridViewClient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClient.Location = new Point(12, 118);
+            dataGridViewClient.MultiSelect = false;
+            dataGridViewClient.Name = "dataGridViewClient";
+            dataGridViewClient.RowTemplate.Height = 25;
+            dataGridViewClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewClient.Size = new Size(1240, 622);
+            dataGridViewClient.TabIndex = 0;
             // 
-            // showBorrowedResources
+            // borrowedResourcesButton
             // 
-            showBorrowedResources.Location = new Point(12, 250);
-            showBorrowedResources.Name = "showBorrowedResources";
-            showBorrowedResources.Size = new Size(219, 44);
-            showBorrowedResources.TabIndex = 1;
-            showBorrowedResources.Text = "My borrowed books";
-            showBorrowedResources.UseVisualStyleBackColor = true;
-            showBorrowedResources.Click += showBorrowedResources_Click;
+            borrowedResourcesButton.Location = new Point(12, 72);
+            borrowedResourcesButton.Name = "borrowedResourcesButton";
+            borrowedResourcesButton.Size = new Size(340, 40);
+            borrowedResourcesButton.TabIndex = 1;
+            borrowedResourcesButton.Text = "My Borrowed Resources";
+            borrowedResourcesButton.UseVisualStyleBackColor = true;
+            borrowedResourcesButton.Click += borrowedResourcesButton_Click;
             // 
-            // showBorrowRequests
+            // borrowRequestsButton
             // 
-            showBorrowRequests.Location = new Point(12, 314);
-            showBorrowRequests.Name = "showBorrowRequests";
-            showBorrowRequests.Size = new Size(219, 40);
-            showBorrowRequests.TabIndex = 2;
-            showBorrowRequests.Text = "My requests";
-            showBorrowRequests.UseVisualStyleBackColor = true;
-            showBorrowRequests.Click += showBorrowRequests_Click;
+            borrowRequestsButton.Location = new Point(372, 72);
+            borrowRequestsButton.Name = "borrowRequestsButton";
+            borrowRequestsButton.Size = new Size(340, 40);
+            borrowRequestsButton.TabIndex = 2;
+            borrowRequestsButton.Text = "My Requests";
+            borrowRequestsButton.UseVisualStyleBackColor = true;
+            borrowRequestsButton.Click += borrowRequestsButton_Click;
             // 
-            // browseResources
+            // allResourcesButton
             // 
-            browseResources.Location = new Point(12, 370);
-            browseResources.Name = "browseResources";
-            browseResources.Size = new Size(214, 40);
-            browseResources.TabIndex = 3;
-            browseResources.Text = "Browse resources";
-            browseResources.UseVisualStyleBackColor = true;
-            browseResources.Click += browseResources_Click;
+            allResourcesButton.Location = new Point(12, 12);
+            allResourcesButton.Name = "allResourcesButton";
+            allResourcesButton.Size = new Size(700, 40);
+            allResourcesButton.TabIndex = 3;
+            allResourcesButton.Text = "Browse the Library's resources";
+            allResourcesButton.UseVisualStyleBackColor = true;
+            allResourcesButton.Click += allResourcesButton_Click;
             // 
-            // logOut
+            // logOutButton
             // 
-            logOut.Location = new Point(7, 165);
-            logOut.Name = "logOut";
-            logOut.Size = new Size(196, 41);
-            logOut.TabIndex = 7;
-            logOut.Text = "Log Out";
-            logOut.UseVisualStyleBackColor = true;
-            logOut.Click += logOut_Click;
+            logOutButton.Location = new Point(266, 30);
+            logOutButton.Name = "logOutButton";
+            logOutButton.Size = new Size(234, 40);
+            logOutButton.TabIndex = 7;
+            logOutButton.Text = "Log Out";
+            logOutButton.UseVisualStyleBackColor = true;
+            logOutButton.Click += logOutButton_Click;
             // 
             // firstNameLabel
             // 
-            firstNameLabel.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            firstNameLabel.Location = new Point(7, 12);
+            firstNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            firstNameLabel.Location = new Point(10, 13);
             firstNameLabel.Name = "firstNameLabel";
-            firstNameLabel.Size = new Size(196, 51);
+            firstNameLabel.Size = new Size(250, 30);
             firstNameLabel.TabIndex = 9;
             firstNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -106,18 +114,18 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(lastNameLabel);
             panel1.Controls.Add(firstNameLabel);
-            panel1.Controls.Add(logOut);
-            panel1.Location = new Point(12, 12);
+            panel1.Controls.Add(logOutButton);
+            panel1.Location = new Point(736, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(219, 217);
+            panel1.Size = new Size(516, 100);
             panel1.TabIndex = 12;
             // 
             // lastNameLabel
             // 
-            lastNameLabel.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lastNameLabel.Location = new Point(7, 97);
+            lastNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lastNameLabel.Location = new Point(10, 57);
             lastNameLabel.Name = "lastNameLabel";
-            lastNameLabel.Size = new Size(196, 51);
+            lastNameLabel.Size = new Size(250, 30);
             lastNameLabel.TabIndex = 10;
             lastNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -126,27 +134,28 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1262, 752);
             Controls.Add(panel1);
-            Controls.Add(browseResources);
-            Controls.Add(showBorrowRequests);
-            Controls.Add(showBorrowedResources);
-            Controls.Add(dataGridViewBorrowedResources);
+            Controls.Add(allResourcesButton);
+            Controls.Add(borrowRequestsButton);
+            Controls.Add(borrowedResourcesButton);
+            Controls.Add(dataGridViewClient);
             Name = "ClientForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Client";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBorrowedResources).EndInit();
+            TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClient).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridViewBorrowedResources;
-        private Button showBorrowedResources;
-        private Button showBorrowRequests;
-        private Button browseResources;
-        private Button logOut;
+        private DataGridView dataGridViewClient;
+        private Button borrowedResourcesButton;
+        private Button borrowRequestsButton;
+        private Button allResourcesButton;
+        private Button logOutButton;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Label firstNameLabel;
         private Panel panel1;

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
 using LibraryDatabaseAPI;
+using LibraryWinFormsApp.Properties;
+using Microsoft.VisualBasic;
 
 namespace LibraryWinFormsApp
 {
@@ -12,43 +15,178 @@ namespace LibraryWinFormsApp
 
         LibraryDatabaseApi api;
 
-        // Konstruktor z dodanym parametrem resourceID
+        // Constructor with added resourceId parameter
         public ManagingResourceCopies(int resourceID)
         {
-            this.TopMost = true;
             this.currentResourceID = resourceID;
             InitializeComponent();
 
-            // Inicjalizacja LibraryDatabaseApi
+            // Initialize LibraryDatabaseApi
             api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
 
-            // Wywołanie metody ładującej dane przy otwarciu formularza
+            dataGridViewCopies.CellContentClick += DataGridViewCopies_CellContentClick;
+
+            // Call the method to load data when the form is opened
             ManagingResourceCopies_Load(this, EventArgs.Empty);
+        }
+
+        private void ReturnToResourcesButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void ManagingResourceCopies_Load(object sender, EventArgs e)
         {
-            // Pobierz informacje o zasobie na podstawie resourceID
+            // Get information about the resource based on resourceId
             Resource resource = api.GetResources().FirstOrDefault(r => r.ResourceID == currentResourceID);
 
-            // Sprawdź, czy zasób został znaleziony
+            // Check if the resource was found
             if (resource != null)
             {
-                // Ustaw wartości etykiet na podstawie informacji o zasobie
+                // Set label values based on resource information
                 resourceIdLabel.Text = $"Resource ID: {resource.ResourceID}";
                 titleLabel.Text = $"Title: {resource.Title}";
                 authorLabel.Text = $"Author: {resource.Author}";
                 yearPublishedLabel.Text = $"Year Published: {resource.YearPublished}";
                 typeLabel.Text = $"Type: {resource.ResourceType}";
+                RefreshCopiesView(currentResourceID);
             }
             else
             {
-                // Jeśli zasób nie został znaleziony, wyświetl komunikat lub podejmij odpowiednie działania
+                // If the resource was not found, display a message or take appropriate action
                 MessageBox.Show("Resource not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close(); // Możesz także zamknąć okno, jeśli zasób nie istnieje
+                this.Close(); // You can also close the window if the resource does not exist
             }
         }
 
-        // Dalsze przetwarzanie z wykorzystaniem resourceID
+        private void AddCopyButton_Click(object sender, EventArgs e)
+        {
+            Resource selectedResource = api.GetResources().FirstOrDefault(resource => resource.ResourceID == currentResourceID);
+
+            DialogResult result = MessageBox.Show($"Do you want to add a new copy of the resource:\n{selectedResource}?", "Confirmation to Add Copy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                bool success = api.PostNewResourceCopy(currentResourceID);
+
+                if (success)
+                {
+                    MessageBox.Show("New copy has been successfully added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshCopiesView(currentResourceID);
+                }
+                else
+                {
+                    MessageBox.Show("Error adding a new copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void RefreshCopiesView(int currentResourceID)
+        {
+            var copies = api.GetResourceCopiesByResource(currentResourceID);
+            var borrowRequests = api.GetBorrowRequestsByResource(currentResourceID);
+
+            if (copies != null && copies.Count > 0)
+            {
+                var modifiedList = copies
+                    .Where(copy => copy.ResourceID == currentResourceID)
+                    .Select(copy =>
+                    {
+                        var borrowRequest = borrowRequests.FirstOrDefault(request => request.CopyID == copy.CopyID
+                            && (request.Status.ToString() == "Approved" || request.Status.ToString() == "Pending"));
+
+                        var isBorrowed = borrowRequest != null;
+                        var dueDate = borrowRequest?.DueDate;
+
+                        return new
+                        {
+                            CopyID = copy.CopyID,
+                            Status = isBorrowed ? "Borrowed" : "Ready",
+                            DueDate = dueDate
+                        };
+                    }).ToList();
+
+                dataGridViewCopies.DataSource = modifiedList;
+
+                if (!dataGridViewCopies.Columns.Contains("Delete"))
+                {
+                    ConfigureDataGridViewColumns(new List<string> { "Delete" });
+                }
+
+                dataGridViewCopies.Columns["CopyID"].DisplayIndex = 0;
+                dataGridViewCopies.Columns["Status"].DisplayIndex = 1;
+                dataGridViewCopies.Columns["DueDate"].DisplayIndex = 2;
+                dataGridViewCopies.Columns["Delete"].DisplayIndex = 3;
+
+                dataGridViewCopies.Columns["CopyID"].HeaderText = "CopyID";
+                dataGridViewCopies.Columns["Status"].HeaderText = "Status";
+                dataGridViewCopies.Columns["DueDate"].HeaderText = "Due Date";
+                dataGridViewCopies.Columns["Delete"].HeaderText = "Delete Copy";
+            }
+            else
+            {
+                ClearDataGridView();
+            }
+        }
+
+        private void DataGridViewCopies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (dataGridViewCopies.Rows[e.RowIndex] != null)
+                {
+                    if (dataGridViewCopies.Columns.Contains("Delete") && e.ColumnIndex == dataGridViewCopies.Columns["Delete"].Index)
+                    {
+                        int copyID = (int)dataGridViewCopies.Rows[e.RowIndex].Cells["CopyID"].Value;
+                        HandleDeleteCopies(copyID);
+                    }
+
+                }
+            }
+        }
+
+        private void HandleDeleteCopies(int toDeleteCopy)
+        {
+
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete copy: {toDeleteCopy}?", "Confirmation to Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                bool success = api.DeleteResourceCopy(toDeleteCopy);
+
+                if (success)
+                {
+                    MessageBox.Show("Copy has been successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshCopiesView(currentResourceID);
+                }
+                else
+                {
+                    MessageBox.Show("Error deleting the copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void ConfigureDataGridViewColumns(List<string> columnNames)
+        {
+            foreach (var columnName in columnNames)
+            {
+                DataGridViewButtonColumn columnNameButton = new DataGridViewButtonColumn
+                {
+                    Name = columnName,
+                    Text = columnName,
+                    UseColumnTextForButtonValue = true
+                };
+
+                dataGridViewCopies.Columns.Add(columnNameButton);
+            }
+        }
+
+        private void ClearDataGridView()
+        {
+            dataGridViewCopies.DataSource = null;
+            dataGridViewCopies.Rows.Clear();
+            dataGridViewCopies.Columns.Clear();
+        }
     }
 }

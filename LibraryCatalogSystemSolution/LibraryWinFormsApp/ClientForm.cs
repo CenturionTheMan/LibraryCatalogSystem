@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using LibraryDatabaseAPI;
-using LibraryWinFormsApp.Properties;
+﻿using LibraryDatabaseAPI;
 
 namespace LibraryWinFormsApp
 {
@@ -15,146 +12,145 @@ namespace LibraryWinFormsApp
 
         public ClientForm(User user)
         {
-            this.TopMost = true;
             this.currentUser = user;
             InitializeComponent();
 
-            // Inicjalizacja LibraryDatabaseApi
+            // Initialize the LibraryDatabaseApi
             api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
 
-            // Wyświetl informacje o użytkowniku
+            // Display user information
             firstNameLabel.Text += currentUser.FirstName;
             lastNameLabel.Text += currentUser.LastName;
-            // Dodanie obsługi zdarzenia CellContentClick
-            dataGridViewBorrowedResources.CellContentClick += dataGridViewBorrowedResources_CellContentClick;
+            // Add CellContentClick event handling
+            dataGridViewClient.CellContentClick += dataGridViewClient_CellContentClick;
         }
 
-        private void logOut_Click(object sender, EventArgs e)
+        private void dataGridViewClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridViewClient.Rows[e.RowIndex] != null)
+            {
+                string column = dataGridViewClient.Columns[e.ColumnIndex].Name;
+
+                switch (column)
+                {
+                    case "Borrow":
+                        HandleBorrowRequest((int)dataGridViewClient.Rows[e.RowIndex].Cells["ResourceID"].Value);
+                        break;
+                    case "Extend":
+                        HandleExtendRental((int)dataGridViewClient.Rows[e.RowIndex].Cells["RequestID"].Value);
+                        break;
+                }
+            }
+        }
+
+        private void ConfigureDataGridViewColumns(List<string> columnNames)
+        {
+            foreach (var columnName in columnNames)
+            {
+                DataGridViewButtonColumn columnNameButton = new DataGridViewButtonColumn
+                {
+                    Name = columnName,
+                    Text = columnName,
+                    UseColumnTextForButtonValue = true
+                };
+
+                dataGridViewClient.Columns.Add(columnNameButton);
+            }
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void showBorrowedResources_Click(object sender, EventArgs e)
+        private void borrowedResourcesButton_Click(object sender, EventArgs e)
         {
             RefreshBorrowedResourcesView();
         }
 
-        private void showBorrowRequests_Click(object sender, EventArgs e)
+        private void borrowRequestsButton_Click(object sender, EventArgs e)
         {
             RefreshBorrowRequestsView();
         }
 
-        private void browseResources_Click(object sender, EventArgs e)
+        private void allResourcesButton_Click(object sender, EventArgs e)
         {
-            RefreshResourcesView();
+            RefreshAllResourcesView();
         }
-
 
         private void RefreshBorrowedResourcesView()
         {
             var borrowedResources = api.GetResourcesBorrowedByUser(currentUser.UserID);
 
-            if (borrowedResources != null && borrowedResources.Count > 0)
+            if (borrowedResources != null && borrowedResources.Any())
             {
-                // Utwórz nową listę obiektów z interesującymi polami
-                var modifiedList = borrowedResources.Select(resource =>
-                {
-                    // Znajdź zasób na podstawie ResourceID w bazie danych
-                    var resourceCopyCount = GetResourceCopyCount(resource.ResourceID);
-
-                    // Dodaj informacje do listy
-                    return new
-                    {
-                        Title = resource.Title,
-                        Author = resource.Author,
-                        YearPublished = resource.YearPublished,
-                        ResourceType = resource.ResourceType,
-                        Copies = resourceCopyCount,
-                        ResourceID = resource.ResourceID // Dodaj ID zasobu do przekazania do CheckResourceAvailability
-                    };
-                }).ToList();
-
-                // Ustaw nową listę jako źródło danych
-                dataGridViewBorrowedResources.DataSource = modifiedList;
-
-                
-                if (!dataGridViewBorrowedResources.Columns.Contains("CheckAvailability") && !dataGridViewBorrowedResources.Columns.Contains("BorrowRequest"))
-                {
-                    AddCheckAvailabilityButtonColumn();
-                    AddBorrowRequestButtonColumn();
-                }
-                // Ustaw kolejność kolumn w dataGridViewBorrowedResources
-                dataGridViewBorrowedResources.Columns["Title"].DisplayIndex = 0;
-                dataGridViewBorrowedResources.Columns["Author"].DisplayIndex = 1;
-                dataGridViewBorrowedResources.Columns["YearPublished"].DisplayIndex = 2;
-                dataGridViewBorrowedResources.Columns["ResourceType"].DisplayIndex = 3;
-                dataGridViewBorrowedResources.Columns["Copies"].DisplayIndex = 4;
-                dataGridViewBorrowedResources.Columns["CheckAvailability"].DisplayIndex = 5;
-                dataGridViewBorrowedResources.Columns["BorrowRequest"].DisplayIndex = 6;
-                dataGridViewBorrowedResources.Columns["ResourceID"].Visible = false;
-
-                if (dataGridViewBorrowedResources.Columns.Contains("ExtendRental"))
-                {
-                    dataGridViewBorrowedResources.Columns.Remove("ExtendRental");
-                }
+                RefreshResourcesView(borrowedResources);
             }
             else
             {
-                MessageBox.Show("Brak wypożyczonych zasobów.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No borrowed resources.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void RefreshResourcesView()
+        private void RefreshAllResourcesView()
         {
             var resources = api.GetResources();
 
-            if (resources != null && resources.Count > 0)
+            if (resources != null && resources.Any())
             {
-                var modifiedList = resources.Select(resource =>
-                {
-                    // Znajdź ilość kopii danego zasobu
-                    var resourceCopyCount = GetResourceCopyCount(resource.ResourceID);
-
-                    // Dodaj informacje do listy
-                    return new
-                    {
-                        Title = resource.Title,
-                        Author = resource.Author,
-                        YearPublished = resource.YearPublished,
-                        ResourceType = resource.ResourceType,
-                        Copies = resourceCopyCount,
-                        ResourceID = resource.ResourceID 
-                    };
-                }).ToList();
-
-                // Ustaw nową listę jako źródło danych
-                dataGridViewBorrowedResources.DataSource = modifiedList;
-
-                if (!dataGridViewBorrowedResources.Columns.Contains("CheckAvailability") && !dataGridViewBorrowedResources.Columns.Contains("BorrowRequest"))
-                {
-                    AddCheckAvailabilityButtonColumn();
-                    AddBorrowRequestButtonColumn();
-                }
-                // Ustaw kolejność kolumn w dataGridViewBorrowedResources
-                dataGridViewBorrowedResources.Columns["Title"].DisplayIndex = 0;
-                dataGridViewBorrowedResources.Columns["Author"].DisplayIndex = 1;
-                dataGridViewBorrowedResources.Columns["YearPublished"].DisplayIndex = 2;
-                dataGridViewBorrowedResources.Columns["ResourceType"].DisplayIndex = 3;
-                dataGridViewBorrowedResources.Columns["Copies"].DisplayIndex = 4;
-                dataGridViewBorrowedResources.Columns["CheckAvailability"].DisplayIndex = 5;
-                dataGridViewBorrowedResources.Columns["BorrowRequest"].DisplayIndex = 6;
-                dataGridViewBorrowedResources.Columns["ResourceID"].Visible = false;
-
-
-                if (dataGridViewBorrowedResources.Columns.Contains("ExtendRental"))
-                {
-                    dataGridViewBorrowedResources.Columns.Remove("ExtendRental");
-                }
+                RefreshResourcesView(resources);
             }
             else
             {
-                MessageBox.Show("Brak zasobów w bibliotece.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No resources in the library.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void RefreshResourcesView(IEnumerable<Resource> source)
+        {
+            var modifiedList = source.Select(resource =>
+            {
+                var resourceAvailability = GetResourceAvailabilityForClient(resource.ResourceID);
+
+                // Add information to the list
+                return new
+                {
+                    Title = resource.Title,
+                    Author = resource.Author,
+                    YearPublished = resource.YearPublished,
+                    ResourceType = resource.ResourceType,
+                    Availability = resourceAvailability,
+                    ResourceID = resource.ResourceID
+                };
+            }).ToList();
+
+            ClearDataGridView();
+
+            // Set the new list as the data source
+            dataGridViewClient.DataSource = modifiedList;
+
+            if (!dataGridViewClient.Columns.Contains("Borrow"))
+            {
+                ConfigureDataGridViewColumns(new List<string> { "Borrow" });
+            }
+
+            // Set the column order in dataGridViewClient
+            dataGridViewClient.Columns["Title"].DisplayIndex = 0;
+            dataGridViewClient.Columns["Author"].DisplayIndex = 1;
+            dataGridViewClient.Columns["YearPublished"].DisplayIndex = 2;
+            dataGridViewClient.Columns["ResourceType"].DisplayIndex = 3;
+            dataGridViewClient.Columns["Availability"].DisplayIndex = 4;
+            dataGridViewClient.Columns["Borrow"].DisplayIndex = 5;
+
+            dataGridViewClient.Columns["ResourceID"].Visible = false;
+
+            dataGridViewClient.Columns["Title"].HeaderText = "Title";
+            dataGridViewClient.Columns["Author"].HeaderText = "Author";
+            dataGridViewClient.Columns["YearPublished"].HeaderText = "Year of Publication";
+            dataGridViewClient.Columns["ResourceType"].HeaderText = "Type";
+            dataGridViewClient.Columns["Availability"].HeaderText = "Number of Copies Available";
+            dataGridViewClient.Columns["Borrow"].HeaderText = "Borrow a Resource";
+
         }
 
         private void RefreshBorrowRequestsView()
@@ -163,17 +159,17 @@ namespace LibraryWinFormsApp
 
             if (borrowRequests != null && borrowRequests.Count > 0)
             {
-                // Utwórz nową listę obiektów z interesującymi polami
+                // Create a new list of objects with relevant fields
                 var modifiedList = new List<object>();
 
                 foreach (var request in borrowRequests)
                 {
-                    // Znajdź zasób na podstawie ResourceID w bazie danych
+                    // Find the resource based on ResourceID in the database
                     var resource = api.GetResources().FirstOrDefault(r => r.ResourceID == request.ResourceID);
 
                     if (resource != null)
                     {
-                        // Dodaj informacje do listy
+                        // Add information to the list
                         modifiedList.Add(new
                         {
                             RequestID = request.RequestID,
@@ -187,157 +183,88 @@ namespace LibraryWinFormsApp
                     }
                 }
 
-                // Ustaw nową listę jako źródło danych
-                dataGridViewBorrowedResources.DataSource = modifiedList;
+                ClearDataGridView();
 
-                if (!dataGridViewBorrowedResources.Columns.Contains("ExtendRental"))
+                // Set the new list as the data source
+                dataGridViewClient.DataSource = modifiedList;
+
+                if (!dataGridViewClient.Columns.Contains("Extend"))
                 {
-                    AddExtendRentalButtonColumn(); 
+                    ConfigureDataGridViewColumns(new List<string> { "Extend" });
                 }
 
-                // Ustaw kolejność kolumn w dataGridViewBorrowedResources
-                dataGridViewBorrowedResources.Columns["RequestID"].DisplayIndex = 0;
-                dataGridViewBorrowedResources.Columns["Status"].DisplayIndex = 1;
-                dataGridViewBorrowedResources.Columns["Title"].DisplayIndex = 2;
-                dataGridViewBorrowedResources.Columns["RequestDate"].DisplayIndex = 3;
-                dataGridViewBorrowedResources.Columns["DueDate"].DisplayIndex = 4;
-                dataGridViewBorrowedResources.Columns["Author"].DisplayIndex = 5;
-                dataGridViewBorrowedResources.Columns["ResourceType"].DisplayIndex = 6;
-                dataGridViewBorrowedResources.Columns["ExtendRental"].DisplayIndex = 7;
+                dataGridViewClient.Columns["RequestID"].DisplayIndex = 0;
+                dataGridViewClient.Columns["Status"].DisplayIndex = 1;
+                dataGridViewClient.Columns["Title"].DisplayIndex = 2;
+                dataGridViewClient.Columns["RequestDate"].DisplayIndex = 3;
+                dataGridViewClient.Columns["DueDate"].DisplayIndex = 4;
+                dataGridViewClient.Columns["Author"].DisplayIndex = 5;
+                dataGridViewClient.Columns["ResourceType"].DisplayIndex = 6;
+                dataGridViewClient.Columns["Extend"].DisplayIndex = 7;
 
-                string[] columnsToRemove = { "CheckAvailability", "BorrowRequest" };
 
-                foreach (string columnName in columnsToRemove)
-                {
-                    if (dataGridViewBorrowedResources.Columns.Contains(columnName))
-                    {
-                        dataGridViewBorrowedResources.Columns.Remove(columnName);
-                    }
-                }
+                dataGridViewClient.Columns["RequestID"].HeaderText = "Request ID";
+                dataGridViewClient.Columns["Status"].HeaderText = "Status";
+                dataGridViewClient.Columns["Title"].HeaderText = "Title";
+                dataGridViewClient.Columns["RequestDate"].HeaderText = "Request Date";
+                dataGridViewClient.Columns["DueDate"].HeaderText = "Due Date";
+                dataGridViewClient.Columns["Author"].HeaderText = "Author";
+                dataGridViewClient.Columns["ResourceType"].HeaderText = "Type";
+                dataGridViewClient.Columns["Extend"].HeaderText = "Extend Renatal";
 
             }
             else
             {
-                MessageBox.Show("Brak próśb o wypożyczenie.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No borrow requests found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void dataGridViewBorrowedResources_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // Sprawdź, czy wiersz nie jest null
-                if (dataGridViewBorrowedResources.Rows[e.RowIndex] != null)
-                {
-                    // Sprawdź, czy kliknięto w kolumnę "CheckAvailability"
-                    if (dataGridViewBorrowedResources.Columns.Contains("CheckAvailability") &&
-                        e.ColumnIndex == dataGridViewBorrowedResources.Columns["CheckAvailability"].Index)
-                    {
-                        int resourceID = (int)dataGridViewBorrowedResources.Rows[e.RowIndex].Cells["ResourceID"].Value;
-                        HandleCheckResourceAvailability(resourceID);
-                    }
-                    // Sprawdź, czy kliknięto w kolumnę "BorrowRequest"
-                    else if (dataGridViewBorrowedResources.Columns.Contains("BorrowRequest") &&
-                             e.ColumnIndex == dataGridViewBorrowedResources.Columns["BorrowRequest"].Index)
-                    {
-                        int resourceID = (int)dataGridViewBorrowedResources.Rows[e.RowIndex].Cells["ResourceID"].Value;
-                        HandleBorrowRequest(resourceID);
-                    }
-                    // Sprawdź, czy kliknięto w kolumnę "ExtendRental"
-                    else if (dataGridViewBorrowedResources.Columns.Contains("ExtendRental") &&
-                             e.ColumnIndex == dataGridViewBorrowedResources.Columns["ExtendRental"].Index)
-                    {
-                        int requestID = (int)dataGridViewBorrowedResources.Rows[e.RowIndex].Cells["RequestID"].Value;
-                        HandleExtendRental(requestID);
-                    }
-                }
-            }
-        }
-
-
-        private void HandleCheckResourceAvailability(int resourceID)
-        {
-        
-            // Get resource amounts using the GetResourceAmounts function
-            var resourceAmounts = api.GetResourceAmounts(resourceID);
-
-
-            if (resourceAmounts.HasValue)
-            {
-                int availableCount = resourceAmounts.Value.available;
-
-                // Check availability and display the appropriate message
-                if (availableCount > 0)
-                {
-                    MessageBox.Show($"Product available in quantity {availableCount} units.", "Availability", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Out of stock.", "Availability", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                // Handle the situation where the resource amounts couldn't be retrieved
-                MessageBox.Show("Error retrieving resource amounts.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
 
         private void HandleBorrowRequest(int resourceID)
         {
-            DialogResult result = MessageBox.Show("Czy na pewno chcesz wysłać prośbę o wypożyczenie?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to send a borrow request?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-
-                // Pobierz ilość kopii danego zasobu (resourceID)
-                var resourceCopies = api.GetResourceCopies();
+                // Get the number of copies for the given resourceID
+                var resourceCopies = api.GetResourceCopiesByResource(resourceID);
 
                 if (resourceCopies != null)
                 {
-                    // Pobierz ilość kopii danego zasobu
-                    int copiesCount = resourceCopies.Count(copy => copy.ResourceID == resourceID);
 
-                    // Pobierz ilość wypożyczeń danego zasobu
-                    var borrowRequests = api.GetBorrowRequests();
-                    int borrowedCount = borrowRequests?.Count(request => request.ResourceID == resourceID) ?? 0;
+                    // Calculate the available quantity
+                    int availableCount = GetResourceAvailabilityForClient(resourceID);
 
-                    // Oblicz dostępną ilość sztuk
-                    int availableCount = copiesCount - borrowedCount;
-
-                    // Sprawdź dostępność
+                    // Check availability
                     if (availableCount > 0)
                     {
-                        // Dostępne sztuki - utwórz nowe żądanie wypożyczenia
+                        // Available copies - create a new borrow request
 
                         DateOnly requestDate = DateOnly.FromDateTime(DateTime.Now);
 
-                        // Stwórz nowe żądanie wypożyczenia
+                        // Create a new borrow request
                         bool requestSuccess = api.PostNewBorrowRequest(currentUser.UserID, resourceID, requestDate, null, null, Status.Pending);
 
                         if (requestSuccess)
                         {
-                            MessageBox.Show("Wysłano prośbę o wypożyczenie.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Borrow request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RefreshBorrowRequestsView();
-                            // Możesz również zaktualizować interfejs użytkownika lub wykonać dodatkowe czynności.
+                            // You can also update the user interface or perform additional actions.
                         }
                         else
                         {
-                            MessageBox.Show("Błąd podczas wysyłania prośby o wypożyczenie.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Error sending borrow request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        // Brak dostępności
-                        MessageBox.Show("Brak dostępności.", "Dostępność", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // No availability
+                        MessageBox.Show("No availability.", "Availability", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    // Obsłuż sytuację, gdy nie uda się pobrać kopii zasobu
-                    MessageBox.Show("Błąd przy pobieraniu ilości kopii.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Handle the situation when it fails to retrieve resource copies
+                    MessageBox.Show("Error retrieving the number of copies.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -345,100 +272,71 @@ namespace LibraryWinFormsApp
         private void HandleExtendRental(int requestID)
         {
 
-            DialogResult result = MessageBox.Show("Czy na pewno chcesz przedłużyć wypożyczenie?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to extend the rental?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                // Pobierz obecny status żądania wypożyczenia
+                // Get the current status of the borrow request
                 var borrowRequests = api.GetBorrowRequests();
                 var selectedRequest = borrowRequests?.FirstOrDefault(request => request.RequestID == requestID);
 
                 if (selectedRequest != null && selectedRequest.Status == Status.Approved && selectedRequest.CopyID.HasValue)
                 {
-                    // Pobierz obecną kopię zasobu dla żądania wypożyczenia
+                    // Get the current resource copy for the borrow request
                     var resourceCopyId = selectedRequest.CopyID;
 
-                    DateOnly newDueDate;
-                    newDueDate = selectedRequest.DueDate.Value.AddDays(7);
-                    
-                   
-                    bool updateSuccess = api.UpdateBorrowRequest(requestID, resourceCopyId, newDueDate, Status.Pending);
+                    DateOnly dueDate = selectedRequest.DueDate.Value;
+
+                    bool updateSuccess = api.UpdateBorrowRequest(requestID, resourceCopyId, dueDate, Status.Pending);
 
                     if (updateSuccess)
                     {
-                        MessageBox.Show("Pomyślnie przedłużono wypożyczenie.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Rental successfully extended.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshBorrowRequestsView();
                     }
                     else
                     {
-                        MessageBox.Show("Błąd podczas przedłużania wypożyczenia.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error extending the rental.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Nieprawidłowy status żądania wypożyczenia do przedłużenia.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid rental state for extension.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } 
+            }
         }
 
-
-
-
-
-
-        private void AddCheckAvailabilityButtonColumn()
+        private int GetResourceAvailabilityForClient(int resourceID)
         {
-            // Dodaj kolumnę z przyciskiem do sprawdzania dostępności
-            DataGridViewButtonColumn checkAvailabilityButtonColumn = new DataGridViewButtonColumn
-            {
-                Name = "CheckAvailability",
-                Text = "Check",
-                UseColumnTextForButtonValue = true
-            };
-            dataGridViewBorrowedResources.Columns.Add(checkAvailabilityButtonColumn);
-        }
-
-        private void AddBorrowRequestButtonColumn()
-        {
-            DataGridViewButtonColumn borrowRequestButtonColumn = new DataGridViewButtonColumn
-            {
-                Name = "BorrowRequest",
-                Text = "Borrow Request",
-                UseColumnTextForButtonValue = true
-            };
-            dataGridViewBorrowedResources.Columns.Add(borrowRequestButtonColumn);
-        }
-
-        private void AddExtendRentalButtonColumn()
-        {
-            DataGridViewButtonColumn borrowRequestButtonColumn = new DataGridViewButtonColumn
-            {
-                Name = "ExtendRental",
-                Text = "Extend Rental",
-                UseColumnTextForButtonValue = true
-            };
-            dataGridViewBorrowedResources.Columns.Add(borrowRequestButtonColumn);
-        }
-
-
-
-        private int GetResourceCopyCount(int resourceID)
-        {
-            // Pobierz ilość kopii danego zasobu (resourceID)
+            // Get resource amounts using the GetResourceAmounts function
             var resourceAmounts = api.GetResourceAmounts(resourceID);
 
+            // Check if resource amounts retrieval was successful
             if (resourceAmounts.HasValue)
             {
-                // Zwróć ilość kopii danego zasobu
-                return resourceAmounts.Value.amount;
+                // Get the total amount of resources
+                int totalAmount = resourceAmounts.Value.amount;
+
+                // Get the count of borrow requests with status "Pending" or "Approved"
+                var borrowRequests = api.GetBorrowRequestsByResource(resourceID);
+                int requestCount = borrowRequests?.Count(request => request.Status == Status.Pending || request.Status == Status.Approved) ?? 0;
+
+                // Calculate and return the available resource count
+                int availableResources = totalAmount - requestCount;
+                return availableResources;
             }
             else
             {
-                // Obsłuż sytuację, gdy nie uda się pobrać ilości zasobu
-                return -1; // Lub inna wartość oznaczająca błąd
+                MessageBox.Show("Error retrieving resource avaible amounts.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
             }
         }
 
+        private void ClearDataGridView()
+        {
+            dataGridViewClient.DataSource = null;
+            dataGridViewClient.Rows.Clear();
+            dataGridViewClient.Columns.Clear();
+        }
     }
-
 }

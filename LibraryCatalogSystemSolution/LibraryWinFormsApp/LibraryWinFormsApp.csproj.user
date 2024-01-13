@@ -10,6 +10,12 @@
     <Compile Update="AddResourceForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AcceptRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExtendRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ManagingResourceCopies.cs">
       <SubType>Form</SubType>
     </Compile>

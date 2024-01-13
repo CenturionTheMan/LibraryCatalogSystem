@@ -19,66 +19,59 @@ namespace LibraryWinFormsApp
             InitializeComponent();
         }
 
-        private void returnToMain_Click(object sender, EventArgs e)
+        private void ReturnToMainButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void log_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            // Pobieranie danych z formularza
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
 
-            // Weryfikacja użytkownika przy użyciu bazy danych
             User user = api.GetUserByLogin(username);
 
             if (user != null && user.Password == password)
             {
-                MessageBox.Show("Logowanie udane!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DialogResult = DialogResult.OK;
-                // Otwieranie odpowiedniego panelu w zależności od UserType
                 OpenUserPanel(user);
-                // Czyszczenie wpisanych danych
                 usernameTextBox.Text = string.Empty;
                 passwordTextBox.Text = string.Empty;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Błędne dane logowania!", "Błąd logowania", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid login credentials!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
-            // Czyszczenie wpisanych danych
             usernameTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;
         }
 
         private void OpenUserPanel(User user)
         {
-            // Otwieranie odpowiedniego panelu w zależności od UserType
             if (user.UserType == UserType.Employee)
             {
-                // Utwórz i otwórz panel pracownika
+                // Open Employee Form
                 EmployeeForm employeeForm = new EmployeeForm(user);
                 employeeForm.Show();
             }
             else if (user.UserType == UserType.Client)
             {
-                // Utwórz i otwórz panel klienta
+                // Open Client Form
                 ClientForm clientForm = new ClientForm(user);
                 clientForm.Show();
             }
-            // Dodaj inne przypadki, jeśli występują inne UserType
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            // Additional initialization code can be added here if needed.
         }
     }
 }

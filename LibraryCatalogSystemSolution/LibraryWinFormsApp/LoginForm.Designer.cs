@@ -32,14 +32,14 @@
             usernameTextBox = new TextBox();
             usernameLabel = new Label();
             passwordLabel = new Label();
-            log = new Button();
-            cancel = new Button();
-            returnToMain = new Button();
+            loginButton = new Button();
+            clearButton = new Button();
+            returnToMainButton = new Button();
             SuspendLayout();
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(12, 131);
+            passwordTextBox.Location = new Point(12, 88);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(360, 23);
             passwordTextBox.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(12, 60);
+            usernameTextBox.Location = new Point(12, 30);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(360, 23);
             usernameTextBox.TabIndex = 1;
@@ -55,7 +55,7 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(12, 42);
+            usernameLabel.Location = new Point(12, 12);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(60, 15);
             usernameLabel.TabIndex = 2;
@@ -64,54 +64,57 @@
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(12, 113);
+            passwordLabel.Location = new Point(12, 70);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(57, 15);
             passwordLabel.TabIndex = 3;
             passwordLabel.Text = "Password";
             // 
-            // log
+            // loginButton
             // 
-            log.Location = new Point(12, 194);
-            log.Name = "log";
-            log.Size = new Size(360, 26);
-            log.TabIndex = 4;
-            log.Text = "Login";
-            log.UseVisualStyleBackColor = true;
-            log.Click += log_Click;
+            loginButton.Location = new Point(12, 117);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(360, 26);
+            loginButton.TabIndex = 4;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += LoginButton_Click;
             // 
-            // cancel
+            // clearButton
             // 
-            cancel.Location = new Point(12, 237);
-            cancel.Name = "cancel";
-            cancel.Size = new Size(360, 26);
-            cancel.TabIndex = 5;
-            cancel.Text = "Cancel";
-            cancel.UseVisualStyleBackColor = true;
-            cancel.Click += cancel_Click;
+            clearButton.Location = new Point(12, 149);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new Size(360, 26);
+            clearButton.TabIndex = 5;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += ClearButton_Click;
             // 
-            // returnToMain
+            // returnToMainButton
             // 
-            returnToMain.Location = new Point(12, 282);
-            returnToMain.Name = "returnToMain";
-            returnToMain.Size = new Size(360, 26);
-            returnToMain.TabIndex = 6;
-            returnToMain.Text = "Return";
-            returnToMain.UseVisualStyleBackColor = true;
-            returnToMain.Click += returnToMain_Click;
+            returnToMainButton.Location = new Point(12, 181);
+            returnToMainButton.Name = "returnToMainButton";
+            returnToMainButton.Size = new Size(360, 26);
+            returnToMainButton.TabIndex = 6;
+            returnToMainButton.Text = "Return";
+            returnToMainButton.UseVisualStyleBackColor = true;
+            returnToMainButton.Click += ReturnToMainButton_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 361);
-            Controls.Add(returnToMain);
-            Controls.Add(cancel);
-            Controls.Add(log);
+            ClientSize = new Size(384, 214);
+            Controls.Add(returnToMainButton);
+            Controls.Add(clearButton);
+            Controls.Add(loginButton);
             Controls.Add(passwordLabel);
             Controls.Add(usernameLabel);
             Controls.Add(usernameTextBox);
             Controls.Add(passwordTextBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            KeyPreview = true;
+            MaximizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
@@ -126,8 +129,8 @@
         private TextBox usernameTextBox;
         private Label usernameLabel;
         private Label passwordLabel;
-        private Button log;
-        private Button cancel;
-        private Button returnToMain;
+        private Button loginButton;
+        private Button clearButton;
+        private Button returnToMainButton;
     }
 }

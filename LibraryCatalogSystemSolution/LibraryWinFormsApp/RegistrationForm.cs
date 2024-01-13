@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System;
 using System.Windows.Forms;
 using LibraryDatabaseAPI;
 
@@ -19,7 +17,7 @@ namespace LibraryWinFormsApp
             InitializeComponent();
         }
 
-        private void reg_Click(object sender, EventArgs e)
+        private void RegisterButton_Click(object sender, EventArgs e)
         {
             string firstName = firstNameTextBox.Text;
             string lastName = lastNameTextBox.Text;
@@ -28,8 +26,6 @@ namespace LibraryWinFormsApp
             string confirmPassword = confirmPasswordTextBox.Text;
             string key = keyTextBox.Text;
 
-
-
             // Check for null or empty values in input fields
             if (string.IsNullOrEmpty(firstName) ||
                 string.IsNullOrEmpty(lastName) ||
@@ -37,97 +33,67 @@ namespace LibraryWinFormsApp
                 string.IsNullOrEmpty(password) ||
                 string.IsNullOrEmpty(confirmPassword))
             {
-                MessageBox.Show("Wypełnij wszystkie wymagane rubryki.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Sprawdź, czy hasła są identyczne
+            // Check if passwords match
             if (password != confirmPassword)
             {
-                MessageBox.Show("Hasła nie są identyczne.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Sprawdź, czy istnieje już użytkownik o podanym loginie
+            // Check if a user with the given username already exists
             var existingUser = api.GetUserByLogin(username);
             if (existingUser != null)
             {
-                MessageBox.Show("Użytkownik o podanym loginie już istnieje.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A user with the provided username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Sprawdź, czy istnieje już użytkownik o podanym imieniu i nazwisku
+            // Check if a user with the given first name and last name already exists
             var existingUserByName = api.GetUsers()?.Find(u => u.FirstName == firstName && u.LastName == lastName);
             if (existingUserByName != null)
             {
-                MessageBox.Show("Użytkownik o podanym imieniu i nazwisku już istnieje.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A user with the provided first name and last name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Jeżeli wpisano poprawny klucz, nadaj odpowiedni UserType
+            // If a valid key is provided, assign the appropriate UserType
             UserType userType = key.ToLower() == "key1" ? UserType.Employee : UserType.Client;
 
-            // Zarejestruj nowego użytkownika
+            // Register a new user
             bool registrationSuccess = api.PostNewUser(firstName, lastName, username, password, userType);
             if (registrationSuccess)
             {
-                MessageBox.Show("Rejestracja zakończona sukcesem!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearTextBoxes();
             }
             else
             {
-                MessageBox.Show("Wystąpił problem podczas rejestracji.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred during registration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void cencel_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
         }
 
-        private void returnToMain_Click(object sender, EventArgs e)
+        private void ReturnToMainButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void ClearTextBoxes()
         {
-            firstNameTextBox.Text = "";
-            lastNameTextBox.Text = "";
-            usernameTextBox.Text = "";
-            passwordTextBox.Text = "";
-            confirmPasswordTextBox.Text = "";
-            keyTextBox.Text = "";
-        }
-
-        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lastNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void confirmPasswordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void keyTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            firstNameTextBox.Text = string.Empty;
+            lastNameTextBox.Text = string.Empty;
+            usernameTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+            confirmPasswordTextBox.Text = string.Empty;
+            keyTextBox.Text = string.Empty;
         }
     }
 }

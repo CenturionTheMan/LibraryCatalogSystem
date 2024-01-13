@@ -17,43 +17,27 @@ namespace LibraryWinFormsApp
             InitializeComponent();
         }
 
-        private void login_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            // Tworzymy tylko jedno okno logowania, jeœli jeszcze nie istnieje
+
             if (loginForm == null || loginForm.IsDisposed)
             {
-                loginForm = new LoginForm(this); // Poprawka: przypisz do pola klasy
+                loginForm = new LoginForm(this);
             }
-            // Otwieramy okno logowania
+
             loginForm.ShowDialog();
         }
 
-        private void register_Click(object sender, EventArgs e)
+        private void SignUpButton_Click(object sender, EventArgs e)
         {
-            // Tworzymy tylko jedno okno rejestracji, jeœli jeszcze nie istnieje
+
             if (registrationForm == null || registrationForm.IsDisposed)
             {
                 registrationForm = new RegistrationForm();
-               
+
             }
 
-            // Otwieramy okno rejestracji
-            registrationForm.Show();
-        }
-
-        public void CloseWelcomeForm()
-        {
-            this.Close();
-        }
-
-        public void HideWelcomeForm()
-        {
-            this.Hide();
-        }
-
-        private void firstLabel_Click(object sender, EventArgs e)
-        {
-
+            registrationForm.ShowDialog();
         }
     }
 }

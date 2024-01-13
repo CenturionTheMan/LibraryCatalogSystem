@@ -42,7 +42,7 @@
             // AuthorLabel
             // 
             AuthorLabel.AutoSize = true;
-            AuthorLabel.Location = new Point(12, 80);
+            AuthorLabel.Location = new Point(12, 62);
             AuthorLabel.Name = "AuthorLabel";
             AuthorLabel.Size = new Size(44, 15);
             AuthorLabel.TabIndex = 7;
@@ -66,7 +66,7 @@
             // 
             // authorTextBox
             // 
-            authorTextBox.Location = new Point(12, 98);
+            authorTextBox.Location = new Point(12, 80);
             authorTextBox.Name = "authorTextBox";
             authorTextBox.Size = new Size(360, 23);
             authorTextBox.TabIndex = 4;
@@ -74,7 +74,7 @@
             // resourceTypeLabel
             // 
             resourceTypeLabel.AutoSize = true;
-            resourceTypeLabel.Location = new Point(12, 212);
+            resourceTypeLabel.Location = new Point(12, 171);
             resourceTypeLabel.Name = "resourceTypeLabel";
             resourceTypeLabel.Size = new Size(82, 15);
             resourceTypeLabel.TabIndex = 11;
@@ -83,7 +83,7 @@
             // uearPublishedLabel
             // 
             uearPublishedLabel.AutoSize = true;
-            uearPublishedLabel.Location = new Point(12, 141);
+            uearPublishedLabel.Location = new Point(12, 117);
             uearPublishedLabel.Name = "uearPublishedLabel";
             uearPublishedLabel.Size = new Size(84, 15);
             uearPublishedLabel.TabIndex = 10;
@@ -91,33 +91,33 @@
             // 
             // yearPublishedTextBox
             // 
-            yearPublishedTextBox.Location = new Point(12, 159);
+            yearPublishedTextBox.Location = new Point(12, 135);
             yearPublishedTextBox.Name = "yearPublishedTextBox";
             yearPublishedTextBox.Size = new Size(360, 23);
             yearPublishedTextBox.TabIndex = 9;
             // 
             // resourceTypeTextBox
             // 
-            resourceTypeTextBox.Location = new Point(12, 230);
+            resourceTypeTextBox.Location = new Point(12, 189);
             resourceTypeTextBox.Name = "resourceTypeTextBox";
             resourceTypeTextBox.Size = new Size(360, 23);
             resourceTypeTextBox.TabIndex = 8;
             // 
             // addResource
             // 
-            addResource.Location = new Point(12, 290);
+            addResource.Location = new Point(12, 227);
             addResource.Name = "addResource";
             addResource.Size = new Size(360, 38);
             addResource.TabIndex = 12;
             addResource.Text = "Add Resource";
             addResource.UseVisualStyleBackColor = true;
-            addResource.Click += addResource_Click;
+            addResource.Click += AddResource_Click;
             // 
             // AddResourceForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 361);
+            ClientSize = new Size(384, 272);
             Controls.Add(addResource);
             Controls.Add(resourceTypeLabel);
             Controls.Add(uearPublishedLabel);
@@ -127,9 +127,12 @@
             Controls.Add(titleLabel);
             Controls.Add(titleTextBox);
             Controls.Add(authorTextBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "AddResourceForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add New Resource";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

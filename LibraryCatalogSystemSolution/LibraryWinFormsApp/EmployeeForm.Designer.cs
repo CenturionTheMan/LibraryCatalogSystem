@@ -32,14 +32,15 @@
             lastNameLabel = new Label();
             firstNameLabel = new Label();
             logOut = new Button();
-            DataGridViewResources = new DataGridView();
-            browseResources = new Button();
-            addResource = new Button();
-            deleteChosenResource = new Button();
-            browseRequests = new Button();
-            addNewCopy = new Button();
+            dataGridViewEmployee = new DataGridView();
+            browseResourcesButton = new Button();
+            addResourceButton = new Button();
+            requestsButton = new Button();
+            newRequestsButton = new Button();
+            extensionRequestsButton = new Button();
+            awaitingReturnButton = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridViewResources).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmployee).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -49,116 +50,136 @@
             panel1.Controls.Add(lastNameLabel);
             panel1.Controls.Add(firstNameLabel);
             panel1.Controls.Add(logOut);
-            panel1.Location = new Point(26, 12);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(239, 242);
+            panel1.Size = new Size(239, 151);
             panel1.TabIndex = 13;
             // 
             // lastNameLabel
             // 
-            lastNameLabel.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lastNameLabel.Location = new Point(23, 94);
+            lastNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lastNameLabel.Location = new Point(3, 56);
             lastNameLabel.Name = "lastNameLabel";
-            lastNameLabel.Size = new Size(178, 58);
+            lastNameLabel.RightToLeft = RightToLeft.No;
+            lastNameLabel.Size = new Size(231, 43);
             lastNameLabel.TabIndex = 10;
             lastNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // firstNameLabel
             // 
-            firstNameLabel.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            firstNameLabel.Location = new Point(23, 24);
+            firstNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            firstNameLabel.Location = new Point(3, 9);
             firstNameLabel.Name = "firstNameLabel";
-            firstNameLabel.Size = new Size(178, 58);
+            firstNameLabel.Size = new Size(231, 47);
             firstNameLabel.TabIndex = 9;
             firstNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // logOut
             // 
-            logOut.Location = new Point(23, 178);
+            logOut.Location = new Point(29, 102);
             logOut.Name = "logOut";
-            logOut.Size = new Size(178, 47);
+            logOut.Size = new Size(180, 40);
             logOut.TabIndex = 7;
             logOut.Text = "Log Out";
             logOut.UseVisualStyleBackColor = true;
-            logOut.Click += logOut_Click;
+            logOut.Click += LogOut_Click;
             // 
-            // DataGridViewResources
+            // dataGridViewEmployee
             // 
-            DataGridViewResources.BackgroundColor = SystemColors.Control;
-            DataGridViewResources.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridViewResources.Location = new Point(291, 12);
-            DataGridViewResources.Name = "DataGridViewResources";
-            DataGridViewResources.RowTemplate.Height = 25;
-            DataGridViewResources.Size = new Size(961, 648);
-            DataGridViewResources.TabIndex = 0;
+            dataGridViewEmployee.AllowUserToAddRows = false;
+            dataGridViewEmployee.AllowUserToDeleteRows = false;
+            dataGridViewEmployee.AllowUserToResizeColumns = false;
+            dataGridViewEmployee.AllowUserToResizeRows = false;
+            dataGridViewEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewEmployee.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewEmployee.BackgroundColor = SystemColors.Control;
+            dataGridViewEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEmployee.Location = new Point(257, 12);
+            dataGridViewEmployee.Name = "dataGridViewEmployee";
+            dataGridViewEmployee.RowTemplate.Height = 25;
+            dataGridViewEmployee.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewEmployee.Size = new Size(995, 657);
+            dataGridViewEmployee.TabIndex = 0;
             // 
-            // browseResources
+            // browseResourcesButton
             // 
-            browseResources.Location = new Point(26, 282);
-            browseResources.Name = "browseResources";
-            browseResources.Size = new Size(239, 40);
-            browseResources.TabIndex = 1;
-            browseResources.Text = "Browse Resources";
-            browseResources.UseVisualStyleBackColor = true;
-            browseResources.Click += browseResources_Click;
+            browseResourcesButton.Location = new Point(12, 169);
+            browseResourcesButton.Name = "browseResourcesButton";
+            browseResourcesButton.Size = new Size(239, 40);
+            browseResourcesButton.TabIndex = 1;
+            browseResourcesButton.Text = "Browse the Library's resources";
+            browseResourcesButton.UseVisualStyleBackColor = true;
+            browseResourcesButton.Click += BrowseResourcesButton_Click;
             // 
-            // addResource
+            // addResourceButton
             // 
-            addResource.Location = new Point(26, 339);
-            addResource.Name = "addResource";
-            addResource.Size = new Size(239, 40);
-            addResource.TabIndex = 2;
-            addResource.Text = "Add New Resource";
-            addResource.UseVisualStyleBackColor = true;
-            addResource.Click += addResource_Click;
+            addResourceButton.Location = new Point(12, 215);
+            addResourceButton.Name = "addResourceButton";
+            addResourceButton.Size = new Size(239, 40);
+            addResourceButton.TabIndex = 2;
+            addResourceButton.Text = "Add New Resource";
+            addResourceButton.UseVisualStyleBackColor = true;
+            addResourceButton.Click += AddResourceButton_Click;
             // 
-            // deleteChosenResource
+            // requestsButton
             // 
-            deleteChosenResource.Location = new Point(26, 396);
-            deleteChosenResource.Name = "deleteChosenResource";
-            deleteChosenResource.Size = new Size(239, 40);
-            deleteChosenResource.TabIndex = 3;
-            deleteChosenResource.Text = "Delete Chosen Resource";
-            deleteChosenResource.UseVisualStyleBackColor = true;
-            deleteChosenResource.Click += deleteChosenResource_Click;
+            requestsButton.Location = new Point(8, 261);
+            requestsButton.Name = "requestsButton";
+            requestsButton.Size = new Size(239, 40);
+            requestsButton.TabIndex = 14;
+            requestsButton.Text = "Browse All Requests";
+            requestsButton.UseVisualStyleBackColor = true;
+            requestsButton.Click += RequestsButton_Click;
             // 
-            // browseRequests
+            // newRequestsButton
             // 
-            browseRequests.Location = new Point(26, 517);
-            browseRequests.Name = "browseRequests";
-            browseRequests.Size = new Size(239, 40);
-            browseRequests.TabIndex = 14;
-            browseRequests.Text = "Browse Requests";
-            browseRequests.UseVisualStyleBackColor = true;
-            browseRequests.Click += browseRequests_Click;
+            newRequestsButton.Location = new Point(8, 307);
+            newRequestsButton.Name = "newRequestsButton";
+            newRequestsButton.Size = new Size(239, 40);
+            newRequestsButton.TabIndex = 16;
+            newRequestsButton.Text = "Browse New Borrow Requests";
+            newRequestsButton.UseVisualStyleBackColor = true;
+            newRequestsButton.Click += NewRequestsButton_Click;
             // 
-            // addNewCopy
+            // extensionRequestsButton
             // 
-            addNewCopy.Location = new Point(26, 457);
-            addNewCopy.Name = "addNewCopy";
-            addNewCopy.Size = new Size(239, 40);
-            addNewCopy.TabIndex = 15;
-            addNewCopy.Text = "Add New Copy ";
-            addNewCopy.UseVisualStyleBackColor = true;
-            addNewCopy.Click += addNewCopy_Click;
+            extensionRequestsButton.Location = new Point(8, 353);
+            extensionRequestsButton.Name = "extensionRequestsButton";
+            extensionRequestsButton.Size = new Size(239, 40);
+            extensionRequestsButton.TabIndex = 17;
+            extensionRequestsButton.Text = "Browse Extension Requests";
+            extensionRequestsButton.UseVisualStyleBackColor = true;
+            extensionRequestsButton.Click += ExtensionRequests_Click;
+            // 
+            // awaitingReturnButton
+            // 
+            awaitingReturnButton.Location = new Point(8, 399);
+            awaitingReturnButton.Name = "awaitingReturnButton";
+            awaitingReturnButton.Size = new Size(239, 40);
+            awaitingReturnButton.TabIndex = 18;
+            awaitingReturnButton.Text = "Browse Awaiting to Return ";
+            awaitingReturnButton.UseVisualStyleBackColor = true;
+            awaitingReturnButton.Click += AwaitingReturnButton_Click;
             // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
-            Controls.Add(addNewCopy);
-            Controls.Add(browseRequests);
-            Controls.Add(deleteChosenResource);
-            Controls.Add(addResource);
+            Controls.Add(awaitingReturnButton);
+            Controls.Add(extensionRequestsButton);
+            Controls.Add(newRequestsButton);
+            Controls.Add(requestsButton);
+            Controls.Add(addResourceButton);
             Controls.Add(panel1);
-            Controls.Add(browseResources);
-            Controls.Add(DataGridViewResources);
+            Controls.Add(browseResourcesButton);
+            Controls.Add(dataGridViewEmployee);
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Employee";
+            TopMost = true;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)DataGridViewResources).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmployee).EndInit();
             ResumeLayout(false);
         }
 
@@ -168,11 +189,12 @@
         private Label lastNameLabel;
         private Label firstNameLabel;
         private Button logOut;
-        private DataGridView DataGridViewResources;
-        private Button browseResources;
-        private Button addResource;
-        private Button deleteChosenResource;
-        private Button browseRequests;
-        private Button addNewCopy;
+        private DataGridView dataGridViewEmployee;
+        private Button browseResourcesButton;
+        private Button addResourceButton;
+        private Button requestsButton;
+        private Button newRequestsButton;
+        private Button extensionRequestsButton;
+        private Button awaitingReturnButton;
     }
 }
