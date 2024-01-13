@@ -76,6 +76,7 @@ LEFT JOIN (
 LEFT JOIN (
     SELECT BR.ResourceID, COUNT(DISTINCT BR.RequestID) AS BorrowedCopies
     FROM BorrowRequests BR
+    WHERE BR.Status IN ('Approved', 'Pending') AND BR.CopyID IS NOT NULL
     GROUP BY BR.ResourceID
 ) BRTotal ON R.ResourceID = BRTotal.ResourceID;
 GO
