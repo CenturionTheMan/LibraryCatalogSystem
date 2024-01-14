@@ -16,6 +16,9 @@
     <Compile Update="ExtendRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ManagingResourceCopies.cs">
       <SubType>Form</SubType>
     </Compile>
