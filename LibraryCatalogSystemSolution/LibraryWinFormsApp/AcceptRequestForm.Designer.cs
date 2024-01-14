@@ -37,22 +37,25 @@
             // CopyIdComboBox
             // 
             CopyIdComboBox.FormattingEnabled = true;
-            CopyIdComboBox.Location = new Point(86, 16);
+            CopyIdComboBox.Location = new Point(98, 21);
+            CopyIdComboBox.Margin = new Padding(3, 4, 3, 4);
             CopyIdComboBox.Name = "CopyIdComboBox";
-            CopyIdComboBox.Size = new Size(195, 23);
+            CopyIdComboBox.Size = new Size(222, 28);
             CopyIdComboBox.TabIndex = 0;
             // 
             // DueDateMonthCalendar
             // 
-            DueDateMonthCalendar.Location = new Point(12, 47);
+            DueDateMonthCalendar.Location = new Point(38, 65);
+            DueDateMonthCalendar.Margin = new Padding(10, 12, 10, 12);
             DueDateMonthCalendar.Name = "DueDateMonthCalendar";
             DueDateMonthCalendar.TabIndex = 1;
             // 
             // acceptButton
             // 
-            acceptButton.Location = new Point(12, 221);
+            acceptButton.Location = new Point(14, 295);
+            acceptButton.Margin = new Padding(3, 4, 3, 4);
             acceptButton.Name = "acceptButton";
-            acceptButton.Size = new Size(269, 29);
+            acceptButton.Size = new Size(307, 39);
             acceptButton.TabIndex = 2;
             acceptButton.Text = "Accept";
             acceptButton.UseVisualStyleBackColor = true;
@@ -62,22 +65,23 @@
             // 
             copyIdLabel.AutoSize = true;
             copyIdLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            copyIdLabel.Location = new Point(15, 16);
+            copyIdLabel.Location = new Point(10, 21);
             copyIdLabel.Name = "copyIdLabel";
-            copyIdLabel.Size = new Size(65, 20);
+            copyIdLabel.Size = new Size(82, 25);
             copyIdLabel.TabIndex = 3;
             copyIdLabel.Text = "Copy ID:";
             // 
             // AcceptRequestForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(291, 266);
+            ClientSize = new Size(333, 355);
             Controls.Add(copyIdLabel);
             Controls.Add(acceptButton);
             Controls.Add(DueDateMonthCalendar);
             Controls.Add(CopyIdComboBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "AcceptRequestForm";
             StartPosition = FormStartPosition.CenterScreen;
