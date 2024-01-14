@@ -9,11 +9,11 @@ namespace LibraryWinFormsApp
 {
     public partial class ManagingResourceCopies : Form
     {
-        private int currentResourceID;
         const string PROVIDER = ".NET Framework Data Provider for SQL Server";
         const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
 
-        LibraryDatabaseApi api;
+        DatabaseApi api;
+        private int currentResourceID;
 
         // Constructor with added resourceId parameter
         public ManagingResourceCopies(int resourceID)
@@ -22,12 +22,15 @@ namespace LibraryWinFormsApp
             InitializeComponent();
 
             // Initialize LibraryDatabaseApi
-            api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
+            api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
 
             dataGridViewCopies.CellContentClick += DataGridViewCopies_CellContentClick;
 
             // Call the method to load data when the form is opened
             ManagingResourceCopies_Load(this, EventArgs.Empty);
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void ReturnToResourcesButton_Click(object sender, EventArgs e)
@@ -38,10 +41,10 @@ namespace LibraryWinFormsApp
         private void ManagingResourceCopies_Load(object sender, EventArgs e)
         {
             // Get information about the resource based on resourceId
-            Resource resource = api.GetResources().FirstOrDefault(r => r.ResourceID == currentResourceID);
+            Resource? resource = api.GetResourceById(currentResourceID);
 
             // Check if the resource was found
-            if (resource != null)
+            if (resource is not null)
             {
                 // Set label values based on resource information
                 resourceIdLabel.Text = $"Resource ID: {resource.ResourceID}";
@@ -61,7 +64,13 @@ namespace LibraryWinFormsApp
 
         private void AddCopyButton_Click(object sender, EventArgs e)
         {
-            Resource selectedResource = api.GetResources().FirstOrDefault(resource => resource.ResourceID == currentResourceID);
+            Resource? selectedResource = api.GetResourceById(currentResourceID);
+
+            if(selectedResource is null)
+            {
+                MessageBox.Show("Resource not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             DialogResult result = MessageBox.Show($"Do you want to add a new copy of the resource:\n{selectedResource}?", "Confirmation to Add Copy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -86,10 +95,15 @@ namespace LibraryWinFormsApp
             var copies = api.GetResourceCopiesByResource(currentResourceID);
             var borrowRequests = api.GetBorrowRequestsByResource(currentResourceID);
 
-            if (copies != null && copies.Count > 0)
+            if(borrowRequests is null)
+            {
+                MessageBox.Show("Error loading borrow requests.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (copies is not null && copies.Count > 0)
             {
                 var modifiedList = copies
-                    .Where(copy => copy.ResourceID == currentResourceID)
                     .Select(copy =>
                     {
                         var borrowRequest = borrowRequests.FirstOrDefault(request => request.CopyID == copy.CopyID
@@ -100,7 +114,7 @@ namespace LibraryWinFormsApp
 
                         return new
                         {
-                            CopyID = copy.CopyID,
+                            copy.CopyID,
                             Status = isBorrowed ? "Borrowed" : "Ready",
                             DueDate = dueDate
                         };
@@ -129,7 +143,7 @@ namespace LibraryWinFormsApp
             }
         }
 
-        private void DataGridViewCopies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewCopies_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {

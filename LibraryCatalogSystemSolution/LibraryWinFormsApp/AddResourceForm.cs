@@ -16,14 +16,16 @@ namespace LibraryWinFormsApp
         const string PROVIDER = ".NET Framework Data Provider for SQL Server";
         const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
 
-        LibraryDatabaseApi api;
+        DatabaseApi api;
 
         public AddResourceForm()
         {
             InitializeComponent();
 
             // Initialize LibraryDatabaseApi
-            api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
+            api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void AddResource_Click(object sender, EventArgs e)

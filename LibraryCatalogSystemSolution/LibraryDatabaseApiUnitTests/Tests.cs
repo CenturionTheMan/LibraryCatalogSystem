@@ -4,7 +4,7 @@ public class Tests
 {
     const string PROVIDER = ".NET Framework Data Provider for SQL Server";
     const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
-    private LibraryDatabaseApi api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
+    private DatabaseApi api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
 
     [Fact]
     public void GetUserByLoginTest()

@@ -12,7 +12,7 @@ public partial class AcceptRequestForm : Form
     const string PROVIDER = ".NET Framework Data Provider for SQL Server";
     const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
 
-    LibraryDatabaseApi api;
+    DatabaseApi api;
 
     public AcceptRequestForm(int requestID, int resourceID)
     {
@@ -20,7 +20,7 @@ public partial class AcceptRequestForm : Form
         this.currentResourceID = resourceID;
         this.currentRequestID = requestID;
 
-        api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
+        api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
 
         // Wypełnij ComboBox dostępnymi kopiami dla danego zasobu
         List<ResourceCopy> availableCopies = api.GetAvailableResourceCopies(currentResourceID);
@@ -34,6 +34,8 @@ public partial class AcceptRequestForm : Form
         {
             CopyIdComboBox.SelectedIndex = 0;
         }
+
+        this.FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
     private void AcceptButton_Click(object sender, EventArgs e)

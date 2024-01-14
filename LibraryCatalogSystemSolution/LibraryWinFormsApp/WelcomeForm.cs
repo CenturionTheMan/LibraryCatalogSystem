@@ -1,43 +1,34 @@
 using LibraryDatabaseAPI;
 
-namespace LibraryWinFormsApp
+namespace LibraryWinFormsApp;
+
+public partial class WelcomeForm : Form
 {
-    public partial class WelcomeForm : Form
+    LoginForm? loginForm = null;
+    RegistrationForm? registrationForm = null;
+
+    public WelcomeForm()
     {
-        const string PROVIDER = ".NET Framework Data Provider for SQL Server";
-        const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
+        InitializeComponent();
 
-        LibraryDatabaseApi api;
-        LoginForm loginForm;
-        RegistrationForm registrationForm;
+        this.FormBorderStyle = FormBorderStyle.FixedSingle;
+    }
 
-        public WelcomeForm()
+    private void LoginButton_Click(object sender, EventArgs e)
+    {
+        if (loginForm == null || loginForm.IsDisposed)
         {
-            api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
-            InitializeComponent();
+            loginForm = new LoginForm();
         }
+        loginForm.ShowDialog();
+    }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+    private void SignUpButton_Click(object sender, EventArgs e)
+    {
+        if (registrationForm == null || registrationForm.IsDisposed)
         {
-
-            if (loginForm == null || loginForm.IsDisposed)
-            {
-                loginForm = new LoginForm(this);
-            }
-
-            loginForm.ShowDialog();
+            registrationForm = new RegistrationForm();
         }
-
-        private void SignUpButton_Click(object sender, EventArgs e)
-        {
-
-            if (registrationForm == null || registrationForm.IsDisposed)
-            {
-                registrationForm = new RegistrationForm();
-
-            }
-
-            registrationForm.ShowDialog();
-        }
+        registrationForm.ShowDialog();
     }
 }
