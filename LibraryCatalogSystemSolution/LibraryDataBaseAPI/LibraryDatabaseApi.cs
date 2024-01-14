@@ -121,6 +121,31 @@ public class LibraryDatabaseApi
     }
 
     /// <summary>
+    /// Retrieves a list of borrow requests filtered by userId.
+    /// </summary>
+    /// <param name="userID">The status to filter by.</param>
+    /// <returns>
+    /// A list of BorrowRequest objects if success, otherwise null.
+    /// </returns>
+    public List<BorrowRequest>? GetBorrowRequestsByUser(int userId)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM BorrowRequests WHERE UserId = '{userId}'");
+
+        if (reader == null)
+            return null;
+
+        List<BorrowRequest> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = BorrowRequest.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    /// <summary>
     /// Retrieves a list of all borrow requests.
     /// </summary>
     /// <returns>
@@ -145,6 +170,84 @@ public class LibraryDatabaseApi
     }
 
     /// <summary>
+    /// Retrieves a list of specific borrow requests.
+    /// </summary>
+    /// <returns>
+    /// A list of BorrowRequest objects if success, otherwise null.
+    /// </returns>
+    public List<BorrowRequest>? GetBorrowRequestsByResource(int resourceId)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM BorrowRequests WHERE ResourceID = {resourceId}");
+
+        if (reader == null)
+            return null;
+
+        List<BorrowRequest> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = BorrowRequest.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+
+    /// <summary>
+    /// Retrieves a borrow request based on its ID.
+    /// </summary>
+    /// <param name="requestId">The ID of the borrow request.</param>
+    /// <returns>
+    /// The BorrowRequest object if found, otherwise null.
+    /// </returns>
+    public BorrowRequest? GetBorrowRequestById(int requestId)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM BorrowRequests WHERE RequestID = {requestId}");
+
+        if (reader == null || !reader.HasRows)
+            return null;
+
+        reader.Read();
+        var borrowRequest = BorrowRequest.Create(reader);
+
+        return borrowRequest;
+    }
+
+    /// <summary>
+    /// Retrieves a list of available resource copies for a specific resource.
+    /// </summary>
+    /// <param name="resourceId">The ID of the resource for which available copies are to be retrieved.</param>
+    /// <returns>
+    /// A list of ResourceCopy objects representing the available copies for the specified resource.
+    /// If there are no available copies or if an error occurs, returns null.
+    /// </returns>
+    /// <remarks>
+    /// This method queries the database to retrieve all copies for the specified resource and
+    /// filters out those copies that are currently involved in borrow requests with status "Pending" or "Approved."
+    /// The resulting list represents the available copies that are not currently borrowed or reserved.
+    /// </remarks>
+    public List<ResourceCopy>? GetAvailableResourceCopies(int resourceId)
+    {
+        
+        var allCopies = GetResourceCopiesByResource(resourceId);
+
+        var borrowRequests = GetBorrowRequestsByResource(resourceId);
+
+        if (allCopies == null || borrowRequests == null)
+        {
+            return null;
+        }
+
+        var availableCopies = allCopies
+            .Where(copy => !borrowRequests.Any(request => request.CopyID == copy.CopyID &&
+                                                          (request.Status == Status.Pending || request.Status == Status.Approved)))
+            .ToList();
+
+        return availableCopies;
+    }
+
+    /// <summary>
     /// Retrieves a list of all resource copies.
     /// </summary>
     /// <returns>
@@ -153,6 +256,30 @@ public class LibraryDatabaseApi
     public List<ResourceCopy>? GetResourceCopies()
     {
         var reader = connector.GetFromDataBase("SELECT * FROM ResourceCopies");
+
+        if (reader == null)
+            return null;
+
+        List<ResourceCopy> res = new();
+
+        while (reader.Read())
+        {
+            var tmp = ResourceCopy.Create(reader);
+            res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    /// <summary>
+    /// Retrieves a list of specific resource copies.
+    /// </summary>
+    /// <returns>
+    /// A list of ResourceCopy objects if success, otherwise null.
+    /// </returns>
+    public List<ResourceCopy>? GetResourceCopiesByResource(int resourceId)
+    {
+        var reader = connector.GetFromDataBase($"SELECT * FROM ResourceCopies WHERE ResourceID = {resourceId}");
 
         if (reader == null)
             return null;
@@ -277,7 +404,8 @@ public class LibraryDatabaseApi
     /// </returns>
     public bool UpdateBorrowRequestStatusToApproved(int borrowRequestId, int assignedResourceCopyId, DateOnly assignedDueDate)
     {
-        string sql = $"UPDATE BorrowRequests SET Status = '{Status.Approved}', DueDate = '{assignedDueDate}', CopyID = {assignedResourceCopyId} WHERE RequestID = {borrowRequestId} AND Status = '{Status.Pending}'";
+        var formattedDueDate = $"{assignedDueDate.Year}-{assignedDueDate.Month}-{assignedDueDate.Day}";
+        string sql = $"UPDATE BorrowRequests SET Status = '{Status.Approved}', DueDate = '{formattedDueDate}', CopyID = {assignedResourceCopyId} WHERE RequestID = {borrowRequestId} AND Status = '{Status.Pending}'";
         return connector.PostToDataBase(sql);
     }
 
@@ -293,8 +421,18 @@ public class LibraryDatabaseApi
     /// </returns>
     public bool UpdateBorrowRequest(int borrowRequestId, int? assignedResourceCopyId, DateOnly? assignedDueDate, Status statusToSet)
     {
-        string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = {assignedDueDate.ToNullableSQLString(true)}, CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
-        return connector.PostToDataBase(sql);
+        if (assignedDueDate.HasValue)
+        {
+            var formattedDueDate = $"{assignedDueDate.Value.Year}-{assignedDueDate.Value.Month}-{assignedDueDate.Value.Day}";
+
+            string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = '{formattedDueDate}', CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
+            return connector.PostToDataBase(sql);
+        }
+        else
+        {
+            string sql = $"UPDATE BorrowRequests SET Status = '{statusToSet}', DueDate = NULL, CopyID = {assignedResourceCopyId.ToNullableSQLString()} WHERE RequestID = {borrowRequestId}";
+            return connector.PostToDataBase(sql);
+        }
     }
 
 
@@ -335,7 +473,9 @@ public class LibraryDatabaseApi
     {
         var copyIdStr = copyId.HasValue ? copyId.ToString() : "NULL";
         var dueDateStr = dueDate.HasValue ? "'" + dueDate.ToString() + "'" : "NULL";
-        string sql = $"INSERT INTO BorrowRequests (UserID, ResourceID, RequestDate, CopyID, DueDate, Status) VALUES ({userId}, {resourceId}, '{requestDate}', {copyIdStr}, {dueDateStr}, '{status.ToString()}')";
+        var formattedRequestDate = $"{requestDate.Year}-{requestDate.Month}-{requestDate.Day}";
+
+        string sql = $"INSERT INTO BorrowRequests (UserID, ResourceID, RequestDate, CopyID, DueDate, Status) VALUES ({userId}, {resourceId}, '{formattedRequestDate}', {copyIdStr}, {dueDateStr}, '{status.ToString()}')";
         return connector.PostToDataBase(sql);
     }
 
@@ -370,8 +510,6 @@ public class LibraryDatabaseApi
 
 
     #endregion POST
-
-
 
     #region DELETE
 
