@@ -66,3 +66,5 @@ D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalog
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.pdb
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.genruntimeconfig.cache
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\ref\LibraryWinFormsApp.dll
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.AcceptRequestForm.resources
+D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.ExtendRequestForm.resources
