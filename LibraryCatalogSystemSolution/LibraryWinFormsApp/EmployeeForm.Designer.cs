@@ -107,7 +107,7 @@
             // 
             // browseResourcesButton
             // 
-            browseResourcesButton.Location = new Point(14, 225);
+            browseResourcesButton.Location = new Point(14, 297);
             browseResourcesButton.Margin = new Padding(3, 4, 3, 4);
             browseResourcesButton.Name = "browseResourcesButton";
             browseResourcesButton.Size = new Size(273, 53);
@@ -118,7 +118,7 @@
             // 
             // addResourceButton
             // 
-            addResourceButton.Location = new Point(14, 287);
+            addResourceButton.Location = new Point(14, 359);
             addResourceButton.Margin = new Padding(3, 4, 3, 4);
             addResourceButton.Name = "addResourceButton";
             addResourceButton.Size = new Size(273, 53);
@@ -129,7 +129,7 @@
             // 
             // requestsButton
             // 
-            requestsButton.Location = new Point(14, 419);
+            requestsButton.Location = new Point(14, 491);
             requestsButton.Margin = new Padding(3, 4, 3, 4);
             requestsButton.Name = "requestsButton";
             requestsButton.Size = new Size(273, 53);
@@ -140,7 +140,7 @@
             // 
             // newRequestsButton
             // 
-            newRequestsButton.Location = new Point(14, 480);
+            newRequestsButton.Location = new Point(14, 552);
             newRequestsButton.Margin = new Padding(3, 4, 3, 4);
             newRequestsButton.Name = "newRequestsButton";
             newRequestsButton.Size = new Size(273, 53);
@@ -151,7 +151,7 @@
             // 
             // extensionRequestsButton
             // 
-            extensionRequestsButton.Location = new Point(14, 542);
+            extensionRequestsButton.Location = new Point(14, 614);
             extensionRequestsButton.Margin = new Padding(3, 4, 3, 4);
             extensionRequestsButton.Name = "extensionRequestsButton";
             extensionRequestsButton.Size = new Size(273, 53);
@@ -162,7 +162,7 @@
             // 
             // awaitingReturnButton
             // 
-            awaitingReturnButton.Location = new Point(14, 674);
+            awaitingReturnButton.Location = new Point(12, 675);
             awaitingReturnButton.Margin = new Padding(3, 4, 3, 4);
             awaitingReturnButton.Name = "awaitingReturnButton";
             awaitingReturnButton.Size = new Size(273, 53);
