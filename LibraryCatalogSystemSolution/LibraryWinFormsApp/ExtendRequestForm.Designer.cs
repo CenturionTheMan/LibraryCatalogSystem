@@ -35,10 +35,9 @@
             // 
             // extendButton
             // 
-            extendButton.Location = new Point(11, 300);
-            extendButton.Margin = new Padding(3, 4, 3, 4);
+            extendButton.Location = new Point(10, 225);
             extendButton.Name = "extendButton";
-            extendButton.Size = new Size(307, 39);
+            extendButton.Size = new Size(269, 29);
             extendButton.TabIndex = 4;
             extendButton.Text = "Extend";
             extendButton.UseVisualStyleBackColor = true;
@@ -46,8 +45,7 @@
             // 
             // ExtendDateMonthCalendar
             // 
-            ExtendDateMonthCalendar.Location = new Point(35, 69);
-            ExtendDateMonthCalendar.Margin = new Padding(10, 12, 10, 12);
+            ExtendDateMonthCalendar.Location = new Point(10, 51);
             ExtendDateMonthCalendar.Name = "ExtendDateMonthCalendar";
             ExtendDateMonthCalendar.TabIndex = 3;
             // 
@@ -55,23 +53,22 @@
             // 
             extendlabel.Anchor = AnchorStyles.None;
             extendlabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            extendlabel.Location = new Point(14, 12);
+            extendlabel.Location = new Point(12, 8);
             extendlabel.Name = "extendlabel";
-            extendlabel.Size = new Size(305, 45);
+            extendlabel.Size = new Size(267, 34);
             extendlabel.TabIndex = 5;
             extendlabel.Text = "Select Date";
             extendlabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ExtendRequestForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(333, 355);
+            ClientSize = new Size(290, 265);
             Controls.Add(extendlabel);
             Controls.Add(extendButton);
             Controls.Add(ExtendDateMonthCalendar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "ExtendRequestForm";
             StartPosition = FormStartPosition.CenterScreen;
