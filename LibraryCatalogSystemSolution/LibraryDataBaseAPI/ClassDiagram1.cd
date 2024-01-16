@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="LibraryDatabaseAPI.Connector">
+    <Position X="7.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAoAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Connector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.DatabaseApi">
+    <Position X="13" Y="2.25" Width="8" />
+    <TypeIdentifier>
+      <HashCode>IADAgAgYAQQQACAEAABAAgEAAgCwAABAOAAACAAAAAA=</HashCode>
+      <FileName>DatabaseApi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="connector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.User">
+    <Position X="2.75" Y="9" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAAAAAgAAAAACEACAAAQAAAAAAg=</HashCode>
+      <FileName>DataBaseStructs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.Resource">
+    <Position X="3" Y="2.5" Width="3.25" />
+    <AssociationLine Name="ResourceType" Type="LibraryDatabaseAPI.ResourceType" ManuallyRouted="true">
+      <Path>
+        <Point X="6.25" Y="3.758" />
+        <Point X="7.5" Y="3.758" />
+        <Point X="7.5" Y="5.074" />
+        <Point X="11.625" Y="5.074" />
+        <Point X="11.625" Y="9.497" />
+        <Point X="14" Y="9.497" />
+        <Point X="14" Y="10.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAEAEgIAAQAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBaseStructs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ResourceType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.BorrowRequest">
+    <Position X="7.75" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQCQEAIAAAAgAAAAAAEAAAAAAAAAAQAA=</HashCode>
+      <FileName>DataBaseStructs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.ResourceCopy">
+    <Position X="3.25" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAIAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBaseStructs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryDatabaseAPI.Utilities">
+    <Position X="9.5" Y="10" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAI=</HashCode>
+      <FileName>Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="LibraryDatabaseAPI.UserType">
+    <Position X="17.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>LibraryEnums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LibraryDatabaseAPI.Status">
+    <Position X="15.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>LibraryEnums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LibraryDatabaseAPI.ResourceType">
+    <Position X="13.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LibraryEnums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
