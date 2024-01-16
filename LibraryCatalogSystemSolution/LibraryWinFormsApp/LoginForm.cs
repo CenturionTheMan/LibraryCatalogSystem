@@ -2,76 +2,68 @@
 using System.Windows.Forms;
 using LibraryDatabaseAPI;
 
-namespace LibraryWinFormsApp
+namespace LibraryWinFormsApp;
+
+public partial class LoginForm : Form
 {
-    public partial class LoginForm : Form
+    const string PROVIDER = ".NET Framework Data Provider for SQL Server";
+    const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
+
+    DatabaseApi api;
+
+    public LoginForm()
     {
-        private WelcomeForm welcomeForm;
-        const string PROVIDER = ".NET Framework Data Provider for SQL Server";
-        const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
+        api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
+        InitializeComponent();
+        this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
-        LibraryDatabaseApi api;
+    }
 
-        public LoginForm(WelcomeForm welcomeForm)
+    private void ReturnToMainButton_Click(object sender, EventArgs e)
+    {
+        this.Close();
+    }
+
+    private void LoginButton_Click(object sender, EventArgs e)
+    {
+        string username = usernameTextBox.Text;
+        string password = passwordTextBox.Text;
+
+        User? user = api.GetUserByLogin(username);
+
+        if (user is not null && user.Password == password)
         {
-            this.welcomeForm = welcomeForm;
-            api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
-            InitializeComponent();
-        }
-
-        private void ReturnToMainButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            string username = usernameTextBox.Text;
-            string password = passwordTextBox.Text;
-
-            User user = api.GetUserByLogin(username);
-
-            if (user != null && user.Password == password)
-            {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                DialogResult = DialogResult.OK;
-                OpenUserPanel(user);
-                usernameTextBox.Text = string.Empty;
-                passwordTextBox.Text = string.Empty;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid login credentials!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
+            OpenUserPanel(user);
             usernameTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;
+            this.Close();
         }
-
-        private void OpenUserPanel(User user)
+        else
         {
-            if (user.UserType == UserType.Employee)
-            {
-                // Open Employee Form
-                EmployeeForm employeeForm = new EmployeeForm(user);
-                employeeForm.Show();
-            }
-            else if (user.UserType == UserType.Client)
-            {
-                // Open Client Form
-                ClientForm clientForm = new ClientForm(user);
-                clientForm.Show();
-            }
+            MessageBox.Show("Invalid login credentials!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            passwordTextBox.Text = string.Empty;
         }
+    }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+    private void ClearButton_Click(object sender, EventArgs e)
+    {
+        usernameTextBox.Text = string.Empty;
+        passwordTextBox.Text = string.Empty;
+    }
+
+    private void OpenUserPanel(User user)
+    {
+        if (user.UserType == UserType.Employee)
         {
-            // Additional initialization code can be added here if needed.
+            // Open Employee Form
+            EmployeeForm employeeForm = new EmployeeForm(user);
+            employeeForm.Show();
+        }
+        else if (user.UserType == UserType.Client)
+        {
+            // Open Client Form
+            ClientForm clientForm = new ClientForm(user);
+            clientForm.Show();
         }
     }
 }

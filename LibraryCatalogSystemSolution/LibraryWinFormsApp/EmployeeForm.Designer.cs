@@ -50,35 +50,37 @@
             panel1.Controls.Add(lastNameLabel);
             panel1.Controls.Add(firstNameLabel);
             panel1.Controls.Add(logOut);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(14, 16);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(239, 151);
+            panel1.Size = new Size(273, 201);
             panel1.TabIndex = 13;
             // 
             // lastNameLabel
             // 
             lastNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lastNameLabel.Location = new Point(3, 56);
+            lastNameLabel.Location = new Point(3, 75);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.RightToLeft = RightToLeft.No;
-            lastNameLabel.Size = new Size(231, 43);
+            lastNameLabel.Size = new Size(264, 57);
             lastNameLabel.TabIndex = 10;
             lastNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // firstNameLabel
             // 
             firstNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            firstNameLabel.Location = new Point(3, 9);
+            firstNameLabel.Location = new Point(3, 12);
             firstNameLabel.Name = "firstNameLabel";
-            firstNameLabel.Size = new Size(231, 47);
+            firstNameLabel.Size = new Size(264, 63);
             firstNameLabel.TabIndex = 9;
             firstNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // logOut
             // 
-            logOut.Location = new Point(29, 102);
+            logOut.Location = new Point(33, 136);
+            logOut.Margin = new Padding(3, 4, 3, 4);
             logOut.Name = "logOut";
-            logOut.Size = new Size(180, 40);
+            logOut.Size = new Size(206, 53);
             logOut.TabIndex = 7;
             logOut.Text = "Log Out";
             logOut.UseVisualStyleBackColor = true;
@@ -94,28 +96,32 @@
             dataGridViewEmployee.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewEmployee.BackgroundColor = SystemColors.Control;
             dataGridViewEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewEmployee.Location = new Point(257, 12);
+            dataGridViewEmployee.Location = new Point(294, 16);
+            dataGridViewEmployee.Margin = new Padding(3, 4, 3, 4);
             dataGridViewEmployee.Name = "dataGridViewEmployee";
+            dataGridViewEmployee.RowHeadersWidth = 51;
             dataGridViewEmployee.RowTemplate.Height = 25;
             dataGridViewEmployee.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewEmployee.Size = new Size(995, 657);
+            dataGridViewEmployee.Size = new Size(1137, 876);
             dataGridViewEmployee.TabIndex = 0;
             // 
             // browseResourcesButton
             // 
-            browseResourcesButton.Location = new Point(12, 169);
+            browseResourcesButton.Location = new Point(14, 297);
+            browseResourcesButton.Margin = new Padding(3, 4, 3, 4);
             browseResourcesButton.Name = "browseResourcesButton";
-            browseResourcesButton.Size = new Size(239, 40);
+            browseResourcesButton.Size = new Size(273, 53);
             browseResourcesButton.TabIndex = 1;
-            browseResourcesButton.Text = "Browse the Library's resources";
+            browseResourcesButton.Text = "Browse Library Resources";
             browseResourcesButton.UseVisualStyleBackColor = true;
             browseResourcesButton.Click += BrowseResourcesButton_Click;
             // 
             // addResourceButton
             // 
-            addResourceButton.Location = new Point(12, 215);
+            addResourceButton.Location = new Point(14, 359);
+            addResourceButton.Margin = new Padding(3, 4, 3, 4);
             addResourceButton.Name = "addResourceButton";
-            addResourceButton.Size = new Size(239, 40);
+            addResourceButton.Size = new Size(273, 53);
             addResourceButton.TabIndex = 2;
             addResourceButton.Text = "Add New Resource";
             addResourceButton.UseVisualStyleBackColor = true;
@@ -123,9 +129,10 @@
             // 
             // requestsButton
             // 
-            requestsButton.Location = new Point(8, 261);
+            requestsButton.Location = new Point(14, 491);
+            requestsButton.Margin = new Padding(3, 4, 3, 4);
             requestsButton.Name = "requestsButton";
-            requestsButton.Size = new Size(239, 40);
+            requestsButton.Size = new Size(273, 53);
             requestsButton.TabIndex = 14;
             requestsButton.Text = "Browse All Requests";
             requestsButton.UseVisualStyleBackColor = true;
@@ -133,9 +140,10 @@
             // 
             // newRequestsButton
             // 
-            newRequestsButton.Location = new Point(8, 307);
+            newRequestsButton.Location = new Point(14, 552);
+            newRequestsButton.Margin = new Padding(3, 4, 3, 4);
             newRequestsButton.Name = "newRequestsButton";
-            newRequestsButton.Size = new Size(239, 40);
+            newRequestsButton.Size = new Size(273, 53);
             newRequestsButton.TabIndex = 16;
             newRequestsButton.Text = "Browse New Borrow Requests";
             newRequestsButton.UseVisualStyleBackColor = true;
@@ -143,9 +151,10 @@
             // 
             // extensionRequestsButton
             // 
-            extensionRequestsButton.Location = new Point(8, 353);
+            extensionRequestsButton.Location = new Point(14, 614);
+            extensionRequestsButton.Margin = new Padding(3, 4, 3, 4);
             extensionRequestsButton.Name = "extensionRequestsButton";
-            extensionRequestsButton.Size = new Size(239, 40);
+            extensionRequestsButton.Size = new Size(273, 53);
             extensionRequestsButton.TabIndex = 17;
             extensionRequestsButton.Text = "Browse Extension Requests";
             extensionRequestsButton.UseVisualStyleBackColor = true;
@@ -153,9 +162,10 @@
             // 
             // awaitingReturnButton
             // 
-            awaitingReturnButton.Location = new Point(8, 399);
+            awaitingReturnButton.Location = new Point(12, 675);
+            awaitingReturnButton.Margin = new Padding(3, 4, 3, 4);
             awaitingReturnButton.Name = "awaitingReturnButton";
-            awaitingReturnButton.Size = new Size(239, 40);
+            awaitingReturnButton.Size = new Size(273, 53);
             awaitingReturnButton.TabIndex = 18;
             awaitingReturnButton.Text = "Browse Awaiting to Return ";
             awaitingReturnButton.UseVisualStyleBackColor = true;
@@ -163,9 +173,9 @@
             // 
             // EmployeeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1445, 908);
             Controls.Add(awaitingReturnButton);
             Controls.Add(extensionRequestsButton);
             Controls.Add(newRequestsButton);
@@ -174,6 +184,7 @@
             Controls.Add(panel1);
             Controls.Add(browseResourcesButton);
             Controls.Add(dataGridViewEmployee);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Employee";

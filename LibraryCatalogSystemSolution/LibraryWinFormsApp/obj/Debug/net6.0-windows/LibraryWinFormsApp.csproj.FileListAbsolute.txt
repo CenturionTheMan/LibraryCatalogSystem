@@ -49,7 +49,6 @@ D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalog
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.ClientForm.resources
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.EmployeeForm.resources
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.LoginForm.resources
-D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.MainForm.resources
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.ManagingResourceCopies.resources
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.Properties.Resources.resources
 D:\GoogleDriveMirror\Studia\Studia_sem_5\BD2\LibraryCatalogSystem\LibraryCatalogSystemSolution\LibraryWinFormsApp\obj\Debug\net6.0-windows\LibraryWinFormsApp.RegistrationForm.resources

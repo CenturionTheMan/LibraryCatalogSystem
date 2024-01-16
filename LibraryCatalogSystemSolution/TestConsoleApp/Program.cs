@@ -13,7 +13,7 @@ public class Program
     public static void Main()
     {
 
-        var api = new LibraryDatabaseApi(PROVIDER, CONNECTION_STRING);
+        var api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
 
         //LibraryApi.PostUsers("Tomasz", "Kowalski", "das", "123", "Client");
 
