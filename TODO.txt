@@ -1,0 +1,8 @@
+1) Diagram klas
+2) Diagram przypadkow uzycia - poprawic
+3) Testy jednostkowe do prawka
+4) Zdjęcia aplikacji (screeny)
+5) Zdjęcia "idiotoodporności"
+6) Instrukcja odpalania
+7) Pdf etap 3 - skleic
+8) Pdf całość - skleić
