@@ -1,0 +1,1 @@
+{"rule":"PHRASE_REPETITION","sentence":"^\\QProject Initialization\nProject initialization is being done in few steps\\E$"}

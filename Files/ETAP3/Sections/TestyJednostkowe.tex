@@ -4,7 +4,8 @@
 public class Tests
 {
     const string PROVIDER = ".NET Framework Data Provider for SQL Server";
-    const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
+    const string CONNECTION_STRING = 
+    "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True";
     private DatabaseApi api = new DatabaseApi(PROVIDER, CONNECTION_STRING);
 
     [Fact]
@@ -100,7 +101,8 @@ public class Tests
         Assert.NotNull(resAll);
         Assert.NotEmpty(resAll);
 
-        var fil = api.GetResources(resAll[0].Title, resAll[0].Author, resAll[0].YearPublished, resAll[0].ResourceType);
+        var fil = api.GetResources(
+            resAll[0].Title, resAll[0].Author, resAll[0].YearPublished, resAll[0].ResourceType);
         Assert.NotNull(fil);
         Assert.NotEmpty(fil);
 
@@ -141,7 +143,8 @@ public class Tests
         var resCopiesAll = api.GetResourceCopies();
         Assert.NotNull(resCopiesAll);
 
-        var customResIds = reqAll.FindAll(r => r.UserID == userID && r.Status == Status.Approved).Select(r => r.ResourceID);
+        var customResIds = reqAll.FindAll(
+            r => r.UserID == userID && r.Status == Status.Approved).Select(r => r.ResourceID);
 
 
         Assert.True(borrowed.TrueForAll(b => customResIds.Contains(b.ResourceID)));
@@ -165,11 +168,13 @@ public class Tests
 
         var updatedBorrowedReq = api.GetBorrowRequests();
         Assert.NotNull(updatedBorrowedReq);
-        Assert.True(updatedBorrowedReq.TrueForAll(ubr => ubr.Status == Status.Returned || ubr.Status == Status.Pending));
+        Assert.True(updatedBorrowedReq.TrueForAll(
+            ubr => ubr.Status == Status.Returned || ubr.Status == Status.Pending));
 
         foreach (var item in approvedAll)
         {
-            Assert.True(api.UpdateBorrowRequest(item.RequestID, item.CopyID, item.DueDate, Status.Approved));
+            Assert.True(api.UpdateBorrowRequest(
+                item.RequestID, item.CopyID, item.DueDate, Status.Approved));
         }
     }
 
@@ -191,11 +196,13 @@ public class Tests
 
         var updatedBorrowedReq = api.GetBorrowRequests();
         Assert.NotNull(updatedBorrowedReq);
-        Assert.True(updatedBorrowedReq.TrueForAll(ubr => ubr.Status == Status.Returned || ubr.Status == Status.Approved));
+        Assert.True(updatedBorrowedReq.TrueForAll(
+            ubr => ubr.Status == Status.Returned || ubr.Status == Status.Approved));
 
         foreach (var item in pendingAll)
         {
-            Assert.True(api.UpdateBorrowRequest(item.RequestID, item.CopyID, item.DueDate, item.Status));
+            Assert.True(api.UpdateBorrowRequest(
+                item.RequestID, item.CopyID, item.DueDate, item.Status));
         }
     }
 
@@ -226,14 +233,16 @@ public class Tests
 
         foreach (var item in borrowedReq)
         {
-            Assert.True(api.UpdateBorrowRequest(item.RequestID, item.CopyID, item.DueDate, item.Status));
+            Assert.True(api.UpdateBorrowRequest(
+                item.RequestID, item.CopyID, item.DueDate, item.Status));
         }
     }
 
     [Fact]
     public void PostDeleteUserTest()
     {
-        Assert.True(api.PostNewUser("testname", "testlastname", "testlogin", "123", UserType.Employee));
+        Assert.True(api.PostNewUser(
+            "testname", "testlastname", "testlogin", "123", UserType.Employee));
 
         var user = api.GetUserByLogin("testlogin");
         Assert.NotNull(user);
@@ -263,7 +272,8 @@ public class Tests
         Assert.NotNull(req);
         Assert.NotEmpty(req);
 
-        Assert.True(api.PostNewBorrowRequest(users[0].UserID, res[0].ResourceID, new DateOnly(1900,1,1), null, null, Status.Pending));
+        Assert.True(api.PostNewBorrowRequest(
+            users[0].UserID, res[0].ResourceID, new DateOnly(1900,1,1), null, null, Status.Pending));
 
         var newReq = api.GetBorrowRequests();
         Assert.NotNull(newReq);

@@ -1,0 +1,350 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{LibraryDatabaseApiUnitTests}\PYG{p}{;}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Tests}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{PROVIDER}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.NET Framework Data Provider for SQL Server\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{n}{CONNECTION\PYGZus{}STRING}\PYG{+w}{ }\PYG{o}{=}
+\PYG{+w}{    }\PYG{l+s}{\PYGZdq{}Data Source=(localdb)\PYGZbs{}\PYGZbs{}MSSQLLocalDB;Initial Catalog=LibraryDataBase;Integrated Security=True\PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{private}\PYG{+w}{ }\PYG{n}{DatabaseApi}\PYG{+w}{ }\PYG{n}{api}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{DatabaseApi}\PYG{p}{(}\PYG{n}{PROVIDER}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{CONNECTION\PYGZus{}STRING}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetUserByLoginTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUserByLogin}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Login}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{user}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{FirstName}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{LastName}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Login}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{Login}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Password}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{Password}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserType}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserType}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetUserByIdTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUserById}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserID}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{user}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{FirstName}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{LastName}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Login}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{Login}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Password}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{Password}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserType}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserType}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetUsersTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetResourceAmountsTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{resources}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{resources}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{resources}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{tmp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceAmounts}\PYG{p}{(}\PYG{n}{resources}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{.}\PYG{n}{Value}\PYG{p}{.}\PYG{n}{amount}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tmp}\PYG{p}{.}\PYG{n}{Value}\PYG{p}{.}\PYG{n}{borrowed}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{tmp}\PYG{p}{.}\PYG{n}{Value}\PYG{p}{.}\PYG{n}{available}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetBorrowRequestsTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{allReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{allReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{allReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{returnedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{(}\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{approvedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{(}\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{pendingReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{(}\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{returnedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{approvedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{pendingReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{allReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{p}{).}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{returnedReq}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{allReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{).}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{approvedReq}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{allReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{).}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{pendingReq}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{pendingReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{));}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{approvedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{));}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{returnedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetResourceCopiesTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{resAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceCopies}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetResourcesTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{resAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{fil}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Title}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Author}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{YearPublished}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceType}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{fil}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{fil}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{fil}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Title}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{Title}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{Author}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{Author}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{YearPublished}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{YearPublished}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resAll}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceType}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{ResourceType}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{GetResourcesBorrowedByUserTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Resource}\PYG{o}{\PYGZgt{}?}\PYG{+w}{ }\PYG{n}{borrowed}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{userID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{users}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{borrowed}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourcesBorrowedByUser}\PYG{p}{(}\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{borrowed}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{userID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{borrowed}\PYG{p}{.}\PYG{n}{Count}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{)}
+\PYG{+w}{            }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{borrowed}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{reqAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{reqAll}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{resCopiesAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceCopies}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{resCopiesAll}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{customResIds}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{reqAll}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{userID}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{).}\PYG{n}{Select}\PYG{p}{(}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{);}
+
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{borrowed}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{customResIds}\PYG{p}{.}\PYG{n}{Contains}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{)));}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{UpdateBorrowRequestStatusToReturnedTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{approvedAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{approvedAll}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{approvedAll}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequestStatusToReturned}\PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{.}\PYG{n}{Value}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{updatedBorrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{ubr}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{approvedAll}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequest}\PYG{p}{(}
+\PYG{+w}{                }\PYG{n}{item}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{UpdateBorrowRequestStatusToApprovedTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{pendingAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{pendingAll}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{date}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{DateOnly}\PYG{p}{(}\PYG{l+m}{2023}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{pendingAll}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequestStatusToApproved}\PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{date}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{updatedBorrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{ubr}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{pendingAll}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequest}\PYG{p}{(}
+\PYG{+w}{                }\PYG{n}{item}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{Status}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{UpdateBorrowRequestTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{borrowedReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{pendingAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{pendingAll}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{approvedAll}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{b}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Approved}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{approvedAll}\PYG{p}{);}
+
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{date}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{DateOnly}\PYG{p}{(}\PYG{l+m}{2023}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequest}\PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{date}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{updatedBorrowedReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{ubr}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Returned}\PYG{p}{));}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{ubr}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{));}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{updatedBorrowedReq}\PYG{p}{.}\PYG{n}{TrueForAll}\PYG{p}{(}\PYG{n}{ubr}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ubr}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{date}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{item}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{borrowedReq}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{UpdateBorrowRequest}\PYG{p}{(}
+\PYG{+w}{                }\PYG{n}{item}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{item}\PYG{p}{.}\PYG{n}{Status}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{PostDeleteUserTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{PostNewUser}\PYG{p}{(}
+\PYG{+w}{            }\PYG{l+s}{\PYGZdq{}testname\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}testlastname\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}testlogin\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}123\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{UserType}\PYG{p}{.}\PYG{n}{Employee}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUserByLogin}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}testlogin\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{user}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{DeleteUser}\PYG{p}{(}\PYG{n}{user}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newUsers}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newUsers}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{users}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{newUsers}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{PostDeleteBorrowRequestTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetUsers}\PYG{p}{();}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{res}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{users}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{req}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{req}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{req}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{PostNewBorrowRequest}\PYG{p}{(}
+\PYG{+w}{            }\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{res}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{DateOnly}\PYG{p}{(}\PYG{l+m}{1900}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newReq}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{selected}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{newReq}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{e}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}
+\PYG{+w}{        }\PYG{n}{e}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{users}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{        }\PYG{n}{res}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{        }\PYG{n}{e}\PYG{p}{.}\PYG{n}{RequestDate}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{DateOnly}\PYG{p}{(}\PYG{l+m}{1900}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{        }\PYG{n}{e}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{        }\PYG{n}{e}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{        }\PYG{n}{e}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{.}\PYG{n}{Pending}\PYG{p}{).}\PYG{n}{Single}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{req}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{newReq}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{DeleteBorrowRequest}\PYG{p}{(}\PYG{n}{selected}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newNewReq}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetBorrowRequests}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newNewReq}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{req}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{newNewReq}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{PostDeleteResourceCopyTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{res}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{resCop}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceCopies}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{resCop}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{resCop}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{PostNewResourceCopy}\PYG{p}{(}\PYG{n}{res}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newResCop}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceCopies}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newResCop}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resCop}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{newResCop}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{selected}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{newResCop}\PYG{p}{.}\PYG{n}{FindAll}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{res}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{).}\PYG{n}{MaxBy}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{selected}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{DeleteResourceCopy}\PYG{p}{(}\PYG{n}{selected}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newNewResCop}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResourceCopies}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newNewResCop}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{resCop}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{newNewResCop}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n+na}{[Fact]}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{PostDeleteResourceTest}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{res}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotEmpty}\PYG{p}{(}\PYG{n}{res}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{PostNewResource}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Testtitle\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}testauth\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1000}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ResourceType}\PYG{p}{.}\PYG{n}{Magazine}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newRes}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newRes}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{res}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{newRes}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{added}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Testtitle\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}testauth\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{1000}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ResourceType}\PYG{p}{.}\PYG{n}{Magazine}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{added}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{True}\PYG{p}{(}\PYG{n}{api}\PYG{p}{.}\PYG{n}{DeleteResource}\PYG{p}{(}\PYG{n}{added}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{ResourceID}\PYG{p}{));}
+
+\PYG{+w}{        }\PYG{k+kt}{var}\PYG{+w}{ }\PYG{n}{newNewRes}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{api}\PYG{p}{.}\PYG{n}{GetResources}\PYG{p}{();}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{NotNull}\PYG{p}{(}\PYG{n}{newNewRes}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Assert}\PYG{p}{.}\PYG{n}{Equal}\PYG{p}{(}\PYG{n}{res}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{newNewRes}\PYG{p}{.}\PYG{n}{Count}\PYG{p}{());}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
