@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  16 JAN 2024 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  17 JAN 2024 18:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -731,9 +731,9 @@ Package: xparse 2023-02-02 L3 Experimental document command parser
 
 {C:/Users/dzied/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Part3.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 7.
+(Font)              <7> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 7.
+(Font)              <5> on input line 5.
 )
 \tf@toc=\write7
 \openout7 = `Part3.toc'.
@@ -742,16 +742,110 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lot=\write8
 \openout8 = `Part3.lot'.
 
- (Part3.lof)
-\tf@lof=\write9
-\openout9 = `Part3.lof'.
-
-
+ (Part3.lof
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.84 \newpage
-              [1]) (Sections/Wstep.tex) (Sections/DiagramKlas.tex) (Sections/ZdjeciaApplikacji.tex) (Sections/TestyJednostkowe.tex
+l.17 ...ie wypożyczenia.}}{12}{figure.caption.16}
+                                                  % [1])
+\tf@lof=\write9
+\openout9 = `Part3.lof'.
+
+ [2]) (Sections/DiagramKlas.tex
+<Img/Class Diagrams/ClassDiagram1_1.png, id=121, 2092.06593pt x 1613.27719pt>
+File: Img/Class Diagrams/ClassDiagram1_1.png Graphic file (type png)
+<use Img/Class Diagrams/ClassDiagram1_1.png>
+Package pdftex.def Info: Img/Class Diagrams/ClassDiagram1_1.png  used on input line 5.
+(pdftex.def)             Requested size: 2092.06085pt x 1613.27327pt.
+File: Img/Class Diagrams/ClassDiagram1_1.png Graphic file (type png)
+<use Img/Class Diagrams/ClassDiagram1_1.png>
+Package pdftex.def Info: Img/Class Diagrams/ClassDiagram1_1.png  used on input line 14.
+(pdftex.def)             Requested size: 2092.06085pt x 1613.27327pt.
+) [3 <./Img/Class Diagrams/ClassDiagram1_1.png>] (Sections/ZdjeciaApplikacji.tex
+<Img/UI_Screenshots/UI_Start/welcome.png, id=128, 431.36156pt x 220.57407pt>
+File: Img/UI_Screenshots/UI_Start/welcome.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Start/welcome.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Start/welcome.png  used on input line 6.
+(pdftex.def)             Requested size: 431.3605pt x 220.57352pt.
+ [4]
+<Img/UI_Screenshots/UI_Start/login.png, id=133, 290.58563pt x 185.19188pt>
+File: Img/UI_Screenshots/UI_Start/login.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Start/login.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Start/login.png  used on input line 15.
+(pdftex.def)             Requested size: 290.58492pt x 185.1914pt.
+<Img/UI_Screenshots/UI_Start/register.png, id=134, 289.83281pt x 346.29375pt>
+File: Img/UI_Screenshots/UI_Start/register.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Start/register.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Start/register.png  used on input line 24.
+(pdftex.def)             Requested size: 289.83209pt x 346.2929pt.
+ [5 <./Img/UI_Screenshots/UI_Start/welcome.png> <./Img/UI_Screenshots/UI_Start/login.png>]
+<Img/UI_Screenshots/UI_Client/browse_library_resources.png, id=141, 951.555pt x 590.205pt>
+File: Img/UI_Screenshots/UI_Client/browse_library_resources.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Client/browse_library_resources.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Client/browse_library_resources.png  used on input line 35.
+(pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
+ [6 <./Img/UI_Screenshots/UI_Start/register.png>]
+<Img/UI_Screenshots/UI_Client/borrowed_by_me.png, id=148, 951.555pt x 590.205pt>
+File: Img/UI_Screenshots/UI_Client/borrowed_by_me.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Client/borrowed_by_me.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Client/borrowed_by_me.png  used on input line 44.
+(pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
+<Img/UI_Screenshots/UI_Client/my_requests.png, id=149, 951.555pt x 590.205pt>
+File: Img/UI_Screenshots/UI_Client/my_requests.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Client/my_requests.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Client/my_requests.png  used on input line 53.
+(pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
+ [7 <./Img/UI_Screenshots/UI_Client/browse_library_resources.png> <./Img/UI_Screenshots/UI_Client/borrowed_by_me.png>]
+<Img/UI_Screenshots/UI_Employee/browse_library_resources.png, id=156, 953.06062pt x 536.75531pt>
+File: Img/UI_Screenshots/UI_Employee/browse_library_resources.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/browse_library_resources.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_library_resources.png  used on input line 64.
+(pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
+<Img/UI_Screenshots/UI_Employee/manage_copies.png, id=157, 545.03625pt x 257.46187pt>
+File: Img/UI_Screenshots/UI_Employee/manage_copies.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/manage_copies.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/manage_copies.png  used on input line 73.
+(pdftex.def)             Requested size: 545.03493pt x 257.46123pt.
+ [8 <./Img/UI_Screenshots/UI_Client/my_requests.png> <./Img/UI_Screenshots/UI_Employee/browse_library_resources.png>]
+<Img/UI_Screenshots/UI_Employee/add_new_resource.png, id=164, 290.58563pt x 228.855pt>
+File: Img/UI_Screenshots/UI_Employee/add_new_resource.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/add_new_resource.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/add_new_resource.png  used on input line 83.
+(pdftex.def)             Requested size: 290.58492pt x 228.85443pt.
+<Img/UI_Screenshots/UI_Employee/browse_all_request.png, id=165, 953.06062pt x 536.75531pt>
+File: Img/UI_Screenshots/UI_Employee/browse_all_request.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/browse_all_request.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_all_request.png  used on input line 93.
+(pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
+ [9 <./Img/UI_Screenshots/UI_Employee/manage_copies.png> <./Img/UI_Screenshots/UI_Employee/add_new_resource.png>]
+<Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png, id=172, 953.06062pt x 536.75531pt>
+File: Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png  used on input line 103.
+(pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
+<Img/UI_Screenshots/UI_Employee/accept_new_borrow.png, id=173, 222.07968pt x 224.33812pt>
+File: Img/UI_Screenshots/UI_Employee/accept_new_borrow.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/accept_new_borrow.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/accept_new_borrow.png  used on input line 112.
+(pdftex.def)             Requested size: 222.07913pt x 224.33757pt.
+ [10 <./Img/UI_Screenshots/UI_Employee/browse_all_request.png> <./Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png>]
+<Img/UI_Screenshots/UI_Employee/browse_extension_request.png, id=180, 953.06062pt x 536.75531pt>
+File: Img/UI_Screenshots/UI_Employee/browse_extension_request.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/browse_extension_request.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_extension_request.png  used on input line 122.
+(pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
+<Img/UI_Screenshots/UI_Employee/extend_request.png, id=181, 219.82124pt x 223.58531pt>
+File: Img/UI_Screenshots/UI_Employee/extend_request.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/extend_request.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/extend_request.png  used on input line 131.
+(pdftex.def)             Requested size: 219.8207pt x 223.58475pt.
+ [11 <./Img/UI_Screenshots/UI_Employee/accept_new_borrow.png> <./Img/UI_Screenshots/UI_Employee/browse_extension_request.png>]
+<Img/UI_Screenshots/UI_Employee/browse_awaiting.png, id=188, 953.06062pt x 536.75531pt>
+File: Img/UI_Screenshots/UI_Employee/browse_awaiting.png Graphic file (type png)
+<use Img/UI_Screenshots/UI_Employee/browse_awaiting.png>
+Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_awaiting.png  used on input line 141.
+(pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
+) (Sections/TestyJednostkowe.tex
 \openout3 = `Part3.pyg'.
 
  (_minted-Part3/default.pygstyle) (_minted-Part3/2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
@@ -761,24 +855,79 @@ File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
- [2] [3] [4] [5] [6] [7])) (Sections/TestyGUI.tex) [8] (Part3.aux)
+ [12 <./Img/UI_Screenshots/UI_Employee/extend_request.png> <./Img/UI_Screenshots/UI_Employee/browse_awaiting.png>] [13] [14] [15] [16] [17] [18])) (Sections/TestyGUI.tex
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png, id=222, 948.54375pt x 584.93532pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png  used on input line 5.
+(pdftex.def)             Requested size: 948.54143pt x 584.93388pt.
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png, id=223, 948.54375pt x 584.93532pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png  used on input line 14.
+(pdftex.def)             Requested size: 948.54143pt x 584.93388pt.
+ [19 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png>]
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png, id=229, 946.28531pt x 532.23843pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png  used on input line 23.
+(pdftex.def)             Requested size: 946.283pt x 532.23712pt.
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png, id=230, 946.28531pt x 532.99126pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png  used on input line 32.
+(pdftex.def)             Requested size: 946.283pt x 532.98996pt.
+ [20 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png>]
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png, id=237, 947.79094pt x 535.2497pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png  used on input line 41.
+(pdftex.def)             Requested size: 947.78864pt x 535.24838pt.
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png, id=238, 944.7797pt x 534.49687pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png  used on input line 50.
+(pdftex.def)             Requested size: 944.77739pt x 534.49556pt.
+ [21 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png>]
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png, id=245, 946.28531pt x 536.0025pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png  used on input line 59.
+(pdftex.def)             Requested size: 946.283pt x 536.00119pt.
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png, id=246, 424.58624pt x 217.5628pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png  used on input line 68.
+(pdftex.def)             Requested size: 424.5852pt x 217.56227pt.
+ [22 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png>]
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png, id=253, 947.79094pt x 532.99126pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png  used on input line 77.
+(pdftex.def)             Requested size: 947.78864pt x 532.98996pt.
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png, id=254, 283.81032pt x 343.2825pt>
+File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png Graphic file (type png)
+<use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png>
+Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png  used on input line 86.
+(pdftex.def)             Requested size: 283.80962pt x 343.28165pt.
+ [23 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png>]) [24 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png>] (Part3.aux)
 Package rerunfilecheck Info: File `Part3.out' has not changed.
-(rerunfilecheck)             Checksum: A3D9C7F614DB6E9C78D401669EF39BD0;851.
+(rerunfilecheck)             Checksum: E73A5CBAB1BD897BEF8A3A126B471D39;1225.
 runsystem(del Part3.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24811 strings out of 476331
- 516884 string characters out of 5787765
+ 25047 strings out of 476331
+ 527239 string characters out of 5787765
  1861660 words of memory out of 5000000
- 44874 multiletter control sequences out of 15000+600000
+ 45037 multiletter control sequences out of 15000+600000
  521524 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,5n,84p,639b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 82i,7n,84p,639b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Part3.pdf (9 pages, 109767 bytes).
+Output written on Part3.pdf (25 pages, 1151138 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
