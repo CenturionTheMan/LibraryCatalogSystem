@@ -1,0 +1,39 @@
+\babel@toc {polish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagram przypadków użycia}}{6}{figure.caption.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagram ERD}}{20}{figure.caption.21}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Makieta widoku powitalnego.}}{21}{figure.caption.22}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Makieta widoku logowania.}}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Makieta widoku rejestracji.}}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Makieta widoku klienta.}}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Makieta widoku pracownika.}}{25}{figure.caption.26}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Makieta widoku dodawania zasobu.}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Makieta widoku zarządzania kopiami zasobu.}}{26}{figure.caption.28}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Makieta widoku akceptacji prośby o wypożyczenie.}}{27}{figure.caption.29}%
+\contentsline {figure}{\numberline {11}{\ignorespaces MAkieta widoku przedłużenia prośby o wypożyczenie.}}{27}{figure.caption.30}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Diagram klas dla Front-End'u.}}{28}{figure.caption.31}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Diagram klas dla Back-End'u.}}{29}{figure.caption.32}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Okno powitalne.}}{30}{figure.caption.33}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Okno logowania.}}{30}{figure.caption.34}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Okno rejestracji.}}{31}{figure.caption.35}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Okno przeglądania zbioru biblioteki.}}{32}{figure.caption.36}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Okno przeglądania pożyczonych pozycji.}}{32}{figure.caption.37}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Okno przeglądania próśb o wypożyczenie.}}{33}{figure.caption.38}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Okno przeglądania zasobów biblioteki.}}{33}{figure.caption.39}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Okno zarządzania egzemplarzami zasobu.}}{34}{figure.caption.40}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Okno dodawania nowego zasobu.}}{34}{figure.caption.41}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Okno przeglądania wszystkich próśb o wypożyczenie.}}{35}{figure.caption.42}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Okno przeglądania nowych próśb o wypożyczenie.}}{35}{figure.caption.43}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Okno akceptacji prośby o wypożyczenie.}}{36}{figure.caption.44}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Okno przeglądania próśb o przedłużenie wypożyczenia.}}{36}{figure.caption.45}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Okno akceptacji prośby o przedłużenie wypożyczenia.}}{37}{figure.caption.46}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Okno przeglądania wypożyczonych egzemplarzy (oczekujących na zwrot).}}{37}{figure.caption.47}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Test 1: Próba wypożyczenia zasobu, dla którego nie ma dostępnych kopii}}{44}{figure.caption.48}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Test 2: Próba przedłużenia wypożyczenia egzemplarza, który nie jest wypożyczony przez użytkownika}}{45}{figure.caption.49}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Test 3: Próba usunięcia zasobu, którego egzemplarz jest aktualnie wypożyczony klientowi}}{45}{figure.caption.50}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Test 4: Próba dodania zasobu bez uzupełnienia pól formularza}}{46}{figure.caption.51}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Test 5: Próba usunięcie prośby o wypożyczenie dla niezwróconej kopii.}}{46}{figure.caption.52}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Test 6: Próba dodanie zasobu o nieznanym typie.}}{47}{figure.caption.53}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Test 7: Próba dodanie zasobu o niepoprawnej dacie wydania.}}{47}{figure.caption.54}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Test 8: Próba zalogowania bez podania danych}}{48}{figure.caption.55}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Test 9: Próba usunięcia wypozyczonej kopii zasobu.}}{48}{figure.caption.56}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Test 10: Próba rejestracji konta bez uzupełnionego formularza.}}{49}{figure.caption.57}%
