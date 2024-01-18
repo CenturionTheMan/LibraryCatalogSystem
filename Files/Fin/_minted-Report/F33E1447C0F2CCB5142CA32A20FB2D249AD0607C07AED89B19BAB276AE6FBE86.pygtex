@@ -1,0 +1,100 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{UserWithBorrowedResources}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Author}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{YearPublished}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceType}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{n}{U}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{UserID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{+w}{ }\PYG{n}{RC}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RC}\PYG{p}{.}\PYG{n}{CopyID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{o+ow}{AND}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Returned\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{SummarisedResources}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{p}{,}
+\PYG{+w}{        }\PYG{k}{COALESCE}\PYG{p}{(}\PYG{n}{RCTotal}\PYG{p}{.}\PYG{n}{TotalCopies}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{TotalCopies}\PYG{p}{,}
+\PYG{+w}{        }\PYG{k}{COALESCE}\PYG{p}{(}\PYG{n}{BRTotal}\PYG{p}{.}\PYG{n}{BorrowedCopies}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{BorrowedCopies}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}
+\PYG{+w}{    }\PYG{n+nf}{LEFT}\PYG{+w}{ }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{RC}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nf}{COUNT}\PYG{p}{(}\PYG{n}{RC}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{TotalCopies}
+\PYG{+w}{        }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{+w}{ }\PYG{n}{RC}
+\PYG{+w}{        }\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{RC}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{p}{)}\PYG{+w}{ }\PYG{n}{RCTotal}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RCTotal}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{n+nf}{LEFT}\PYG{+w}{ }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nf}{COUNT}\PYG{p}{(}\PYG{k}{DISTINCT}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{BorrowedCopies}
+\PYG{+w}{        }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}
+\PYG{+w}{        }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o+ow}{IN}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Approved\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Pending\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{AND}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}
+\PYG{+w}{        }\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{p}{)}\PYG{+w}{ }\PYG{n}{BRTotal}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BRTotal}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{UserDetailsWithBorrowedResources}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{Login}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserType}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{BorrowedResource}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{n}{U}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{UserID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{+w}{ }\PYG{n}{RC}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RC}\PYG{p}{.}\PYG{n}{CopyID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Approved\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{DelayedBorrowersView}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{BorrowedResource}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n+nf}{DATEDIFF}\PYG{p}{(}\PYG{n+nf}{DAY}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nf}{GETDATE}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{DaysLate}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{n}{U}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{UserID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{+w}{ }\PYG{n}{RC}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{CopyID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{RC}\PYG{p}{.}\PYG{n}{CopyID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Returned\PYGZsq{}}\PYG{+w}{ }\PYG{o+ow}{AND}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n+nf}{GETDATE}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{ApprovedBorrowRequests}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{BorrowedResource}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{n}{U}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Approved\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{PendingBorrowRequests}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestID}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{FirstName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{U}\PYG{p}{.}\PYG{n}{LastName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{R}\PYG{p}{.}\PYG{n}{Title}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{RequestedResource}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{RequestDate}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{DueDate}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{n}{BR}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{n}{U}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{UserID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{U}\PYG{p}{.}\PYG{n}{UserID}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{ResourceID}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{BR}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Pending\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{GO}
+\end{Verbatim}
