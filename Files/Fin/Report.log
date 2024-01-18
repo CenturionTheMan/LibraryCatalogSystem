@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  18 JAN 2024 10:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  18 JAN 2024 15:52
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -746,99 +746,99 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.6 ...idoku rejestracji.}}{23}{figure.caption.24}
+l.5 ...idoku powitalnego.}}{22}{figure.caption.23}
                                                   % [1] [2])
 \tf@lof=\write9
 \openout9 = `Report.lof'.
 
  [3]) (Sections/OpisRzeczywistości.tex [4]) (Sections/Etap1.tex [5]
-<Img/Use Case Diagram old.png, id=233, 1475.5125pt x 989.6975pt>
+<Img/Use Case Diagram old.png, id=240, 1475.5125pt x 989.6975pt>
 File: Img/Use Case Diagram old.png Graphic file (type png)
 <use Img/Use Case Diagram old.png>
 Package pdftex.def Info: Img/Use Case Diagram old.png  used on input line 41.
 (pdftex.def)             Requested size: 1475.50891pt x 989.69508pt.
-<Img/Scenariusze/1.png, id=234, 612.03656pt x 405.76593pt>
+<Img/Scenariusze/1.png, id=241, 612.03656pt x 405.76593pt>
 File: Img/Scenariusze/1.png Graphic file (type png)
 <use Img/Scenariusze/1.png>
 Package pdftex.def Info: Img/Scenariusze/1.png  used on input line 51.
 (pdftex.def)             Requested size: 612.03506pt x 405.76494pt.
  [6 <./Img/Use Case Diagram old.png>]
-<Img/Scenariusze/2.png, id=246, 791.20593pt x 688.82344pt>
+<Img/Scenariusze/2.png, id=253, 791.20593pt x 688.82344pt>
 File: Img/Scenariusze/2.png Graphic file (type png)
 <use Img/Scenariusze/2.png>
 Package pdftex.def Info: Img/Scenariusze/2.png  used on input line 58.
 (pdftex.def)             Requested size: 791.204pt x 688.82176pt.
  [7 <./Img/Scenariusze/1.png>]
-<Img/Scenariusze/3.png, id=253, 805.50937pt x 732.48656pt>
+<Img/Scenariusze/3.png, id=260, 805.50937pt x 732.48656pt>
 File: Img/Scenariusze/3.png Graphic file (type png)
 <use Img/Scenariusze/3.png>
 Package pdftex.def Info: Img/Scenariusze/3.png  used on input line 65.
 (pdftex.def)             Requested size: 805.5074pt x 732.48476pt.
  [8 <./Img/Scenariusze/2.png>]
-<Img/Scenariusze/4.png, id=260, 720.44156pt x 581.92406pt>
+<Img/Scenariusze/4.png, id=267, 720.44156pt x 581.92406pt>
 File: Img/Scenariusze/4.png Graphic file (type png)
 <use Img/Scenariusze/4.png>
 Package pdftex.def Info: Img/Scenariusze/4.png  used on input line 72.
 (pdftex.def)             Requested size: 720.43979pt x 581.92264pt.
  [9 <./Img/Scenariusze/3.png>]
-<Img/Scenariusze/5.png, id=267, 504.38437pt x 304.13625pt>
+<Img/Scenariusze/5.png, id=274, 504.38437pt x 304.13625pt>
 File: Img/Scenariusze/5.png Graphic file (type png)
 <use Img/Scenariusze/5.png>
 Package pdftex.def Info: Img/Scenariusze/5.png  used on input line 79.
 (pdftex.def)             Requested size: 504.38313pt x 304.1355pt.
  [10 <./Img/Scenariusze/4.png>]
-<Img/Scenariusze/6.png, id=274, 484.81125pt x 309.40594pt>
+<Img/Scenariusze/6.png, id=281, 484.81125pt x 309.40594pt>
 File: Img/Scenariusze/6.png Graphic file (type png)
 <use Img/Scenariusze/6.png>
 Package pdftex.def Info: Img/Scenariusze/6.png  used on input line 86.
 (pdftex.def)             Requested size: 484.81006pt x 309.40518pt.
-<Img/Scenariusze/7.png, id=275, 686.565pt x 325.96782pt>
+<Img/Scenariusze/7.png, id=282, 686.565pt x 325.96782pt>
 File: Img/Scenariusze/7.png Graphic file (type png)
 <use Img/Scenariusze/7.png>
 Package pdftex.def Info: Img/Scenariusze/7.png  used on input line 93.
 (pdftex.def)             Requested size: 686.56332pt x 325.96701pt.
  [11 <./Img/Scenariusze/5.png> <./Img/Scenariusze/6.png>]
-<Img/Scenariusze/8.png, id=284, 685.05937pt x 649.67719pt>
+<Img/Scenariusze/8.png, id=291, 685.05937pt x 649.67719pt>
 File: Img/Scenariusze/8.png Graphic file (type png)
 <use Img/Scenariusze/8.png>
 Package pdftex.def Info: Img/Scenariusze/8.png  used on input line 100.
 (pdftex.def)             Requested size: 685.0577pt x 649.6756pt.
  [12 <./Img/Scenariusze/7.png>]
-<Img/Scenariusze/9.png, id=292, 539.01375pt x 249.18094pt>
+<Img/Scenariusze/9.png, id=299, 539.01375pt x 249.18094pt>
 File: Img/Scenariusze/9.png Graphic file (type png)
 <use Img/Scenariusze/9.png>
 Package pdftex.def Info: Img/Scenariusze/9.png  used on input line 107.
 (pdftex.def)             Requested size: 539.01242pt x 249.18031pt.
  [13 <./Img/Scenariusze/8.png>]
-<Img/Scenariusze/10.png, id=299, 624.08156pt x 331.2375pt>
+<Img/Scenariusze/10.png, id=306, 624.08156pt x 331.2375pt>
 File: Img/Scenariusze/10.png Graphic file (type png)
 <use Img/Scenariusze/10.png>
 Package pdftex.def Info: Img/Scenariusze/10.png  used on input line 114.
 (pdftex.def)             Requested size: 624.08003pt x 331.23668pt.
-<Img/Scenariusze/11.png, id=300, 759.58781pt x 453.94594pt>
+<Img/Scenariusze/11.png, id=307, 759.58781pt x 453.94594pt>
 File: Img/Scenariusze/11.png Graphic file (type png)
 <use Img/Scenariusze/11.png>
 Package pdftex.def Info: Img/Scenariusze/11.png  used on input line 121.
 (pdftex.def)             Requested size: 759.58595pt x 453.94482pt.
  [14 <./Img/Scenariusze/9.png> <./Img/Scenariusze/10.png>]
-<Img/Scenariusze/12.png, id=309, 502.87875pt x 231.11343pt>
+<Img/Scenariusze/12.png, id=316, 502.87875pt x 231.11343pt>
 File: Img/Scenariusze/12.png Graphic file (type png)
 <use Img/Scenariusze/12.png>
 Package pdftex.def Info: Img/Scenariusze/12.png  used on input line 128.
 (pdftex.def)             Requested size: 502.87752pt x 231.11287pt.
-<Img/Scenariusze/13.png, id=310, 684.30656pt x 520.94624pt>
+<Img/Scenariusze/13.png, id=317, 684.30656pt x 520.94624pt>
 File: Img/Scenariusze/13.png Graphic file (type png)
 <use Img/Scenariusze/13.png>
 Package pdftex.def Info: Img/Scenariusze/13.png  used on input line 135.
 (pdftex.def)             Requested size: 684.30489pt x 520.94498pt.
  [15 <./Img/Scenariusze/11.png> <./Img/Scenariusze/12.png>]
-<Img/Scenariusze/14.png, id=319, 558.58687pt x 316.18124pt>
+<Img/Scenariusze/14.png, id=326, 558.58687pt x 316.18124pt>
 File: Img/Scenariusze/14.png Graphic file (type png)
 <use Img/Scenariusze/14.png>
 Package pdftex.def Info: Img/Scenariusze/14.png  used on input line 142.
 (pdftex.def)             Requested size: 558.58551pt x 316.18047pt.
  [16 <./Img/Scenariusze/13.png>]
-<Img/Scenariusze/15.png, id=326, 667.74469pt x 335.75438pt>
+<Img/Scenariusze/15.png, id=333, 667.74469pt x 335.75438pt>
 File: Img/Scenariusze/15.png Graphic file (type png)
 <use Img/Scenariusze/15.png>
 Package pdftex.def Info: Img/Scenariusze/15.png  used on input line 149.
@@ -848,55 +848,61 @@ File: Img/Scenariusze/15.png Graphic file (type png)
 Package pdftex.def Info: Img/Scenariusze/15.png  used on input line 156.
 (pdftex.def)             Requested size: 667.74306pt x 335.75356pt.
  [17 <./Img/Scenariusze/14.png> <./Img/Scenariusze/15.png>]
-<Img/Scenariusze/16.png, id=335, 638.385pt x 355.3275pt>
+<Img/Scenariusze/16.png, id=342, 638.385pt x 355.3275pt>
 File: Img/Scenariusze/16.png Graphic file (type png)
 <use Img/Scenariusze/16.png>
 Package pdftex.def Info: Img/Scenariusze/16.png  used on input line 163.
 (pdftex.def)             Requested size: 638.38342pt x 355.32661pt.
-<Img/Scenariusze/17.png, id=336, 679.78969pt x 356.83313pt>
+<Img/Scenariusze/17.png, id=343, 679.78969pt x 356.83313pt>
 File: Img/Scenariusze/17.png Graphic file (type png)
 <use Img/Scenariusze/17.png>
 Package pdftex.def Info: Img/Scenariusze/17.png  used on input line 170.
 (pdftex.def)             Requested size: 679.78802pt x 356.83224pt.
  [18 <./Img/Scenariusze/16.png>]
-<Img/Scenariusze/18.png, id=345, 688.07062pt x 315.42844pt>
+<Img/Scenariusze/18.png, id=352, 688.07062pt x 315.42844pt>
 File: Img/Scenariusze/18.png Graphic file (type png)
 <use Img/Scenariusze/18.png>
 Package pdftex.def Info: Img/Scenariusze/18.png  used on input line 177.
 (pdftex.def)             Requested size: 688.06894pt x 315.42766pt.
-<Img/erd1.png, id=346, 469.755pt x 311.66437pt>
+<Img/erd1.png, id=353, 469.755pt x 311.66437pt>
 File: Img/erd1.png Graphic file (type png)
 <use Img/erd1.png>
 Package pdftex.def Info: Img/erd1.png  used on input line 186.
 (pdftex.def)             Requested size: 469.75386pt x 311.6636pt.
-) [19 <./Img/Scenariusze/17.png> <./Img/Scenariusze/18.png>] (Sections/Etap2.tex) (Sections/Etap3.tex (Sections/Makiety.tex
+) [19 <./Img/Scenariusze/17.png> <./Img/Scenariusze/18.png>] (Sections/Etap2.tex) (Sections/Etap3.tex
+<Img/Use Case Diagram.png, id=362, 1475.5125pt x 987.69pt>
+File: Img/Use Case Diagram.png Graphic file (type png)
+<use Img/Use Case Diagram.png>
+Package pdftex.def Info: Img/Use Case Diagram.png  used on input line 15.
+(pdftex.def)             Requested size: 1475.50891pt x 987.68759pt.
+ [20 <./Img/erd1.png>] (Sections/Makiety.tex
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/WelcomeForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/WelcomeForm.pdf, id=355, 589.20125pt x 301.125pt>
+<Img/Makiety/WelcomeForm.pdf, id=368, 589.20125pt x 301.125pt>
 File: Img/Makiety/WelcomeForm.pdf Graphic file (type pdf)
 <use Img/Makiety/WelcomeForm.pdf>
 Package pdftex.def Info: Img/Makiety/WelcomeForm.pdf  used on input line 5.
 (pdftex.def)             Requested size: 589.1998pt x 301.12425pt.
-[20 <./Img/erd1.png>]
+[21 <./Img/Use Case Diagram.png>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/LoginForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/LoginForm.pdf, id=361, 401.5pt x 253.94875pt>
+<Img/Makiety/LoginForm.pdf, id=373, 401.5pt x 253.94875pt>
 File: Img/Makiety/LoginForm.pdf Graphic file (type pdf)
 <use Img/Makiety/LoginForm.pdf>
 Package pdftex.def Info: Img/Makiety/LoginForm.pdf  used on input line 13.
 (pdftex.def)             Requested size: 401.49901pt x 253.94812pt.
-[21 <./Img/Makiety/WelcomeForm.pdf>]
+
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/RegistrationForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/RegistrationForm.pdf, id=416, 400.49625pt x 468.75125pt>
+<Img/Makiety/RegistrationForm.pdf, id=374, 400.49625pt x 468.75125pt>
 File: Img/Makiety/RegistrationForm.pdf Graphic file (type pdf)
 <use Img/Makiety/RegistrationForm.pdf>
 Package pdftex.def Info: Img/Makiety/RegistrationForm.pdf  used on input line 21.
 (pdftex.def)             Requested size: 400.49527pt x 468.75009pt.
-[22 <./Img/Makiety/LoginForm.pdf>]
+[22 <./Img/Makiety/WelcomeForm.pdf> <./Img/Makiety/LoginForm.pdf>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/ClientForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/ClientForm.pdf, id=485, 1465.475pt x 1053.9375pt>
+<Img/Makiety/ClientForm.pdf, id=493, 1465.475pt x 1053.9375pt>
 File: Img/Makiety/ClientForm.pdf Graphic file (type pdf)
 <use Img/Makiety/ClientForm.pdf>
 Package pdftex.def Info: Img/Makiety/ClientForm.pdf  used on input line 29.
@@ -904,7 +910,7 @@ Package pdftex.def Info: Img/Makiety/ClientForm.pdf  used on input line 29.
 [23 <./Img/Makiety/RegistrationForm.pdf>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/EmployeeForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/EmployeeForm.pdf, id=646, 1468.48625pt x 958.58125pt>
+<Img/Makiety/EmployeeForm.pdf, id=654, 1468.48625pt x 958.58125pt>
 File: Img/Makiety/EmployeeForm.pdf Graphic file (type pdf)
 <use Img/Makiety/EmployeeForm.pdf>
 Package pdftex.def Info: Img/Makiety/EmployeeForm.pdf  used on input line 37.
@@ -912,7 +918,7 @@ Package pdftex.def Info: Img/Makiety/EmployeeForm.pdf  used on input line 37.
 [24 <./Img/Makiety/ClientForm.pdf>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/AddResourceForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/AddResourceForm.pdf, id=772, 458.71375pt x 411.5375pt>
+<Img/Makiety/AddResourceForm.pdf, id=780, 458.71375pt x 411.5375pt>
 File: Img/Makiety/AddResourceForm.pdf Graphic file (type pdf)
 <use Img/Makiety/AddResourceForm.pdf>
 Package pdftex.def Info: Img/Makiety/AddResourceForm.pdf  used on input line 45.
@@ -920,7 +926,7 @@ Package pdftex.def Info: Img/Makiety/AddResourceForm.pdf  used on input line 45.
 [25 <./Img/Makiety/EmployeeForm.pdf>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/ManagingResourceCopiesForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/ManagingResourceCopiesForm.pdf, id=925, 740.7675pt x 350.30875pt>
+<Img/Makiety/ManagingResourceCopiesForm.pdf, id=933, 740.7675pt x 350.30875pt>
 File: Img/Makiety/ManagingResourceCopiesForm.pdf Graphic file (type pdf)
 <use Img/Makiety/ManagingResourceCopiesForm.pdf>
 Package pdftex.def Info: Img/Makiety/ManagingResourceCopiesForm.pdf  used on input line 53.
@@ -928,7 +934,7 @@ Package pdftex.def Info: Img/Makiety/ManagingResourceCopiesForm.pdf  used on inp
 
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/AcceptRequestForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/AcceptRequestForm.pdf, id=926, 352.31625pt x 403.5075pt>
+<Img/Makiety/AcceptRequestForm.pdf, id=934, 352.31625pt x 403.5075pt>
 File: Img/Makiety/AcceptRequestForm.pdf Graphic file (type pdf)
 <use Img/Makiety/AcceptRequestForm.pdf>
 Package pdftex.def Info: Img/Makiety/AcceptRequestForm.pdf  used on input line 61.
@@ -936,13 +942,13 @@ Package pdftex.def Info: Img/Makiety/AcceptRequestForm.pdf  used on input line 6
 [26 <./Img/Makiety/AddResourceForm.pdf> <./Img/Makiety/ManagingResourceCopiesForm.pdf>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/ExtendRequestForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Img/Makiety/ExtendRequestForm.pdf, id=1151, 308.15125pt x 306.14375pt>
+<Img/Makiety/ExtendRequestForm.pdf, id=1159, 308.15125pt x 306.14375pt>
 File: Img/Makiety/ExtendRequestForm.pdf Graphic file (type pdf)
 <use Img/Makiety/ExtendRequestForm.pdf>
 Package pdftex.def Info: Img/Makiety/ExtendRequestForm.pdf  used on input line 70.
 (pdftex.def)             Requested size: 308.15048pt x 306.14299pt.
 ) (Sections/DiagramKlas.tex
-<Img/Class Diagrams/ClassDiagram1_1.png, id=1152, 2092.06593pt x 1613.27719pt>
+<Img/Class Diagrams/ClassDiagram1_1.png, id=1160, 2092.06593pt x 1613.27719pt>
 File: Img/Class Diagrams/ClassDiagram1_1.png Graphic file (type png)
 <use Img/Class Diagrams/ClassDiagram1_1.png>
 Package pdftex.def Info: Img/Class Diagrams/ClassDiagram1_1.png  used on input line 5.
@@ -953,85 +959,85 @@ File: Img/Class Diagrams/ClassDiagram1_1.png Graphic file (type png)
 Package pdftex.def Info: Img/Class Diagrams/ClassDiagram1_1.png  used on input line 14.
 (pdftex.def)             Requested size: 2092.06085pt x 1613.27327pt.
 ) [28 <./Img/Class Diagrams/ClassDiagram1_1.png>] (Sections/ZdjeciaApplikacji.tex
-<Img/UI_Screenshots/UI_Start/welcome.png, id=1264, 431.36156pt x 220.57407pt>
+<Img/UI_Screenshots/UI_Start/welcome.png, id=1272, 431.36156pt x 220.57407pt>
 File: Img/UI_Screenshots/UI_Start/welcome.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Start/welcome.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Start/welcome.png  used on input line 6.
 (pdftex.def)             Requested size: 431.3605pt x 220.57352pt.
  [29]
-<Img/UI_Screenshots/UI_Start/login.png, id=1269, 290.58563pt x 185.19188pt>
+<Img/UI_Screenshots/UI_Start/login.png, id=1277, 290.58563pt x 185.19188pt>
 File: Img/UI_Screenshots/UI_Start/login.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Start/login.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Start/login.png  used on input line 15.
 (pdftex.def)             Requested size: 290.58492pt x 185.1914pt.
-<Img/UI_Screenshots/UI_Start/register.png, id=1270, 289.83281pt x 346.29375pt>
+<Img/UI_Screenshots/UI_Start/register.png, id=1278, 289.83281pt x 346.29375pt>
 File: Img/UI_Screenshots/UI_Start/register.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Start/register.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Start/register.png  used on input line 24.
 (pdftex.def)             Requested size: 289.83209pt x 346.2929pt.
  [30 <./Img/UI_Screenshots/UI_Start/welcome.png> <./Img/UI_Screenshots/UI_Start/login.png>]
-<Img/UI_Screenshots/UI_Client/browse_library_resources.png, id=1278, 951.555pt x 590.205pt>
+<Img/UI_Screenshots/UI_Client/browse_library_resources.png, id=1286, 951.555pt x 590.205pt>
 File: Img/UI_Screenshots/UI_Client/browse_library_resources.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Client/browse_library_resources.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Client/browse_library_resources.png  used on input line 35.
 (pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
  [31 <./Img/UI_Screenshots/UI_Start/register.png>]
-<Img/UI_Screenshots/UI_Client/borrowed_by_me.png, id=1284, 951.555pt x 590.205pt>
+<Img/UI_Screenshots/UI_Client/borrowed_by_me.png, id=1292, 951.555pt x 590.205pt>
 File: Img/UI_Screenshots/UI_Client/borrowed_by_me.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Client/borrowed_by_me.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Client/borrowed_by_me.png  used on input line 44.
 (pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
-<Img/UI_Screenshots/UI_Client/my_requests.png, id=1285, 951.555pt x 590.205pt>
+<Img/UI_Screenshots/UI_Client/my_requests.png, id=1293, 951.555pt x 590.205pt>
 File: Img/UI_Screenshots/UI_Client/my_requests.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Client/my_requests.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Client/my_requests.png  used on input line 53.
 (pdftex.def)             Requested size: 951.55267pt x 590.20355pt.
  [32 <./Img/UI_Screenshots/UI_Client/browse_library_resources.png> <./Img/UI_Screenshots/UI_Client/borrowed_by_me.png>]
-<Img/UI_Screenshots/UI_Employee/browse_library_resources.png, id=1292, 953.06062pt x 536.75531pt>
+<Img/UI_Screenshots/UI_Employee/browse_library_resources.png, id=1300, 953.06062pt x 536.75531pt>
 File: Img/UI_Screenshots/UI_Employee/browse_library_resources.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/browse_library_resources.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_library_resources.png  used on input line 64.
 (pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
-<Img/UI_Screenshots/UI_Employee/manage_copies.png, id=1293, 545.03625pt x 257.46187pt>
+<Img/UI_Screenshots/UI_Employee/manage_copies.png, id=1301, 545.03625pt x 257.46187pt>
 File: Img/UI_Screenshots/UI_Employee/manage_copies.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/manage_copies.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/manage_copies.png  used on input line 73.
 (pdftex.def)             Requested size: 545.03493pt x 257.46123pt.
  [33 <./Img/UI_Screenshots/UI_Client/my_requests.png> <./Img/UI_Screenshots/UI_Employee/browse_library_resources.png>]
-<Img/UI_Screenshots/UI_Employee/add_new_resource.png, id=1300, 290.58563pt x 228.855pt>
+<Img/UI_Screenshots/UI_Employee/add_new_resource.png, id=1308, 290.58563pt x 228.855pt>
 File: Img/UI_Screenshots/UI_Employee/add_new_resource.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/add_new_resource.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/add_new_resource.png  used on input line 83.
 (pdftex.def)             Requested size: 290.58492pt x 228.85443pt.
-<Img/UI_Screenshots/UI_Employee/browse_all_request.png, id=1301, 953.06062pt x 536.75531pt>
+<Img/UI_Screenshots/UI_Employee/browse_all_request.png, id=1309, 953.06062pt x 536.75531pt>
 File: Img/UI_Screenshots/UI_Employee/browse_all_request.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/browse_all_request.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_all_request.png  used on input line 93.
 (pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
  [34 <./Img/UI_Screenshots/UI_Employee/manage_copies.png> <./Img/UI_Screenshots/UI_Employee/add_new_resource.png>]
-<Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png, id=1308, 953.06062pt x 536.75531pt>
+<Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png, id=1316, 953.06062pt x 536.75531pt>
 File: Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png  used on input line 103.
 (pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
-<Img/UI_Screenshots/UI_Employee/accept_new_borrow.png, id=1309, 222.07968pt x 224.33812pt>
+<Img/UI_Screenshots/UI_Employee/accept_new_borrow.png, id=1317, 222.07968pt x 224.33812pt>
 File: Img/UI_Screenshots/UI_Employee/accept_new_borrow.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/accept_new_borrow.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/accept_new_borrow.png  used on input line 112.
 (pdftex.def)             Requested size: 222.07913pt x 224.33757pt.
  [35 <./Img/UI_Screenshots/UI_Employee/browse_all_request.png> <./Img/UI_Screenshots/UI_Employee/browse_new_borrow_request.png>]
-<Img/UI_Screenshots/UI_Employee/browse_extension_request.png, id=1316, 953.06062pt x 536.75531pt>
+<Img/UI_Screenshots/UI_Employee/browse_extension_request.png, id=1324, 953.06062pt x 536.75531pt>
 File: Img/UI_Screenshots/UI_Employee/browse_extension_request.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/browse_extension_request.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_extension_request.png  used on input line 122.
 (pdftex.def)             Requested size: 953.0583pt x 536.75398pt.
-<Img/UI_Screenshots/UI_Employee/extend_request.png, id=1317, 219.82124pt x 223.58531pt>
+<Img/UI_Screenshots/UI_Employee/extend_request.png, id=1325, 219.82124pt x 223.58531pt>
 File: Img/UI_Screenshots/UI_Employee/extend_request.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/extend_request.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/extend_request.png  used on input line 131.
 (pdftex.def)             Requested size: 219.8207pt x 223.58475pt.
  [36 <./Img/UI_Screenshots/UI_Employee/accept_new_borrow.png> <./Img/UI_Screenshots/UI_Employee/browse_extension_request.png>]
-<Img/UI_Screenshots/UI_Employee/browse_awaiting.png, id=1325, 953.06062pt x 536.75531pt>
+<Img/UI_Screenshots/UI_Employee/browse_awaiting.png, id=1333, 953.06062pt x 536.75531pt>
 File: Img/UI_Screenshots/UI_Employee/browse_awaiting.png Graphic file (type png)
 <use Img/UI_Screenshots/UI_Employee/browse_awaiting.png>
 Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_awaiting.png  used on input line 141.
@@ -1047,78 +1053,78 @@ File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
  [37 <./Img/UI_Screenshots/UI_Employee/extend_request.png> <./Img/UI_Screenshots/UI_Employee/browse_awaiting.png>] [38] [39] [40] [41] [42] [43])) (Sections/TestyGUI.tex
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png, id=1358, 948.54375pt x 584.93532pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png, id=1366, 948.54375pt x 584.93532pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png  used on input line 5.
 (pdftex.def)             Requested size: 948.54143pt x 584.93388pt.
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png, id=1359, 948.54375pt x 584.93532pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png, id=1367, 948.54375pt x 584.93532pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png  used on input line 14.
 (pdftex.def)             Requested size: 948.54143pt x 584.93388pt.
  [44 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 233831.png>]
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png, id=1365, 946.28531pt x 532.23843pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png, id=1373, 946.28531pt x 532.23843pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png  used on input line 23.
 (pdftex.def)             Requested size: 946.283pt x 532.23712pt.
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png, id=1366, 946.28531pt x 532.99126pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png, id=1374, 946.28531pt x 532.99126pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png  used on input line 32.
 (pdftex.def)             Requested size: 946.283pt x 532.98996pt.
  [45 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234001.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234049.png>]
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png, id=1373, 947.79094pt x 535.2497pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png, id=1381, 947.79094pt x 535.2497pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png  used on input line 41.
 (pdftex.def)             Requested size: 947.78864pt x 535.24838pt.
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png, id=1374, 944.7797pt x 534.49687pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png, id=1382, 944.7797pt x 534.49687pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png  used on input line 50.
 (pdftex.def)             Requested size: 944.77739pt x 534.49556pt.
  [46 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234136.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234156.png>]
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png, id=1381, 946.28531pt x 536.0025pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png, id=1389, 946.28531pt x 536.0025pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png  used on input line 59.
 (pdftex.def)             Requested size: 946.283pt x 536.00119pt.
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png, id=1382, 424.58624pt x 217.5628pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png, id=1390, 424.58624pt x 217.5628pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png  used on input line 68.
 (pdftex.def)             Requested size: 424.5852pt x 217.56227pt.
  [47 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234540.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234558.png>]
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png, id=1389, 947.79094pt x 532.99126pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png, id=1397, 947.79094pt x 532.99126pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png  used on input line 77.
 (pdftex.def)             Requested size: 947.78864pt x 532.98996pt.
-<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png, id=1390, 283.81032pt x 343.2825pt>
+<Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png, id=1398, 283.81032pt x 343.2825pt>
 File: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png Graphic file (type png)
 <use Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png>
 Package pdftex.def Info: Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png  used on input line 86.
 (pdftex.def)             Requested size: 283.80962pt x 343.28165pt.
  [48 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234738.png> <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-17 002857.png>])) [49 <./Img/UI_Resistance_Tests/Zrzut ekranu 2024-01-16 234753.png>] (Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 8CD9703F1A4B25123D51C2CD9805A4B5;3101.
+(rerunfilecheck)             Checksum: 651BD6E57FB0B8BA22AD07F2CD7FC741;3387.
 runsystem(del Report.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 25391 strings out of 476331
- 535202 string characters out of 5787765
+ 25401 strings out of 476331
+ 535476 string characters out of 5787765
  1863660 words of memory out of 5000000
- 45240 multiletter control sequences out of 15000+600000
+ 45247 multiletter control sequences out of 15000+600000
  521859 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,7n,84p,706b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 82i,7n,84p,706b,1300s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Report.pdf (50 pages, 2965335 bytes).
+Output written on Report.pdf (50 pages, 3089201 bytes).
 PDF statistics:
- 1799 PDF objects out of 2073 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 436 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1806 PDF objects out of 2073 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
+ 449 words of extra memory for PDF output out of 10000 (max. 10000000)
 

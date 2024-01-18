@@ -8,14 +8,15 @@
 \contentsline {subsection}{\numberline {2.2}Diagram przypadków użycia}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Opis scenariuszy}{7}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Diagram ERD}{20}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Implementacja bazy danych}{21}{section.3}%
-\contentsline {section}{\numberline {4}Implementacja aplikacji}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Makieta interfejsu graficznego}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Diagram klas}{28}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Wdrożenie aplikacji}{29}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Okna startowe}{30}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Okna klienta}{32}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Okna pracownika}{33}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Testowanie aplikacji}{38}{subsection.4.7}%
-\contentsline {subsubsection}{\numberline {4.7.1}Testy jednostkowe}{38}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}Testy GUI}{44}{subsubsection.4.7.2}%
+\contentsline {section}{\numberline {3}Implementacja bazy danych}{20}{section.3}%
+\contentsline {section}{\numberline {4}Implementacja aplikacji}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Zmiany w diagramie przypadków użycia}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Makieta interfejsu graficznego}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Diagram klas}{28}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Wdrożenie aplikacji}{30}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Okna startowe}{30}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Okna klienta}{32}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Okna pracownika}{33}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Testowanie aplikacji}{38}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Testy jednostkowe}{38}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Testy GUI}{44}{subsubsection.4.5.2}%
