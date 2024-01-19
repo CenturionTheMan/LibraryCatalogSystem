@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  18 JAN 2024 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.19)  19 JAN 2024 08:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -304,9 +304,9 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count304
 \enitdp@description=\count305
 ) (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/csvsimple\csvsimple.sty
-Package: csvsimple 2022/09/20 v2.3.2 LaTeX CSV file processing
+Package: csvsimple 2023/05/09 v2.4.0 LaTeX CSV file processing
 ) (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/csvsimple\csvsimple-legacy.sty
-Package: csvsimple-legacy 2022/09/20 version 2.3.2 LaTeX2e CSV file processing
+Package: csvsimple-legacy 2023/05/09 version 2.4.0 LaTeX2e CSV file processing
  (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks29
 \pgfutil@tempdima=\dimen190
@@ -921,7 +921,7 @@ Package pdftex.def Info: Img/UI_Screenshots/UI_Employee/browse_awaiting.png  use
 ) (Sections/TestyJednostkowe.tex
 \openout3 = `Part3.pyg'.
 
- (_minted-Part3/default.pygstyle) (_minted-Part3/2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+ (_minted-Part3/default.pygstyle) (_minted-Part3/E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1.
  (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
@@ -998,9 +998,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  82i,7n,84p,639b,1300s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Part3.pdf (31 pages, 1981625 bytes).
+Output written on Part3.pdf (31 pages, 1981247 bytes).
 PDF statistics:
- 1517 PDF objects out of 1728 (max. 8388607)
+ 1516 PDF objects out of 1728 (max. 8388607)
  76 named destinations out of 1000 (max. 500000)
  248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

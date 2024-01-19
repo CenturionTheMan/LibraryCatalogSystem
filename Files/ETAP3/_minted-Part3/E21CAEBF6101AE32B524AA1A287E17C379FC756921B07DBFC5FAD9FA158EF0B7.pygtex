@@ -1,5 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{LibraryDatabaseApiUnitTests}\PYG{p}{;}
+\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{LibraryDatabaseApiUnitTests}\PYG{p}{;}
 
 \PYG{k}{public}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Tests}
 \PYG{p}{\PYGZob{}}
