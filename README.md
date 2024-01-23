@@ -1,6 +1,5 @@
 # LibraryCatalogSystem
-Simple database project used for managing imaginary library catalog system
-GUI
+.NET Framework project used for managing imaginary library catalog system
 
 <img width="1200" alt="image" src="ReadMeImg\SampleImg.png">
 
