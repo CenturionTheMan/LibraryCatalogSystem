@@ -120,6 +120,8 @@ namespace LibraryWinFormsApp
                         };
                     }).ToList();
 
+
+                
                 dataGridViewCopies.DataSource = modifiedList;
 
                 if (!dataGridViewCopies.Columns.Contains("Delete"))
@@ -151,33 +153,40 @@ namespace LibraryWinFormsApp
                 {
                     if (dataGridViewCopies.Columns.Contains("Delete") && e.ColumnIndex == dataGridViewCopies.Columns["Delete"].Index)
                     {
-                        int copyID = (int)dataGridViewCopies.Rows[e.RowIndex].Cells["CopyID"].Value;
-                        HandleDeleteCopies(copyID);
+                        HandleDeleteCopies((int)dataGridViewCopies.Rows[e.RowIndex].Cells["CopyID"].Value,
+                                            (DateOnly?)dataGridViewCopies.Rows[e.RowIndex].Cells["DueDate"].Value);
                     }
 
                 }
             }
         }
 
-        private void HandleDeleteCopies(int toDeleteCopy)
+        private void HandleDeleteCopies(int toDeleteCopy, DateOnly? CopyDueDate)
         {
 
             DialogResult result = MessageBox.Show($"Are you sure you want to delete copy: {toDeleteCopy}?", "Confirmation to Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
+                if (CopyDueDate == null) {
 
-                bool success = api.DeleteResourceCopy(toDeleteCopy);
+                    bool success = api.DeleteResourceCopy(toDeleteCopy);
 
-                if (success)
-                {
-                    MessageBox.Show("Copy has been successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshCopiesView(currentResourceID);
+                    if (success)
+                    {
+                        MessageBox.Show("Copy has been successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshCopiesView(currentResourceID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error deleting the copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error deleting the copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The copy is borrowed and cannot be removed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+   
             }
         }
 

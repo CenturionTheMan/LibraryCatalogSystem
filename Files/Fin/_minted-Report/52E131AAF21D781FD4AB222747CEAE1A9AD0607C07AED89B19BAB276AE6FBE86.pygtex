@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n+nc}{TABLE}\PYG{+w}{ }\PYG{n}{Users}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{UserID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{FirstName}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{LastName}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Login}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{UNIQUE}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Password}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{UserType}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{Client}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Employee}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n+nc}{TABLE}\PYG{+w}{ }\PYG{n}{Resources}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{Title}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{Author}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{YearPublished}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{ResourceType}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{Book}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Magazine}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{p}{....}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{represents}\PYG{+w}{ }\PYG{n}{individual}\PYG{+w}{ }\PYG{n}{copies}\PYG{+w}{ }\PYG{k}{of}\PYG{+w}{ }\PYG{n}{resources}
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n+nc}{TABLE}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{CopyID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ResourceID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Resources}\PYG{p}{(}\PYG{n}{ResourceID}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{GO}
+
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n+nc}{TABLE}\PYG{+w}{ }\PYG{n}{BorrowRequests}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{RequestID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{UserID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{ResourceID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{RequestDate}\PYG{+w}{ }\PYG{n+nc}{DATE}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{CopyID}\PYG{+w}{ }\PYG{n+nc}{INT}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{Assigned}\PYG{+w}{ }\PYG{k}{by}\PYG{+w}{ }\PYG{n}{Employee}\PYG{+w}{ }\PYG{k}{after}\PYG{+w}{ }\PYG{n}{acceptance}
+\PYG{+w}{        }\PYG{n}{DueDate}\PYG{+w}{ }\PYG{n+nc}{DATE}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{Assigned}\PYG{+w}{ }\PYG{k}{by}\PYG{+w}{ }\PYG{n}{Employee}\PYG{+w}{ }\PYG{k}{after}\PYG{+w}{ }\PYG{n}{acceptance}
+\PYG{+w}{        }\PYG{n}{Status}\PYG{+w}{ }\PYG{n+nc}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{+w}{ }\PYG{o+ow}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{ }\PYG{n}{Pending}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Approved}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Returned}
+\PYG{+w}{        }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{UserID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Users}\PYG{p}{(}\PYG{n}{UserID}\PYG{p}{),}
+\PYG{+w}{        }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{CopyID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{ResourceCopies}\PYG{p}{(}\PYG{n}{CopyID}\PYG{p}{),}
+\PYG{+w}{        }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{ResourceID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Resources}\PYG{p}{(}\PYG{n}{ResourceID}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{GO}
+\end{Verbatim}

@@ -1100,18 +1100,188 @@ INPUT .\Part3.lof
 INPUT Part3.lof
 INPUT Part3.lof
 OUTPUT Part3.lof
-INPUT .\Sections\Wstep.tex
-INPUT Sections\Wstep.tex
-INPUT .\Sections\Wstep.tex
-INPUT Sections\Wstep.tex
+INPUT .\Sections\Makiety.tex
+INPUT Sections\Makiety.tex
+INPUT .\Sections\Makiety.tex
+INPUT Sections\Makiety.tex
+INPUT .\Img\Makiety\WelcomeForm.pdf
+INPUT .\Img\Makiety\WelcomeForm.pdf
+INPUT Img\Makiety\WelcomeForm.pdf
+INPUT .\Img\Makiety\WelcomeForm.pdf
+INPUT .\Img\Makiety\WelcomeForm.pdf
+INPUT .\Img\Makiety\WelcomeForm.pdf
+INPUT .\Img\Makiety\LoginForm.pdf
+INPUT .\Img\Makiety\LoginForm.pdf
+INPUT Img\Makiety\LoginForm.pdf
+INPUT .\Img\Makiety\LoginForm.pdf
+INPUT .\Img\Makiety\LoginForm.pdf
+INPUT .\Img\Makiety\LoginForm.pdf
+INPUT .\Img\Makiety\RegistrationForm.pdf
+INPUT .\Img\Makiety\RegistrationForm.pdf
+INPUT Img\Makiety\RegistrationForm.pdf
+INPUT .\Img\Makiety\RegistrationForm.pdf
+INPUT .\Img\Makiety\RegistrationForm.pdf
+INPUT .\Img\Makiety\RegistrationForm.pdf
+INPUT .\Img\Makiety\ClientForm.pdf
+INPUT .\Img\Makiety\ClientForm.pdf
+INPUT Img\Makiety\ClientForm.pdf
+INPUT .\Img\Makiety\ClientForm.pdf
+INPUT .\Img\Makiety\ClientForm.pdf
+INPUT .\Img\Makiety\ClientForm.pdf
+INPUT .\Img\Makiety\EmployeeForm.pdf
+INPUT .\Img\Makiety\EmployeeForm.pdf
+INPUT Img\Makiety\EmployeeForm.pdf
+INPUT .\Img\Makiety\EmployeeForm.pdf
+INPUT .\Img\Makiety\EmployeeForm.pdf
+INPUT .\Img\Makiety\EmployeeForm.pdf
+INPUT .\Img\Makiety\AddResourceForm.pdf
+INPUT .\Img\Makiety\AddResourceForm.pdf
+INPUT Img\Makiety\AddResourceForm.pdf
+INPUT .\Img\Makiety\AddResourceForm.pdf
+INPUT .\Img\Makiety\AddResourceForm.pdf
+INPUT .\Img\Makiety\AddResourceForm.pdf
+INPUT .\Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT .\Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT .\Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT .\Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT .\Img\Makiety\ManagingResourceCopiesForm.pdf
+INPUT .\Img\Makiety\AcceptRequestForm.pdf
+INPUT .\Img\Makiety\AcceptRequestForm.pdf
+INPUT Img\Makiety\AcceptRequestForm.pdf
+INPUT .\Img\Makiety\AcceptRequestForm.pdf
+INPUT .\Img\Makiety\AcceptRequestForm.pdf
+INPUT .\Img\Makiety\AcceptRequestForm.pdf
+INPUT .\Img\Makiety\ExtendRequestForm.pdf
+INPUT .\Img\Makiety\ExtendRequestForm.pdf
+INPUT Img\Makiety\ExtendRequestForm.pdf
+INPUT .\Img\Makiety\ExtendRequestForm.pdf
+INPUT .\Img\Makiety\ExtendRequestForm.pdf
+INPUT .\Img\Makiety\ExtendRequestForm.pdf
 INPUT .\Sections\DiagramKlas.tex
 INPUT Sections\DiagramKlas.tex
 INPUT .\Sections\DiagramKlas.tex
 INPUT Sections\DiagramKlas.tex
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
+INPUT Img\Class Diagrams\ClassDiagram1_1.png
+INPUT .\Img\Class Diagrams\ClassDiagram1_1.png
 INPUT .\Sections\ZdjeciaApplikacji.tex
 INPUT Sections\ZdjeciaApplikacji.tex
 INPUT .\Sections\ZdjeciaApplikacji.tex
 INPUT Sections\ZdjeciaApplikacji.tex
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\welcome.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\login.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Start\register.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\borrowed_by_me.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Client\my_requests.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_library_resources.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\manage_copies.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\add_new_resource.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_all_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_new_borrow_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\accept_new_borrow.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_extension_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\extend_request.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
+INPUT .\Img\UI_Screenshots\UI_Employee\browse_awaiting.png
 INPUT .\Sections\TestyJednostkowe.tex
 INPUT Sections\TestyJednostkowe.tex
 INPUT .\Sections\TestyJednostkowe.tex
@@ -1123,14 +1293,14 @@ INPUT .\_minted-Part3\default.pygstyle
 INPUT _minted-Part3\default.pygstyle
 INPUT _minted-Part3\default.pygstyle
 INPUT .\Part3.pyg
-INPUT .\_minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT _minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT .\_minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT _minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT .\_minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT _minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT .\_minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
-INPUT _minted-Part3\2AF6DDE316446DC58DC603E87CC21E5F79FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT .\_minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT _minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT .\_minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT _minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT .\_minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT _minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT .\_minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
+INPUT _minted-Part3\E21CAEBF6101AE32B524AA1A287E17C379FC756921B07DBFC5FAD9FA158EF0B7.pygtex
 INPUT C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
@@ -1140,6 +1310,76 @@ INPUT .\Sections\TestyGUI.tex
 INPUT Sections\TestyGUI.tex
 INPUT .\Sections\TestyGUI.tex
 INPUT Sections\TestyGUI.tex
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 233831.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234001.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234049.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234136.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234156.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234540.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234558.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234738.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-17 002857.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
+INPUT .\Img\UI_Resistance_Tests\Zrzut ekranu 2024-01-16 234753.png
 INPUT Part3.aux
 INPUT .\Part3.out
 INPUT .\Part3.out

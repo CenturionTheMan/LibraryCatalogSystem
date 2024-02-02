@@ -65,6 +65,11 @@ public partial class AcceptRequestForm : Form
             MessageBox.Show("Failed to approve borrow request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+    private void AcceptRequestForm_Load(object sender, EventArgs e)
+    {
+
+    }
 }
 
 

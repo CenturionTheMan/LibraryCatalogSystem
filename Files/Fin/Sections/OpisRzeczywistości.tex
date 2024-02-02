@@ -1,0 +1,51 @@
+\subsection{Opis rzeczywistości}
+Biblioteka jest instytucją kultury, która gromadzi, przechowuje i udostępnia materiały biblioteczne oraz 
+informuje o nich. Każdy obywatel może wypożyczyć dany zasób biblioteczny na określony okres. 
+Jednocześnie ma możliwość podglądu dostępnych zasobów w bibliotece oraz informacji na ile dni może je wypożyczyć. 
+Każdy zasób biblioteczny określany jest przez kilka cech: 
+\begin{itemize}
+    \item typ (książka, artykuł, list, kaseta), 
+    \item tytuł,
+    \item autor,
+    \item rok wydania
+    \item numer egzemplarza danego tytułu, 
+    \item status (czy jest wypożyczony i przez kogo), 
+    \item informację o liczbie dni, na które można wypożyczyć egzemplarz,
+    \item ilość dostępnych sztuk na stanie.
+\end{itemize}
+
+\subsection{Zasoby ludzkie}
+\begin{itemize}
+    \item Pracownik biblioteki:
+    \begin{itemize}
+        \item wypożyczanie pozycji klientowi
+        \item dodawanie pozycji
+        \item usuwanie pozycji
+        \item katalogowanie pozycji
+        \item śledzenie/modyfikowanie stanu (ilość) zasobów bibliotecznych
+        \item sprawdzanie statusu danego egzemplarza (czy jest wypożyczony i przez kogo)
+    \end{itemize}
+    \item Klient (czytelnik)
+    \begin{itemize}
+        \item sprawdzanie statusu wypożyczonych przez siebie egzemplarzy (na jaki okres dany egzemplarz został mu wypożyczony),
+        \item możliwość przedłużenia okresu wypożyczenia
+        \item sprawdzenie dostępności pozycji
+        \item sprawdzenie informacji o pozycji (tytuł, autor, rok wydania)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Opisy sytuacji}
+    \subsubsection*{Sytuacja 1:}
+    Do biblioteki przychodzi osoba, która chce wypożyczyć dany zasób. Prosi pracownika o możliwość wypożyczenia danego materiału. Pracownik sprawdza dostępność danego tytułu oraz informacje o liczbie dni na jaki może zostać wypożyczony. Pracownik przekazuje te informacje klientowi. Jeżeli klient decyduje się na wypożyczenie dostępnego zasobu, wypożyczony egzemplarz nie jest dostępny dla kolejnych klientów, dopóki nie wróci on z powrotem do biblioteki. Jednak kolejny klient może wypożyczyć inny egzemplarz tego samego zasobu.
+    
+    \subsubsection*{Sytuacja 2:}
+    Klient zdalnie przegląda dostępne materiały biblioteczne i wypożycza egzemplarz wybranego zasobu. Klient nie widzi egzemplarzy wypożyczonych przez inne osoby.
+
+    \subsubsection*{Sytuacja 3:}
+    Do biblioteki zostaje dostarczony nowy zasób. Pracownik ma zadanie dodać nowy materiał do spisu biblioteki.
+
+    \subsubsection*{Sytuacja 4:}
+    Jedyny egzemplarz danego zasobu biblioteki zostaje zniszczony. Pracownik ma za zadanie usunąć go ze spisu dostępnych materiałów w przypadku, gdy zasób danego tytułu nie będzie uzupełniony.
+
+    \subsubsection*{Sytuacja 5:}
+    Klient zwraca wypożyczony materiał biblioteczny. Pracownik ma za zadanie zmienić status danego egzemplarza. W następstwie dany egzemplarz jest znowu widoczny dla nowych klientów.

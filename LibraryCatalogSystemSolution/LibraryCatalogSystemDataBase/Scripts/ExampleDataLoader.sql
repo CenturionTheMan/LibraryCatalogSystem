@@ -140,7 +140,7 @@ INSERT INTO ResourceCopies (ResourceID) VALUES
 (10),
 (10),
 (10),
-(10)
+(10);
 GO
 
 -- BorrowRequest
