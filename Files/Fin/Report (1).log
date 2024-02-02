@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.18)  18 JAN 2024 21:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.19)  19 JAN 2024 09:04
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -304,9 +304,9 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count304
 \enitdp@description=\count305
 ) (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/csvsimple\csvsimple.sty
-Package: csvsimple 2022/09/20 v2.3.2 LaTeX CSV file processing
+Package: csvsimple 2023/05/09 v2.4.0 LaTeX CSV file processing
 ) (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/csvsimple\csvsimple-legacy.sty
-Package: csvsimple-legacy 2022/09/20 version 2.3.2 LaTeX2e CSV file processing
+Package: csvsimple-legacy 2023/05/09 version 2.4.0 LaTeX2e CSV file processing
  (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\dzied\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks29
 \pgfutil@tempdima=\dimen190
@@ -752,17 +752,17 @@ l.29 ...{4.5.2}Testy GUI}{59}{subsubsection.4.5.2}
 \openout9 = `Report.lof'.
 
  [4]) (Sections/OpisRzeczywistości.tex [5]) (Sections/Etap1.tex [6]
-<Img/Use Case Diagram old.png, id=324, 1475.5125pt x 989.6975pt>
+<Img/Use Case Diagram old.png, id=324, 1844.8925pt x 1237.62375pt>
 File: Img/Use Case Diagram old.png Graphic file (type png)
 <use Img/Use Case Diagram old.png>
 Package pdftex.def Info: Img/Use Case Diagram old.png  used on input line 41.
-(pdftex.def)             Requested size: 1475.50891pt x 989.69508pt.
+(pdftex.def)             Requested size: 1844.88802pt x 1237.62074pt.
 <Img/Scenariusze/1.png, id=325, 612.03656pt x 405.76593pt>
 File: Img/Scenariusze/1.png Graphic file (type png)
 <use Img/Scenariusze/1.png>
 Package pdftex.def Info: Img/Scenariusze/1.png  used on input line 51.
 (pdftex.def)             Requested size: 612.03506pt x 405.76494pt.
- [7 <./Img/Use Case Diagram old.png>]
+ [7 <./Img/Use Case Diagram old.png (PNG copy)>]
 <Img/Scenariusze/2.png, id=336, 791.20593pt x 688.82344pt>
 File: Img/Scenariusze/2.png Graphic file (type png)
 <use Img/Scenariusze/2.png>
@@ -1009,11 +1009,11 @@ File: Img/etap2IMG/27.png Graphic file (type png)
 Package pdftex.def Info: Img/etap2IMG/27.png  used on input line 509.
 (pdftex.def)             Requested size: 185.1914pt x 112.16878pt.
 ) [35 <./Img/etap2IMG/24.png> <./Img/etap2IMG/25.png> <./Img/etap2IMG/26.png>] (Sections/Etap3.tex
-<Img/Use Case Diagram.png, id=551, 1475.5125pt x 987.69pt>
+<Img/Use Case Diagram.png, id=551, 1062.369pt x 711.1368pt>
 File: Img/Use Case Diagram.png Graphic file (type png)
 <use Img/Use Case Diagram.png>
 Package pdftex.def Info: Img/Use Case Diagram.png  used on input line 15.
-(pdftex.def)             Requested size: 1475.50891pt x 987.68759pt.
+(pdftex.def)             Requested size: 1062.36641pt x 711.13506pt.
  (Sections/Makiety.tex
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/WelcomeForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
@@ -1022,7 +1022,7 @@ File: Img/Makiety/WelcomeForm.pdf Graphic file (type pdf)
 <use Img/Makiety/WelcomeForm.pdf>
 Package pdftex.def Info: Img/Makiety/WelcomeForm.pdf  used on input line 5.
 (pdftex.def)             Requested size: 589.1998pt x 301.12425pt.
-[36 <./Img/etap2IMG/27.png> <./Img/Use Case Diagram.png>]
+[36 <./Img/etap2IMG/27.png> <./Img/Use Case Diagram.png (PNG copy)>]
 
 pdfTeX warning: pdflatex (file ./Img/Makiety/LoginForm.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Img/Makiety/LoginForm.pdf, id=559, 401.5pt x 253.94875pt>
@@ -1254,7 +1254,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  82i,8n,84p,706b,1300s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\dzied\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
-Output written on Report.pdf (65 pages, 3744155 bytes).
+Output written on Report.pdf (65 pages, 5978406 bytes).
 PDF statistics:
  2034 PDF objects out of 2073 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)
