@@ -21,5 +21,9 @@ In order to compile application first database need to be initialized.
 4. Set **LibraryWinFormsApp** as startup project.
 5. Initialization is done.
 
+## Account Creation
+In order to create employee account use *"EmployeeKey"* as key. \
+Customer account do not need any key.
+
 ## License
 This project is licensed under the [MIT License](LICENSE.txt). You are free to use, modify, and distribute the code as per the terms of the license.
